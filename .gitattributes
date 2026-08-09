@@ -1,0 +1,7 @@
+# This repo is generated output from the cab's achievements exporter.
+# Store and check out every file byte-for-byte: no line-ending translation.
+#
+# Without this, a machine with core.autocrlf=true checks the HTML/JSON out as
+# CRLF while the exporter writes LF, so every refresh shows the text files as
+# modified with an empty diff.
+* -text
