@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index,follow">
+<title>Xenoblade Chronicles - RetroSai Achievements</title>
+<link rel="icon" href="../icons/00000.png">
+<style>
+
+:root{
+  --bg:#0d0f13; --bg2:#12151b; --panel:#171b22; --panel2:#1d222b; --line:#2a313d;
+  --ink:#eef1f5; --ink2:#a7b1bf; --ink3:#6f7a8a;
+  --gold:#f2b134; --hard:#ff7a4d; --soft:#5cc8ff; --good:#5fd08a; --bad:#ef5a5a;
+  --radius:14px; --gap:20px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:400 18px/1.5 "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  padding-bottom:64px;
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;font-weight:650;letter-spacing:-.01em}
+h2{font-size:1.35rem;margin-bottom:14px}
+.wrap{max-width:1500px;margin:0 auto;padding:0 24px}
+header.top{
+  position:sticky;top:0;z-index:20;background:rgba(13,15,19,.94);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(8px);
+}
+header.top .wrap{display:flex;align-items:center;gap:20px;height:78px}
+.brand{display:flex;align-items:center;gap:12px;font-size:1.3rem;font-weight:650}
+.brand .mark{
+  width:38px;height:38px;border-radius:11px;background:var(--gold);color:#20160a;
+  display:grid;place-items:center;font-size:1.25rem;flex:0 0 auto
+}
+.brand .thin{color:var(--ink2);font-weight:400}
+.spacer{flex:1}
+.who{display:flex;align-items:center;gap:10px;color:var(--ink2);font-size:.95rem}
+select,input[type=search],button{
+  font:inherit;color:var(--ink);background:var(--panel2);
+  border:1px solid var(--line);border-radius:10px;padding:10px 14px
+}
+input[type=search]{min-width:min(340px,52vw)}
+select:focus,input:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+button{cursor:pointer}
+button:hover{border-color:#3d4757}
+main{padding-top:28px}
+.panel{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;margin-bottom:var(--gap)
+}
+.muted{color:var(--ink2)}
+.dim{color:var(--ink3)}
+.tiny{font-size:.85rem}
+
+/* headline stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;
+  margin-bottom:var(--gap)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px}
+.stat .n{font-size:2.6rem;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.stat .l{color:var(--ink2);font-size:.95rem;margin-top:6px}
+.stat .s{color:var(--ink3);font-size:.85rem;margin-top:2px}
+.stat.hard .n{color:var(--hard)} .stat.soft .n{color:var(--soft)}
+.stat.gold .n{color:var(--gold)} .stat.good .n{color:var(--good)}
+
+/* now playing */
+.np{display:flex;gap:20px;align-items:center;
+  border-left:4px solid var(--good)}
+.np img{width:84px;height:84px;border-radius:12px;background:var(--panel2);flex:0 0 auto}
+.np .t{font-size:1.35rem;font-weight:650}
+.np .rp{color:var(--ink2);margin-top:4px}
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--good);
+  font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
+.live .dot{width:9px;height:9px;border-radius:50%;background:var(--good);
+  animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* recent unlocks */
+.recent{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.unlock{display:flex;gap:14px;align-items:center;background:var(--panel2);
+  border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.unlock img{width:56px;height:56px;border-radius:9px;flex:0 0 auto;background:#0b0d11}
+.unlock .t{font-weight:600}
+.unlock .m{color:var(--ink2);font-size:.88rem;margin-top:2px}
+.pts{color:var(--gold);font-weight:650;white-space:nowrap}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+  padding:9px 18px;font-size:.95rem}
+.chip[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#20160a;
+  font-weight:600}
+
+/* game list */
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(390px,1fr));gap:14px}
+.game{display:flex;gap:16px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px;align-items:center}
+.game:hover{border-color:#41506a;background:#212734}
+.game img{width:64px;height:64px;border-radius:10px;flex:0 0 auto;background:#0b0d11;
+  object-fit:cover}
+.game .body{flex:1;min-width:0}
+.game .t{font-weight:620;font-size:1.05rem;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.game .m{color:var(--ink2);font-size:.86rem;margin-top:2px;display:flex;gap:10px;
+  flex-wrap:wrap}
+.bar{height:8px;border-radius:99px;background:#0b0d11;margin-top:9px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:99px}
+.bar.done i{background:var(--good)}
+.star{color:var(--gold);font-size:1.25rem;flex:0 0 auto}
+
+/* game detail */
+.hero{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.hero img{width:120px;height:120px;border-radius:16px;background:var(--panel2)}
+.back{color:var(--ink2);font-size:.95rem;display:inline-block;margin-bottom:10px}
+.back:hover{color:var(--ink)}
+.gametitle{font-size:2.1rem;line-height:1.15}
+.gamesub{color:var(--ink2);margin:6px 0 0}
+.achlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:14px}
+.ach{display:flex;gap:16px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px}
+.ach.locked{opacity:.62}
+.ach.unlocked{border-color:#3a4a3d;background:#1a2320}
+.ach.hardcore{border-color:#4d3328;background:#241a16}
+.ach img{width:64px;height:64px;border-radius:10px;flex:0 0 auto;background:#0b0d11}
+.ach .t{font-weight:620}
+.ach .d{color:var(--ink2);font-size:.92rem;margin-top:3px}
+.ach .m{margin-top:6px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  font-size:.82rem;color:var(--ink3)}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.75rem;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.tag.hc{border-color:var(--hard);color:var(--hard)}
+.tag.sc{border-color:var(--soft);color:var(--soft)}
+
+table.lb{width:100%;border-collapse:collapse}
+table.lb th,table.lb td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
+table.lb th{color:var(--ink2);font-weight:500;font-size:.85rem;text-transform:uppercase;
+  letter-spacing:.07em}
+table.lb td.score{font-variant-numeric:tabular-nums;font-weight:650;color:var(--gold)}
+
+.danger{border-color:#4a2b2b}
+button.reset{background:#2a1a1a;border-color:#5a3030;color:#ff9d9d}
+button.reset:hover{background:#3a2020;border-color:var(--bad)}
+dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px;max-width:min(560px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog h2{margin-bottom:12px}
+dialog .row{display:flex;gap:12px;justify-content:flex-end;margin-top:22px}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:6px;padding:2px 7px;
+  font-size:.85rem;word-break:break-all}
+.empty{color:var(--ink2);padding:14px 0}
+.notice{background:#1b2028;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;color:var(--ink2);font-size:.92rem;margin-bottom:14px}
+
+@media (max-width:760px){
+  body{font-size:17px}
+  .wrap{padding:0 16px}
+  header.top .wrap{height:auto;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+  .panel{padding:18px}
+  .games,.achlist,.recent{grid-template-columns:1fr}
+  .stat .n{font-size:2.1rem}
+  input[type=search]{min-width:100%}
+}
+@media (min-width:1600px){ body{font-size:19px} }
+
+.snapshot{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;
+  background:#1b2028;border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:10px;padding:12px 16px;color:var(--ink2);font-size:.92rem;
+  margin-bottom:var(--gap)}
+.snapshot b{color:var(--ink);font-weight:600}
+.game{color:inherit}
+footer.foot{color:var(--ink3);font-size:.85rem;padding:26px 0 0;
+  border-top:1px solid var(--line);margin-top:var(--gap)}
+
+</style>
+</head>
+<body>
+<script id="sitedata" type="application/json" data-base="../">{"achievements": [{"badge": "674170.png", "badge_locked": "674170_lock.png", "description": "Witness the events that transpire in the battle of Sword Valley.", "hardcore": false, "id": 569416, "points": 2, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Seize Our Destiny", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674171.png", "badge_locked": "674171_lock.png", "description": "Defeat some strange machines while gathering the Ether Cylinders.", "hardcore": false, "id": 569418, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "An Ancient Evil Awoke", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674199.png", "badge_locked": "674199_lock.png", "description": "Defeat the Ancient Machines in the Cylinder Hangar without using a chain attack or anybody dying. (No NG+)", "hardcore": false, "id": 585569, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Ancient Automatons Annihilated", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674172.png", "badge_locked": "674172_lock.png", "description": "Set out on a new day.", "hardcore": false, "id": 569417, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "I Will Not Cry", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674173.png", "badge_locked": "674173_lock.png", "description": "Defeat the Arachno Queen in Tephra Cave.", "hardcore": false, "id": 569419, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Arachno Armour", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674200.png", "badge_locked": "674200_lock.png", "description": "Defeat the Arachno Queen in Tephra Cave playing as Reyn and without anybody dying. (No NG+)", "hardcore": false, "id": 585570, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Shielded Against Spiders", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674174.png", "badge_locked": "674174_lock.png", "description": "Sharla joins the party in search for Juju.", "hardcore": false, "id": 569420, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "I Need a Medic", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674175.png", "badge_locked": "674175_lock.png", "description": "Have an encounter with a Faced Mechon on the Bionis' Leg.", "hardcore": false, "id": 569421, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Evasive Maneuvers", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674201.png", "badge_locked": "674201_lock.png", "description": "Defeat the Mechon M71 2nd phase on the Bionis' Leg playing as Shulk without using Monado Arts or anybody dying. (No NG+)", "hardcore": false, "id": 591506, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Sit Back and Observe", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674176.png", "badge_locked": "674176_lock.png", "description": "Rendezvous with Dunban in Colony 6 and drive off Metal Face.", "hardcore": false, "id": 569422, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Fueled by Bitterness", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674196.png", "badge_locked": "674196_lock.png", "description": "Perform a Chain Attack with Dickson.", "hardcore": false, "id": 591507, "points": 3, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Leave It to This Old Fossil", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674177.png", "badge_locked": "674177_lock.png", "description": "Complete an ancient High Entia ceremony and be granted passage to the upper regions of the Bionis.", "hardcore": false, "id": 569423, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Secrets of Satorl", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674178.png", "badge_locked": "674178_lock.png", "description": "Take down the Puera Telethia spawn with the help of Alvis.", "hardcore": false, "id": 569424, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "The Purge", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674197.png", "badge_locked": "674197_lock.png", "description": "Perform a Chain Attack with Alvis.", "hardcore": false, "id": 591508, "points": 3, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Resistance Is Futile", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674179.png", "badge_locked": "674179_lock.png", "description": "Defeat the Leone Telethia in Makna Forest.", "hardcore": false, "id": 569425, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Heropon Save the Day", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674202.png", "badge_locked": "674202_lock.png", "description": "Defeat the 2nd phase of the Leone Telethia in Makna Forest playing as Riki and without spending any affinity coins on any party member. (No NG+)", "hardcore": false, "id": 593197, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Dinobeast No Match for Heropon!", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674180.png", "badge_locked": "674180_lock.png", "description": "Survive the ambush at Alcamoth.", "hardcore": false, "id": 569426, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Subpar Service", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674181.png", "badge_locked": "674181_lock.png", "description": "Defeat the Solidum Telethia and its cohort in the High Entia Tomb.", "hardcore": false, "id": 569427, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Trials and Tribulations", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674203.png", "badge_locked": "674203_lock.png", "description": "Defeat Tyrea in the High Entia Tomb playing as Melia and without using her Talent Art. (No NG+)", "hardcore": false, "id": 593322, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Beyond Your Birthright", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674182.png", "badge_locked": "674182_lock.png", "description": "Witness the events that transpire on Prison Island.", "hardcore": false, "id": 569428, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "The True Monado", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674183.png", "badge_locked": "674183_lock.png", "description": "Defeat Metal Face atop Valak Mountain.", "hardcore": false, "id": 569429, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Unfriendly Reunion", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674184.png", "badge_locked": "674184_lock.png", "description": "Defeat Metal Face once and for all at the end of Sword Valley.", "hardcore": false, "id": 569430, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Vengeance", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674204.png", "badge_locked": "674204_lock.png", "description": "Defeat Metal Face on Sword Valley playing as Dunban without anybody dying. (No NG+)", "hardcore": false, "id": 593792, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Conflict Between Old Comrades", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674185.png", "badge_locked": "674185_lock.png", "description": "Fall from Galahad Fortress.", "hardcore": false, "id": 569431, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Reunited", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674186.png", "badge_locked": "674186_lock.png", "description": "Defeat Jade Face in Mechonis Field.", "hardcore": false, "id": 569432, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "The Sniper", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674205.png", "badge_locked": "674205_lock.png", "description": "Defeat Jade Face on Mechonis Field as Sharla without triggering a vision more than 3 times. (No NG+)", "hardcore": false, "id": 593793, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Love at First Sight", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674187.png", "badge_locked": "674187_lock.png", "description": "Confront Egil in Agniratha.", "hardcore": false, "id": 569433, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Master of the Machina", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674188.png", "badge_locked": "674188_lock.png", "description": "Defeat Yaldabaoth in the Mechonis Core.", "hardcore": false, "id": 569434, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Shot Through the Heart", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674206.png", "badge_locked": "674206_lock.png", "description": "Defeat Yaldabaoth in Mechonis Core as Seven without anybody dying. (No NG+)", "hardcore": false, "id": 593829, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "All That Glitters Is Not Gold", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674189.png", "badge_locked": "674189_lock.png", "description": "Clash with the Sureny Telethia atop Junks.", "hardcore": false, "id": 569435, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Clairvoyance Deficiency", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674190.png", "badge_locked": "674190_lock.png", "description": "Defeat the Sani Telethia outside Colony 6.", "hardcore": false, "id": 569436, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Six Still Stands", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674191.png", "badge_locked": "674191_lock.png", "description": "Defeat the Disciple in the Bionis' Interior.", "hardcore": false, "id": 569437, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Heartburn", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674207.png", "badge_locked": "674207_lock.png", "description": "Defeat the Disciple in the Bionis' Interior without using Ether or Talent arts. (No NG+)", "hardcore": false, "id": 593830, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Disciple Disciplined", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674192.png", "badge_locked": "674192_lock.png", "description": "Defeat the Disciple atop Prison Island.", "hardcore": false, "id": 569438, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "The Mentor", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "674208.png", "badge_locked": "674208_lock.png", "description": "Defeat the final boss without anybody dying in any of its phases. (No NG+)", "hardcore": false, "id": 593831, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "A World with No Gods", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674193.png", "badge_locked": "674193_lock.png", "description": "Complete the game and witness a new beginning.", "hardcore": false, "id": 569439, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Beginning of the World", "type_label": "Win condition", "unlocked": false, "unlocked_at": 0}, {"badge": "671308.png", "badge_locked": "671308_lock.png", "description": "Discover every location in Colony 9.", "hardcore": false, "id": 569440, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "This Little Piggy", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671309.png", "badge_locked": "671309_lock.png", "description": "Discover every location in Tephra Cave.", "hardcore": false, "id": 569441, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Shin Sightseeing", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671310.png", "badge_locked": "671310_lock.png", "description": "Discover every location on the Bionis' Leg.", "hardcore": false, "id": 569442, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Get a Leg Up", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671311.png", "badge_locked": "671311_lock.png", "description": "Discover every location in Colony 6.", "hardcore": false, "id": 569443, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Hom's Heaven", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671312.png", "badge_locked": "671312_lock.png", "description": "Discover every location in the Ether Mine.", "hardcore": false, "id": 569444, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Into the Depths", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671313.png", "badge_locked": "671313_lock.png", "description": "Discover every location in Satorl Marsh.", "hardcore": false, "id": 569445, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Swamp Ass", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671314.png", "badge_locked": "671314_lock.png", "description": "Discover every location in the Bionis' Interior.", "hardcore": false, "id": 569446, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Anatomical Anomalies", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671315.png", "badge_locked": "671315_lock.png", "description": "Discover every location in Makna Forest.", "hardcore": false, "id": 569447, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "A Pat on the Back", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671316.png", "badge_locked": "671316_lock.png", "description": "Discover every location in Frontier Village.", "hardcore": false, "id": 569448, "points": 3, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Nopon Neck of the Woods", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671317.png", "badge_locked": "671317_lock.png", "description": "Discover every location in Eryth Sea.", "hardcore": false, "id": 569449, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "The Apex", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671318.png", "badge_locked": "671318_lock.png", "description": "Discover every location in the High Entia Tomb.", "hardcore": false, "id": 569450, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Wet Willie", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671319.png", "badge_locked": "671319_lock.png", "description": "Discover every location on Prison Island.", "hardcore": false, "id": 569451, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Prison of the Mind", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671320.png", "badge_locked": "671320_lock.png", "description": "Discover every location on Valak Mountain.", "hardcore": false, "id": 569452, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "All in the Wrist", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671321.png", "badge_locked": "671321_lock.png", "description": "Discover every location in Sword Valley.", "hardcore": false, "id": 569453, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Study the Blade", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674080.png", "badge_locked": "674080_lock.png", "description": "Discover every location in Galahad Fortress.", "hardcore": false, "id": 569454, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Seige on the Sword", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "671322.png", "badge_locked": "671322_lock.png", "description": "Discover every location on the Fallen Arm.", "hardcore": false, "id": 569455, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Discovering Digits", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671323.png", "badge_locked": "671323_lock.png", "description": "Discover every location in Mechonis Field.", "hardcore": false, "id": 569456, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Into the Machine", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "671324.png", "badge_locked": "671324_lock.png", "description": "Discover every location in the Central Factory.", "hardcore": false, "id": 569457, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Heart of the Operation", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "671325.png", "badge_locked": "671325_lock.png", "description": "Discover every location in Agniratha.", "hardcore": false, "id": 569458, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "End of the Road", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "671326.png", "badge_locked": "671326_lock.png", "description": "Fill out every Collectopaedia entry for Colony 9.", "hardcore": false, "id": 569459, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Colony Collection", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671327.png", "badge_locked": "671327_lock.png", "description": "Fill out every Collectopaedia entry for Tephra Cave.", "hardcore": false, "id": 569460, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Subterranean Sweets", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671328.png", "badge_locked": "671328_lock.png", "description": "Fill out every Collectopaedia entry for the Bionis' Leg.", "hardcore": false, "id": 569461, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Prizes of the Plain", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671329.png", "badge_locked": "671329_lock.png", "description": "Fill out every Collectopaedia entry for Colony 6.", "hardcore": false, "id": 569462, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Reconstruction Rewards", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671330.png", "badge_locked": "671330_lock.png", "description": "Fill out every Collectopaedia entry for the Ether Mine.", "hardcore": false, "id": 569463, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Mining for Valuables", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671331.png", "badge_locked": "671331_lock.png", "description": "Fill out every Collectopaedia entry for Satorl Marsh.", "hardcore": false, "id": 569464, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Murky Masses", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671332.png", "badge_locked": "671332_lock.png", "description": "Fill out every Collectopaedia entry for Makna Forest.", "hardcore": false, "id": 569465, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Vast Vegetation", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671333.png", "badge_locked": "671333_lock.png", "description": "Fill out every Collectopaedia entry for Frontier Village.", "hardcore": false, "id": 569466, "points": 3, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Riki Find Item!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671334.png", "badge_locked": "671334_lock.png", "description": "Fill out every Collectopaedia entry for Eryth Sea.", "hardcore": false, "id": 569467, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Sea of Spoils", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671335.png", "badge_locked": "671335_lock.png", "description": "Fill out every Collectopaedia entry for Alcamoth.", "hardcore": false, "id": 569468, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Royal Riches", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671336.png", "badge_locked": "671336_lock.png", "description": "Fill out every Collectopaedia entry for the High Entia Tomb.", "hardcore": false, "id": 569469, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Ancient Artifacts", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671337.png", "badge_locked": "671337_lock.png", "description": "Fill out every Collectopaedia entry for Valak Mountain.", "hardcore": false, "id": 569470, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Snowy Splendors", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671338.png", "badge_locked": "671338_lock.png", "description": "Fill out every Collectopaedia entry for Sword Valley.", "hardcore": false, "id": 569471, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Wonders on the Weapon", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671339.png", "badge_locked": "671339_lock.png", "description": "Fill out every Collectopaedia entry for Galahad Fortress.", "hardcore": false, "id": 569472, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Fortress Finds", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671340.png", "badge_locked": "671340_lock.png", "description": "Fill out every Collectopaedia entry for the Fallen Arm.", "hardcore": false, "id": 569473, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Green Thumb", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671341.png", "badge_locked": "671341_lock.png", "description": "Fill out every Collectopaedia entry for Mechonis Field.", "hardcore": false, "id": 569474, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Mechanical Memories", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671342.png", "badge_locked": "671342_lock.png", "description": "Fill out every Collectopaedia entry for Central Factory.", "hardcore": false, "id": 569475, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Factory Made", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671343.png", "badge_locked": "671343_lock.png", "description": "Fill out every Collectopaedia entry for Agniratha.", "hardcore": false, "id": 569476, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "A Head for Treasure Hunting", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671344.png", "badge_locked": "671344_lock.png", "description": "Fill out every Collectopaedia entry for the Bionis' Interior.", "hardcore": false, "id": 569477, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Internal Items", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671345.png", "badge_locked": "671345_lock.png", "description": "Fill out every Collectopaedia entry for Prison Island.", "hardcore": false, "id": 569478, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Baubles of the Brain", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "671346.png", "badge_locked": "671346_lock.png", "description": "Fill out every Collectopaedia entry for the Other Category.", "hardcore": false, "id": 569479, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Trading Troubles", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672231.png", "badge_locked": "672231_lock.png", "description": "Defeat every Unique Monster in Colony 9.", "hardcore": false, "id": 569480, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Colony Conqueror", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672232.png", "badge_locked": "672232_lock.png", "description": "Defeat every Unique Monster in Tephra Cave.", "hardcore": false, "id": 569481, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Tephra Take-down", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672233.png", "badge_locked": "672233_lock.png", "description": "Defeat every Unique Monster on the Bionis' Leg.", "hardcore": false, "id": 569482, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "A Step Ahead", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672234.png", "badge_locked": "672234_lock.png", "description": "Defeat every Unique Monster in Colony 6 and the Ether Mine.", "hardcore": false, "id": 569483, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Neighborhood Watch", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672235.png", "badge_locked": "672235_lock.png", "description": "Defeat every Unique Monster excluding the superboss in Satorl Marsh.", "hardcore": false, "id": 569484, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Seizing Satorl", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672236.png", "badge_locked": "672236_lock.png", "description": "Defeat the Despotic Arsene in Satorl Marsh.", "hardcore": false, "id": 569485, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Bunny Beatdown", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672237.png", "badge_locked": "672237_lock.png", "description": "Defeat every Unique Monster in Makna Forest.", "hardcore": false, "id": 569486, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Deforestation", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672238.png", "badge_locked": "672238_lock.png", "description": "Defeat every Unique Monster in Eryth Sea.", "hardcore": false, "id": 569487, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Sea of Struggles", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672239.png", "badge_locked": "672239_lock.png", "description": "Defeat every Unique Monster in the High Entia Tomb.", "hardcore": false, "id": 569488, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Laid to Rest", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672240.png", "badge_locked": "672240_lock.png", "description": "Defeat every Unique Monster excluding superbosses on Valak Mountain.", "hardcore": false, "id": 569489, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "An Uphill Battle", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672241.png", "badge_locked": "672241_lock.png", "description": "Defeat the Final Marcus on Valak Mountain.", "hardcore": false, "id": 569490, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Final Showdown", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672242.png", "badge_locked": "672242_lock.png", "description": "Defeat the Blizzard Belgazas on Valak Mountain.", "hardcore": false, "id": 569491, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Ice Cold Clash", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672243.png", "badge_locked": "672243_lock.png", "description": "Defeat the Avalanche Abaasy on Valak Mountain.", "hardcore": false, "id": 569492, "points": 50, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Showdown at the Summit", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672244.png", "badge_locked": "672244_lock.png", "description": "Defeat every Unique Monster in Sword Valley.", "hardcore": false, "id": 569493, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Valiant Valley", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672245.png", "badge_locked": "672245_lock.png", "description": "Defeat every Unique Monster in Galahad Fortress.", "hardcore": false, "id": 569494, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Knight in Shining Armour", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672246.png", "badge_locked": "672246_lock.png", "description": "Defeat every Unique Monster excluding the superboss on the Fallen Arm.", "hardcore": false, "id": 569495, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "An Arm and a Leg", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672291.png", "badge_locked": "672291_lock.png", "description": "Defeat the Ancient Daedala on the Fallen Arm.", "hardcore": false, "id": 569496, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Daedala Destruction", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672247.png", "badge_locked": "672247_lock.png", "description": "Defeat every Unique Monster in Mechonis Field.", "hardcore": false, "id": 569497, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Evening the Field", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672248.png", "badge_locked": "672248_lock.png", "description": "Defeat every Unique Monster in the Central Factory.", "hardcore": false, "id": 569498, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Central Crusade", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672249.png", "badge_locked": "672249_lock.png", "description": "Defeat every Unique Monster in Agniratha.", "hardcore": false, "id": 569499, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Monstrous Migraine", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672250.png", "badge_locked": "672250_lock.png", "description": "Defeat every Unique Monster in the Bionis' Interior.", "hardcore": false, "id": 569500, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Internal Struggle", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672251.png", "badge_locked": "672251_lock.png", "description": "Defeat every Unique Monster on Prison Island.", "hardcore": false, "id": 569501, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Prison Break", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672252.png", "badge_locked": "672252_lock.png", "description": "Complete every possible quest in Colony 9.", "hardcore": false, "id": 569502, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Hometown Hero", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672253.png", "badge_locked": "672253_lock.png", "description": "Complete every possible quest in Tephra Cave.", "hardcore": false, "id": 569503, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Cave Crusader", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672254.png", "badge_locked": "672254_lock.png", "description": "Complete every possible quest on the Bionis' Leg.", "hardcore": false, "id": 569504, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Not So Plain After All", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672255.png", "badge_locked": "672255_lock.png", "description": "Complete every possible quest in Colony 6.", "hardcore": false, "id": 569505, "points": 50, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Colony Six's Savior", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672256.png", "badge_locked": "672256_lock.png", "description": "Complete every possible quest in Satorl Marsh.", "hardcore": false, "id": 569506, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Managing the Marsh", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672257.png", "badge_locked": "672257_lock.png", "description": "Complete every possible quest in Makna Forest and Frontier Village.", "hardcore": false, "id": 569507, "points": 50, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Settling the Frontier", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672258.png", "badge_locked": "672258_lock.png", "description": "Complete every possible quest in Eryth Sea.", "hardcore": false, "id": 569508, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Sea a Solution", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672259.png", "badge_locked": "672259_lock.png", "description": "Complete every possible quest in Alcamoth.", "hardcore": false, "id": 569509, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "High Entia Helper", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672260.png", "badge_locked": "672260_lock.png", "description": "Complete every possible quest on Valak Mountain.", "hardcore": false, "id": 569510, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Questing in the Cold", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672261.png", "badge_locked": "672261_lock.png", "description": "Complete every possible quest in Sword Valley.", "hardcore": false, "id": 569511, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Sworn by the Sword", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672262.png", "badge_locked": "672262_lock.png", "description": "Complete every possible quest on the Fallen Arm and in Mechonis Field.", "hardcore": false, "id": 569512, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Lending a Hand", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672263.png", "badge_locked": "672263_lock.png", "description": "Complete every possible quest in Agniratha and the Central Factory.", "hardcore": false, "id": 569513, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Agniratha's Advancement", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "672264.png", "badge_locked": "672264_lock.png", "description": "Earn enough Affinity for the Colony 9 area to reach 2 stars.", "hardcore": false, "id": 569514, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Idol of Colony 9", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672265.png", "badge_locked": "672265_lock.png", "description": "Earn enough Affinity for the Colony 9 area to reach 3 stars.", "hardcore": false, "id": 569515, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Star of Colony 9", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672266.png", "badge_locked": "672266_lock.png", "description": "Earn enough Affinity for the Colony 9 area to reach 4 stars.", "hardcore": false, "id": 569516, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Celebrity of Colony 9", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672267.png", "badge_locked": "672267_lock.png", "description": "Earn enough Affinity for the Colony 9 area to reach 5 stars.", "hardcore": false, "id": 569517, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Hero of Colony 9", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672268.png", "badge_locked": "672268_lock.png", "description": "Earn enough Affinity for the Colony 6 area to reach 2 stars.", "hardcore": false, "id": 569518, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Idol of Colony 6", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672269.png", "badge_locked": "672269_lock.png", "description": "Earn enough Affinity for the Colony 6 area to reach 3 stars.", "hardcore": false, "id": 569519, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Star of Colony 6", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672270.png", "badge_locked": "672270_lock.png", "description": "Earn enough Affinity for the Colony 6 area to reach 4 stars.", "hardcore": false, "id": 569520, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Celebrity of Colony 6", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672271.png", "badge_locked": "672271_lock.png", "description": "Earn enough Affinity for the Colony 6 area to reach 5 stars.", "hardcore": false, "id": 569521, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Hero of Colony 6", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672272.png", "badge_locked": "672272_lock.png", "description": "Earn enough Affinity for the Central Bionis area to reach 2 stars.", "hardcore": false, "id": 569522, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Idol of Central Bionis", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672273.png", "badge_locked": "672273_lock.png", "description": "Earn enough Affinity for the Central Bionis area to reach 3 stars.", "hardcore": false, "id": 569523, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Star of Central Bionis", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672274.png", "badge_locked": "672274_lock.png", "description": "Earn enough Affinity for the Central Bionis area to reach 4 stars.", "hardcore": false, "id": 569524, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Celebrity of Central Bionis", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672275.png", "badge_locked": "672275_lock.png", "description": "Earn enough Affinity for the Central Bionis area to reach 5 stars.", "hardcore": false, "id": 569525, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Hero of Central Bionis", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672276.png", "badge_locked": "672276_lock.png", "description": "Earn enough Affinity for the Upper Bionis area to reach 2 stars.", "hardcore": false, "id": 569526, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Idol of Upper Bionis", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672277.png", "badge_locked": "672277_lock.png", "description": "Earn enough Affinity for the Upper Bionis area to reach 3 stars.", "hardcore": false, "id": 569527, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Star of Upper Bionis", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672278.png", "badge_locked": "672278_lock.png", "description": "Earn enough Affinity for the Upper Bionis area to reach 4 stars.", "hardcore": false, "id": 569528, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Celebrity of Upper Bionis", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672279.png", "badge_locked": "672279_lock.png", "description": "Earn enough Affinity for the Upper Bionis area to reach 5 stars.", "hardcore": false, "id": 569529, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Hero of Upper Bionis", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672280.png", "badge_locked": "672280_lock.png", "description": "Earn enough Affinity for the Hidden Village to reach 2 stars.", "hardcore": false, "id": 569530, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Idol of the Hidden Village", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672281.png", "badge_locked": "672281_lock.png", "description": "Earn enough Affinity for the Hidden Village to reach 3 stars.", "hardcore": false, "id": 569531, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Star of the Hidden Village", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672282.png", "badge_locked": "672282_lock.png", "description": "Earn enough Affinity for the Hidden Village to reach 4 stars.", "hardcore": false, "id": 569532, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Celebrity of the Hidden Village", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672283.png", "badge_locked": "672283_lock.png", "description": "Earn enough Affinity for the Hidden Village to reach 5 stars.", "hardcore": false, "id": 569533, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Hero of the Hidden Village", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672284.png", "badge_locked": "672284_lock.png", "description": "Max out every Affinity Link between Shulk and the rest of the party.", "hardcore": false, "id": 569534, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Natural-Born Leader", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672285.png", "badge_locked": "672285_lock.png", "description": "Max out every Affinity Link between Reyn and the rest of the party.", "hardcore": false, "id": 569535, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Shield of the Squad", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672286.png", "badge_locked": "672286_lock.png", "description": "Max out every Affinity Link between Sharla and the rest of the party.", "hardcore": false, "id": 569536, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Compassionate Caretaker", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672287.png", "badge_locked": "672287_lock.png", "description": "Max out every Affinity Link between Dunban and the rest of the party.", "hardcore": false, "id": 569537, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Warrior's Trust", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672288.png", "badge_locked": "672288_lock.png", "description": "Max out every Affinity Link between Melia and the rest of the party.", "hardcore": false, "id": 569538, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Royal Connections", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672289.png", "badge_locked": "672289_lock.png", "description": "Max out every Affinity Link between Riki and the rest of the party.", "hardcore": false, "id": 569539, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Heropon's Bestest Friends!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672290.png", "badge_locked": "672290_lock.png", "description": "Max out every Affinity Link between Seven and the rest of the party.", "hardcore": false, "id": 569540, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Our Bonds Shall Endure", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674144.png", "badge_locked": "674144_lock.png", "description": "Attain the Bravery Skill Tree for Shulk.", "hardcore": false, "id": 569541, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "I Can Change the Future", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674145.png", "badge_locked": "674145_lock.png", "description": "Attain the Pessimism Skill Tree for Shulk.", "hardcore": false, "id": 569542, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Sullen Shulk", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674146.png", "badge_locked": "674146_lock.png", "description": "Attain the Camaraderie Skill Tree for Reyn.", "hardcore": false, "id": 569543, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Jolly Cooperation", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674147.png", "badge_locked": "674147_lock.png", "description": "Attain the Impatience Skill Tree for Reyn.", "hardcore": false, "id": 569544, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Every Time Is Reyn Time", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674148.png", "badge_locked": "674148_lock.png", "description": "Attain the Affection Skill Tree for Sharla.", "hardcore": false, "id": 569545, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "A Healing Touch", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674149.png", "badge_locked": "674149_lock.png", "description": "Attain the Reliance Skill Tree for Sharla.", "hardcore": false, "id": 569546, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Colony Six Stands Beside You", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674150.png", "badge_locked": "674150_lock.png", "description": "Attain the Obstinance Skill Tree for Dunban.", "hardcore": false, "id": 569547, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Stubborn Soldier", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674151.png", "badge_locked": "674151_lock.png", "description": "Attain the Enthusiam Skill Tree for Dunban.", "hardcore": false, "id": 569548, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "The Voice of Reason", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674152.png", "badge_locked": "674152_lock.png", "description": "Attain the Reticence Skill Tree for Melia.", "hardcore": false, "id": 569549, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Reserved Royalty", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674153.png", "badge_locked": "674153_lock.png", "description": "Attain the Passion Skill Tree for Melia.", "hardcore": false, "id": 569550, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Passionate Princess", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674154.png", "badge_locked": "674154_lock.png", "description": "Attain the Heroism Skill Tree for Riki.", "hardcore": false, "id": 569551, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Leave it to Heropon!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674155.png", "badge_locked": "674155_lock.png", "description": "Attain the Cowardice Skill Tree for Riki.", "hardcore": false, "id": 569552, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Riki Scared! Friends Run!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674156.png", "badge_locked": "674156_lock.png", "description": "Attain the Rashness Skill Tree for Seven.", "hardcore": false, "id": 569553, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Self-Sacrifice", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674157.png", "badge_locked": "674157_lock.png", "description": "Attain the Innocence Skill Tree for Seven.", "hardcore": false, "id": 569554, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Hope for a Brighter Tomorrow", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674105.png", "badge_locked": "674105_lock.png", "description": "Defeat 100 different Unique Monsters.", "hardcore": false, "id": 569555, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "A Unique Undertaking", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674106.png", "badge_locked": "674106_lock.png", "description": "Discover 150 different Landmarks.", "hardcore": false, "id": 569556, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Worldly Wise", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674107.png", "badge_locked": "674107_lock.png", "description": "Discover all 18 Secret Areas.", "hardcore": false, "id": 569557, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Pioneer", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674108.png", "badge_locked": "674108_lock.png", "description": "Register 120 people on the Affinity Chart.", "hardcore": false, "id": 569558, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Friends Around the World", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674109.png", "badge_locked": "674109_lock.png", "description": "Help almost everyone form an Affinity for one another.", "hardcore": false, "id": 569559, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Roots Across the World", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674110.png", "badge_locked": "674110_lock.png", "description": "Have a Heart-to-Heart go as smoothly as possible.", "hardcore": false, "id": 569560, "points": 3, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Heartwarming", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674111.png", "badge_locked": "674111_lock.png", "description": "Have a Heart-to-Heart go as badly as possible.", "hardcore": false, "id": 569561, "points": 3, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Heartbreaking", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674112.png", "badge_locked": "674112_lock.png", "description": "Have all possible Heart-to-Hearts.", "hardcore": false, "id": 569562, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Ace of Hearts", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674113.png", "badge_locked": "674113_lock.png", "description": "Complete 300 quests.", "hardcore": false, "id": 569563, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Selfless Giver", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674114.png", "badge_locked": "674114_lock.png", "description": "Increase the population of Colony 6 to 150 people.", "hardcore": false, "id": 569564, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Bursting at the Seams", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674115.png", "badge_locked": "674115_lock.png", "description": "Deal over 50,000 damage in a single attack.", "hardcore": false, "id": 569565, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "World Shaker", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674116.png", "badge_locked": "674116_lock.png", "description": "Attain every in-game achievement involving defeating a high number of monsters.", "hardcore": false, "id": 569566, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Monster Masher", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674117.png", "badge_locked": "674117_lock.png", "description": "Smash 1,000 Vision Tags.", "hardcore": false, "id": 569567, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Butterfly Effect", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674118.png", "badge_locked": "674118_lock.png", "description": "Revive incapacitated party members a total of 500 times.", "hardcore": false, "id": 569568, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "You're a Lifesaver!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674119.png", "badge_locked": "674119_lock.png", "description": "Perform a total of 5,000 Critical Hits.", "hardcore": false, "id": 569569, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Now's My Chance!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674120.png", "badge_locked": "674120_lock.png", "description": "Perform 1,000 Chain Attacks.", "hardcore": false, "id": 569570, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Chain of Chains", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674121.png", "badge_locked": "674121_lock.png", "description": "Deal over 100,000 total damage in a single Chain Attack.", "hardcore": false, "id": 569571, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Chain Reaction", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674122.png", "badge_locked": "674122_lock.png", "description": "Perform a Chain Attack with 5 or more linked attacks.", "hardcore": false, "id": 569572, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Chain Bond", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674123.png", "badge_locked": "674123_lock.png", "description": "Perform 50 successful Back Attacks.", "hardcore": false, "id": 569573, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Backscratcher", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674124.png", "badge_locked": "674124_lock.png", "description": "Be rewarded for having a full party wipe 50 times.", "hardcore": false, "id": 569574, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Arise Anew", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674125.png", "badge_locked": "674125_lock.png", "description": "Use Arts 10,000 times between the entire party.", "hardcore": false, "id": 569575, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Feel the Flow of Battle", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674126.png", "badge_locked": "674126_lock.png", "description": "Attain every in-game achievement related to using Arts with the entire party.", "hardcore": false, "id": 569576, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Collaboration of the Arts", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674127.png", "badge_locked": "674127_lock.png", "description": "Receive shared skills from every character.", "hardcore": false, "id": 569577, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Flip the Coin", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674128.png", "badge_locked": "674128_lock.png", "description": "Defeat any enemy that is over 10 levels above the party leader's level.", "hardcore": false, "id": 569578, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Against the Odds", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674165.png", "badge_locked": "674165_lock.png", "description": "Deal 666 damage in any attack.", "hardcore": false, "id": 569579, "points": 3, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Evil Slash", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674130.png", "badge_locked": "674130_lock.png", "description": "Deal 777 damage in any attack.", "hardcore": false, "id": 569580, "points": 3, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Lucky Seven", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674131.png", "badge_locked": "674131_lock.png", "description": "Open 1,000 Silver and Gold chests.", "hardcore": false, "id": 569581, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Luscious Loot", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674132.png", "badge_locked": "674132_lock.png", "description": "Harvest Ether Crystals 500 times.", "hardcore": false, "id": 569582, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Bounty of the Bionis", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674133.png", "badge_locked": "674133_lock.png", "description": "Harvest 77 Rare Ether Crystals.", "hardcore": false, "id": 569583, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Ether Excitement", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674134.png", "badge_locked": "674134_lock.png", "description": "Fill all 8 Gem Slots on any character's equipment.", "hardcore": false, "id": 569584, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Locked and Loaded", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674135.png", "badge_locked": "674135_lock.png", "description": "Witness the sun rising on the 366th day.", "hardcore": false, "id": 569585, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Happy Birthday!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674166.png", "badge_locked": "674166_lock.png", "description": "Gift a Love Source to any character.", "hardcore": false, "id": 569586, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "The Source of Life", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674137.png", "badge_locked": "674137_lock.png", "description": "Trade items a total of 100 times.", "hardcore": false, "id": 569587, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Master Tradesman", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672292.png", "badge_locked": "672292_lock.png", "description": "Fully level up all of Shulk's Arts.", "hardcore": false, "id": 569588, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "I Can Feel the Power!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674158.png", "badge_locked": "674158_lock.png", "description": "Learn the Monado Eater Art.", "hardcore": false, "id": 569589, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Insatiable Sword", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674159.png", "badge_locked": "674159_lock.png", "description": "Learn the Monado Armour Art.", "hardcore": false, "id": 569590, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "The Power to Protect", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672293.png", "badge_locked": "672293_lock.png", "description": "Fully level up all of Reyn's Arts.", "hardcore": false, "id": 569591, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Now It's Reyn Time!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672294.png", "badge_locked": "672294_lock.png", "description": "Fully level up all of Sharla's Arts.", "hardcore": false, "id": 569592, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Medical Marksman", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672295.png", "badge_locked": "672295_lock.png", "description": "Fully level up all of Dunban's Arts.", "hardcore": false, "id": 569593, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "A Cut Above the Rest", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672296.png", "badge_locked": "672296_lock.png", "description": "Fully level up all of Riki's Arts.", "hardcore": false, "id": 569594, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Savior of the Nopon", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672297.png", "badge_locked": "672297_lock.png", "description": "Fully level up all of Melia's Arts.", "hardcore": false, "id": 569595, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Witness My Power", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "672298.png", "badge_locked": "672298_lock.png", "description": "Fully level up all of Seven's Arts.", "hardcore": false, "id": 569596, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Cybernetic Superiority", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674160.png", "badge_locked": "674160_lock.png", "description": "Reconstruct all of Colony 6's categories to Level 1.", "hardcore": false, "id": 569597, "points": 5, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Memories of Our Old Home", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674161.png", "badge_locked": "674161_lock.png", "description": "Reconstruct all of Colony 6's categories to Level 2.", "hardcore": false, "id": 569598, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "We Shall Rebuild", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674162.png", "badge_locked": "674162_lock.png", "description": "Reconstruct all of Colony 6's categories to Level 3.", "hardcore": false, "id": 569599, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "It Takes a Village", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674163.png", "badge_locked": "674163_lock.png", "description": "Reconstruct all of Colony 6's categories to Level 4.", "hardcore": false, "id": 569600, "points": 25, "set": "Xenoblade Chronicles", "set_type": "core", "title": "An End in Sight", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674164.png", "badge_locked": "674164_lock.png", "description": "Reconstruct all of Colony 6's categories to Level 5.", "hardcore": false, "id": 569601, "points": 50, "set": "Xenoblade Chronicles", "set_type": "core", "title": "A Shining Beacon of Hope", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "674198.png", "badge_locked": "674198_lock.png", "description": "Obtain Mumkhar's Razor from overtrading with Kurralth during the quest Adventurers in Peril.", "hardcore": false, "id": 593365, "points": 10, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Cutthroat Prices", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "674209.png", "badge_locked": "674209_lock.png", "description": "Acquire every achievement in the game.", "hardcore": false, "id": 592277, "points": 100, "set": "Xenoblade Chronicles", "set_type": "core", "title": "Achievement Achievement", "type_label": "", "unlocked": false, "unlocked_at": 0}], "display_name": "RetroSai", "game": {"console": "Wii", "icon": "123199.png", "id": 100, "last_played": 1786253059, "leaderboards": 0, "mastered": false, "mastered_hardcore": false, "percent": 0.0, "played": true, "points": 0, "points_hardcore": 0, "points_softcore": 0, "points_total": 2516, "title": "Xenoblade Chronicles", "total": 200, "unlocked": 0, "unlocked_hardcore": 0}, "generated_at": 1786303091, "leaderboards": []}</script>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">&#9733;</span>
+      <span>RetroSai <span class="thin">Achievements</span></span>
+    </div>
+    <div class="spacer"></div>
+    <div class="who" id="who"></div>
+  </div>
+</header>
+<main class="wrap">
+<a class="back" href="../index.html">&larr; All games</a><h1 class="gametitle">Xenoblade Chronicles</h1><p class="gamesub">Wii</p>
+
+<div class="snapshot" id="snapshot"></div>
+<section class="panel">
+  <div class="hero">
+    <img id="heroicon" src="" alt="">
+    <div class="stats" id="herostats" style="flex:1;margin:0"></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Achievements <span id="achcount" class="muted tiny"></span></h2>
+  <div id="achlist" class="achlist"></div>
+</section>
+
+<section class="panel" id="lbpanel" hidden>
+  <h2>Leaderboards</h2>
+  <div id="lbs"></div>
+</section>
+
+<footer class="foot" id="foot"></footer>
+</main>
+<script>
+
+var NODE = document.getElementById('sitedata');
+var DATA = JSON.parse(NODE.textContent);
+var BASE = NODE.getAttribute('data-base') || '';
+
+function q(sel, root){ return (root||document).querySelector(sel); }
+function el(tag, cls, text){
+  var node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text !== undefined && text !== null) node.textContent = String(text);
+  return node;
+}
+function img(src, alt){
+  var node = document.createElement('img');
+  node.src = src; node.alt = alt || ''; node.decoding = 'async';
+  return node;
+}
+function badgeSrc(name){ return BASE + 'badges/' + name; }
+function iconSrc(name){ return BASE + 'icons/' + name; }
+function gameHref(id){ return BASE + 'game/' + id + '.html'; }
+function num(value){ return (value === null || value === undefined) ? '0'
+  : Number(value).toLocaleString(); }
+
+/* Relative times are measured against the SNAPSHOT, not against the reader's clock:
+   this page does not update itself, so "2h ago" would quietly become a lie. */
+function ago(t){
+  if (!t) return 'never';
+  var secs = (DATA.generated_at || 0) - t;
+  if (secs < 0) secs = 0;
+  if (secs < 60) return 'just before';
+  if (secs < 3600) return Math.floor(secs/60) + 'm before';
+  if (secs < 86400) return Math.floor(secs/3600) + 'h before';
+  if (secs < 2592000) return Math.floor(secs/86400) + 'd before';
+  return stampDate(t);
+}
+function stampDate(t){
+  if (!t) return '';
+  return new Date(t * 1000).toLocaleDateString(undefined,
+    {day:'numeric', month:'short', year:'numeric'});
+}
+function stampFull(t){
+  if (!t) return '';
+  return new Date(t * 1000).toLocaleString();
+}
+
+function paintChrome(){
+  var who = q('#who');
+  if (who) { who.textContent = ''; who.appendChild(el('span', null, DATA.display_name)); }
+  var snap = q('#snapshot');
+  if (snap) {
+    snap.textContent = '';
+    snap.appendChild(el('b', null, 'Snapshot'));
+    snap.appendChild(el('span', null,
+      'This is a static export, not a live page. It does not update by itself.'));
+    var when = el('span', 'dim', 'Generated ' + stampFull(DATA.generated_at));
+    snap.appendChild(when);
+  }
+  var foot = q('#foot');
+  if (foot) {
+    foot.textContent = 'RetroSai Achievements - generated ' + stampFull(DATA.generated_at)
+      + '. Offline RetroAchievements, recorded locally. Static snapshot; no live data.';
+  }
+}
+
+function progressBar(unlocked, total){
+  var wrap = el('div', 'bar' + (total > 0 && unlocked >= total ? ' done' : ''));
+  var fill = el('i');
+  fill.style.width = (total > 0 ? Math.round(100 * unlocked / total) : 0) + '%';
+  wrap.appendChild(fill);
+  return wrap;
+}
+
+function statTile(n, label, sub, cls){
+  var tile = el('div', 'stat' + (cls ? ' ' + cls : ''));
+  tile.appendChild(el('div', 'n', n));
+  tile.appendChild(el('div', 'l', label));
+  if (sub) tile.appendChild(el('div', 's', sub));
+  return tile;
+}
+
+function unlockCard(u){
+  var card = el('div', 'unlock');
+  card.appendChild(img(badgeSrc(u.badge), u.title));
+  var body = el('div');
+  body.style.flex = '1';
+  body.style.minWidth = '0';
+  body.appendChild(el('div', 't', u.title));
+  body.appendChild(el('div', 'm', u.game_title + '  \u00b7  ' + ago(u.unlocked_at)
+    + (u.hardcore ? '  \u00b7  hardcore' : '')));
+  card.appendChild(body);
+  card.appendChild(el('div', 'pts', u.points + ' pts'));
+  card.title = u.description || '';
+  return card;
+}
+
+function gameCard(g){
+  var card = document.createElement(DATA.game_pages ? 'a' : 'div');
+  card.className = 'game';
+  if (DATA.game_pages) card.href = gameHref(g.id);
+  card.appendChild(img(iconSrc(g.icon), ''));
+  var body = el('div', 'body');
+  body.appendChild(el('div', 't', g.title));
+  var meta = el('div', 'm');
+  if (g.total > 0) {
+    meta.appendChild(el('span', null, g.unlocked + ' / ' + g.total + ' \u00b7 '
+      + g.percent + '%'));
+    meta.appendChild(el('span', null, num(g.points) + ' / ' + num(g.points_total)
+      + ' pts'));
+  } else {
+    meta.appendChild(el('span', null, 'no achievements'));
+  }
+  if (g.console) meta.appendChild(el('span', 'dim', g.console));
+  if (g.last_played) meta.appendChild(el('span', 'dim', 'played ' + ago(g.last_played)));
+  body.appendChild(meta);
+  if (g.total > 0) body.appendChild(progressBar(g.unlocked, g.total));
+  card.appendChild(body);
+  if (g.mastered) {
+    var star = el('div', 'star', '\u2605');
+    star.title = g.mastered_hardcore ? 'Mastered in hardcore' : 'Mastered';
+    card.appendChild(star);
+  }
+  return card;
+}
+
+/* ---------- home ---------- */
+
+var state = {scope:'all', q:'', sort:'last_played', order:'desc', shown:60};
+
+function defaultOrder(sort){
+  return (sort === 'title' || sort === 'console') ? 'asc' : 'desc';
+}
+
+var SORT_KEYS = {
+  title:        function(g){ return [g.title.toLowerCase(), g.id]; },
+  last_played:  function(g){ return [g.last_played, g.unlocked]; },
+  percent:      function(g){ return [g.percent, g.unlocked]; },
+  unlocked:     function(g){ return [g.unlocked, g.percent]; },
+  points:       function(g){ return [g.points, g.unlocked]; },
+  points_total: function(g){ return [g.points_total, g.total]; },
+  total:        function(g){ return [g.total, g.unlocked]; },
+  console:      function(g){ return [g.console.toLowerCase(), g.title.toLowerCase()]; }
+};
+
+function cmpKey(a, b){
+  for (var i = 0; i < a.length && i < b.length; i++) {
+    if (a[i] < b[i]) return -1;
+    if (a[i] > b[i]) return 1;
+  }
+  return 0;
+}
+
+/* Same two-pass ordering as dashboard.api_games: sort by title first so ties always come
+   out A-Z, then by the requested key.  Array.prototype.sort is stable, so the second pass
+   preserves the first. */
+function ordered(list, sort, order){
+  var out = list.slice();
+  out.sort(function(a, b){ return cmpKey(SORT_KEYS.title(a), SORT_KEYS.title(b)); });
+  if (sort === 'title') {
+    if (order === 'desc') out.reverse();
+    return out;
+  }
+  var key = SORT_KEYS[sort] || SORT_KEYS.title;
+  var sign = (order === 'asc') ? 1 : -1;
+  out.sort(function(a, b){ return sign * cmpKey(key(a), key(b)); });
+  return out;
+}
+
+function matches(g){
+  if (state.scope === 'played' && !g.played) return false;
+  if (state.scope === 'progress'
+      && !(g.total > 0 && g.unlocked > 0 && g.unlocked < g.total)) return false;
+  if (state.scope === 'mastered' && !g.mastered) return false;
+  if (state.q && g.title.toLowerCase().indexOf(state.q) < 0) return false;
+  return true;
+}
+
+function paintGames(){
+  var all = [];
+  for (var i = 0; i < DATA.games.length; i++) {
+    if (matches(DATA.games[i])) all.push(DATA.games[i]);
+  }
+  all = ordered(all, state.sort, state.order);
+  var box = q('#games');
+  box.textContent = '';
+  var page = all.slice(0, state.shown);
+  for (var j = 0; j < page.length; j++) box.appendChild(gameCard(page[j]));
+  if (!page.length) {
+    box.appendChild(el('div', 'empty', state.q
+      ? 'No games match "' + state.q + '".' : 'Nothing here yet.'));
+  }
+  q('#gamecount').textContent = num(all.length) + ' game'
+    + (all.length === 1 ? '' : 's');
+  var more = q('#gamesmore');
+  more.textContent = '';
+  if (all.length > page.length) {
+    var left = all.length - page.length;
+    var button = el('button', null, 'Show more (' + num(left) + ' left)');
+    button.addEventListener('click', function(){
+      state.shown += 60;
+      paintGames();
+    });
+    more.appendChild(button);
+  }
+}
+
+function paintStats(){
+  var s = DATA.stats;
+  var box = q('#stats');
+  box.textContent = '';
+  box.appendChild(statTile(num(s.games_played), 'games played',
+    s.games_with_achievements + ' with achievements'));
+  box.appendChild(statTile(num(s.achievements_unlocked), 'achievements unlocked',
+    'of ' + num(s.achievements_total_played) + ' in those games ('
+      + s.percent_played + '%)', 'gold'));
+  box.appendChild(statTile(num(s.points_hardcore), 'hardcore points',
+    num(s.achievements_unlocked_hardcore) + ' in hardcore', 'hard'));
+  box.appendChild(statTile(num(s.points_softcore), 'softcore points',
+    num(s.points_total) + ' points in total', 'soft'));
+  box.appendChild(statTile(num(s.games_mastered), 'games mastered',
+    s.games_mastered_hardcore + ' in hardcore', 'good'));
+
+  var note = q('#warnnote');
+  var w = DATA.warning_unlocks_ignored || 0;
+  if (w > 0) {
+    note.hidden = false;
+    note.textContent = w + (w === 1 ? ' "warning" achievement is'
+                                    : ' "warning" achievements are')
+      + ' excluded from every number above. They are client-side nags, not real'
+      + ' achievements.';
+  } else { note.hidden = true; }
+}
+
+function paintRecent(){
+  var box = q('#recent');
+  box.textContent = '';
+  if (!DATA.recent.length) {
+    box.appendChild(el('div', 'empty', 'No unlocks recorded yet.'));
+    return;
+  }
+  for (var i = 0; i < DATA.recent.length; i++) {
+    box.appendChild(unlockCard(DATA.recent[i]));
+  }
+}
+
+function paintLeaderboards(){
+  var panel = q('#lbpanel');
+  var box = q('#lbs');
+  box.textContent = '';
+  if (!DATA.leaderboards.length) { panel.hidden = true; return; }
+  panel.hidden = false;
+  var table = el('table', 'lb');
+  var head = el('tr');
+  ['Leaderboard', 'Game', 'Best', 'When'].forEach(function(h){
+    head.appendChild(el('th', null, h));
+  });
+  table.appendChild(head);
+  DATA.leaderboards.forEach(function(e){
+    var row = el('tr');
+    row.appendChild(el('td', null, e.title));
+    var cell = el('td');
+    if (DATA.game_pages) {
+      var link = document.createElement('a');
+      link.href = gameHref(e.game_id);
+      link.textContent = e.game_title;
+      link.style.color = 'var(--ink2)';
+      cell.appendChild(link);
+    } else {
+      cell.textContent = e.game_title;
+    }
+    row.appendChild(cell);
+    row.appendChild(el('td', 'score', e.display));
+    row.appendChild(el('td', 'dim', ago(e.submitted_at)));
+    table.appendChild(row);
+  });
+  box.appendChild(table);
+}
+
+function initHome(){
+  paintChrome();
+  state.scope = DATA.default_scope || 'all';
+  Array.prototype.forEach.call(document.querySelectorAll('.chip'), function(chip){
+    chip.setAttribute('aria-pressed',
+      chip.getAttribute('data-scope') === state.scope ? 'true' : 'false');
+    chip.addEventListener('click', function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.chip'), function(other){
+        other.setAttribute('aria-pressed', other === chip ? 'true' : 'false');
+      });
+      state.scope = chip.getAttribute('data-scope');
+      state.shown = 60;
+      paintGames();
+    });
+  });
+  var search = q('#q');
+  var timer = null;
+  search.addEventListener('input', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      state.q = search.value.trim().toLowerCase();
+      state.shown = 60;
+      paintGames();
+    }, 180);
+  });
+  q('#sort').value = state.sort;
+  q('#sort').addEventListener('change', function(){
+    state.sort = q('#sort').value;
+    state.order = defaultOrder(state.sort);
+    state.shown = 60;
+    paintGames();
+  });
+  paintStats();
+  paintRecent();
+  paintLeaderboards();
+  paintGames();
+}
+
+/* ---------- game detail ---------- */
+
+function achCard(a){
+  var cls = 'ach ' + (a.unlocked ? (a.hardcore ? 'unlocked hardcore' : 'unlocked')
+                                 : 'locked');
+  var card = el('div', cls);
+  card.appendChild(img(badgeSrc(a.unlocked ? a.badge : a.badge_locked), ''));
+  var body = el('div');
+  body.style.flex = '1';
+  body.style.minWidth = '0';
+  body.appendChild(el('div', 't', a.title));
+  body.appendChild(el('div', 'd', a.description));
+  var meta = el('div', 'm');
+  meta.appendChild(el('span', 'pts', a.points + ' pts'));
+  if (a.type_label) meta.appendChild(el('span', 'tag', a.type_label));
+  if (a.unlocked) {
+    meta.appendChild(el('span', 'tag ' + (a.hardcore ? 'hc' : 'sc'),
+      a.hardcore ? 'hardcore' : 'softcore'));
+    meta.appendChild(el('span', null, 'unlocked ' + ago(a.unlocked_at)));
+    meta.title = stampFull(a.unlocked_at);
+  } else {
+    meta.appendChild(el('span', null, 'locked'));
+  }
+  if (a.set_type && a.set_type !== 'core') meta.appendChild(el('span', 'tag', a.set));
+  body.appendChild(meta);
+  card.appendChild(body);
+  return card;
+}
+
+function initGame(){
+  paintChrome();
+  var g = DATA.game;
+  q('#heroicon').src = iconSrc(g.icon);
+  var box = q('#herostats');
+  box.textContent = '';
+  box.appendChild(statTile(g.unlocked + ' / ' + g.total, 'achievements',
+    g.percent + '% complete', 'gold'));
+  box.appendChild(statTile(num(g.points) + ' / ' + num(g.points_total), 'points',
+    g.points_hardcore + ' hardcore \u00b7 ' + g.points_softcore + ' softcore'));
+  box.appendChild(statTile(g.mastered ? '\u2605' : '\u2014',
+    g.mastered ? (g.mastered_hardcore ? 'mastered (hardcore)' : 'mastered')
+               : 'not mastered',
+    g.last_played ? ('last played ' + ago(g.last_played)) : 'never played',
+    g.mastered ? 'good' : ''));
+
+  var list = q('#achlist');
+  list.textContent = '';
+  var items = (DATA.achievements || []).slice();
+  items.sort(function(a, b){
+    if (!!b.unlocked !== !!a.unlocked) return b.unlocked ? 1 : -1;
+    if (a.unlocked && b.unlocked) return b.unlocked_at - a.unlocked_at;
+    return a.id - b.id;
+  });
+  if (!items.length) {
+    list.appendChild(el('div', 'empty',
+      'This game has no achievements in the seeded library.'));
+  }
+  items.forEach(function(a){ list.appendChild(achCard(a)); });
+  q('#achcount').textContent = items.length
+    ? (g.unlocked + ' of ' + items.length + ' unlocked') : '';
+
+  var boards = DATA.leaderboards || [];
+  var panel = q('#lbpanel');
+  var lbBox = q('#lbs');
+  lbBox.textContent = '';
+  if (!boards.length) { panel.hidden = true; return; }
+  panel.hidden = false;
+  var table = el('table', 'lb');
+  var head = el('tr');
+  ['Leaderboard', 'Your best', 'When'].forEach(function(h){
+    head.appendChild(el('th', null, h));
+  });
+  table.appendChild(head);
+  boards.forEach(function(b){
+    var row = el('tr');
+    var cell = el('td');
+    cell.appendChild(el('div', null, b.title));
+    if (b.description) cell.appendChild(el('div', 'tiny dim', b.description));
+    row.appendChild(cell);
+    row.appendChild(el('td', 'score', b.best ? b.best.display : '\u2014'));
+    row.appendChild(el('td', 'dim', b.best ? ago(b.best.submitted_at) : 'no entry'));
+    table.appendChild(row);
+  });
+  lbBox.appendChild(table);
+}
+
+initGame();
+</script>
+</body>
+</html>
