@@ -26,26 +26,66 @@
    "console": "3DO",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1786330697,
+   "last_played": 1786330817,
    "leaderboards": 23,
    "mastered": false,
    "mastered_hardcore": false,
-   "percent": 1.2,
+   "percent": 6.0,
    "played": true,
-   "points": 1,
+   "points": 16,
    "points_hardcore": 0,
-   "points_softcore": 1,
+   "points_softcore": 16,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 1,
+   "unlocked": 5,
    "unlocked_hardcore": 0
   }
  ],
- "generated_at": 1786330778,
+ "generated_at": 1786331379,
  "include": "played",
  "leaderboards": [],
  "recent": [
+  {
+   "badge": "216879.png",
+   "description": "Earn the D license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "hardcore": false,
+   "points": 2,
+   "title": "License Class D - Arcade",
+   "unlocked_at": 1786330899
+  },
+  {
+   "badge": "216887.png",
+   "description": "Become at least 40th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "hardcore": false,
+   "points": 3,
+   "title": "Ranking Beginner - Arcade",
+   "unlocked_at": 1786330861
+  },
+  {
+   "badge": "217680.png",
+   "description": "Achieve a combo chain of 13 in Arcade mode. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "hardcore": false,
+   "points": 5,
+   "title": "Combo Intermediate - Arcade",
+   "unlocked_at": 1786330784
+  },
+  {
+   "badge": "217676.png",
+   "description": "Achieve a combo chain of 8 in Arcade mode. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "hardcore": false,
+   "points": 5,
+   "title": "Combo Beginner - Arcade",
+   "unlocked_at": 1786330779
+  },
   {
    "badge": "216693.png",
    "description": "Deliver your first passenger in Arcade mode.",
@@ -62,7 +102,7 @@
  "stats": {
   "achievements_total_library": 345999,
   "achievements_total_played": 109,
-  "achievements_unlocked": 1,
+  "achievements_unlocked": 5,
   "achievements_unlocked_hardcore": 0,
   "games_in_library": 6274,
   "games_mastered": 0,
@@ -70,10 +110,10 @@
   "games_played": 2,
   "games_with_achievements": 2,
   "games_with_unlocks": 1,
-  "percent_played": 0.9,
+  "percent_played": 4.6,
   "points_hardcore": 0,
-  "points_softcore": 1,
-  "points_total": 1
+  "points_softcore": 16,
+  "points_total": 16
  },
  "warning_unlocks_ignored": 0
 }
