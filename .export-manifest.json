@@ -1,10 +1,11 @@
 {
  "version": 1,
- "generated_at": 1786339413,
+ "generated_at": 1786340593,
  "files": [
   ".export-manifest.json",
   ".nojekyll",
   "README.md",
+  "badges/00000.png",
   "badges/216692.png",
   "badges/216692_lock.png",
   "badges/216693.png",
