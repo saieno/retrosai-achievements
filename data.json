@@ -40,41 +40,12 @@
    "total": 83,
    "unlocked": 5,
    "unlocked_hardcore": 0
-  },
-  {
-   "console": "Mega Drive / Genesis",
-   "icon": "085573.png",
-   "id": 1,
-   "last_played": 1786338797,
-   "leaderboards": 29,
-   "mastered": false,
-   "mastered_hardcore": false,
-   "percent": 2.7,
-   "played": true,
-   "points": 3,
-   "points_hardcore": 0,
-   "points_softcore": 3,
-   "points_total": 335,
-   "title": "Sonic the Hedgehog",
-   "total": 37,
-   "unlocked": 1,
-   "unlocked_hardcore": 0
   }
  ],
- "generated_at": 1786338811,
+ "generated_at": 1786339413,
  "include": "played",
  "leaderboards": [],
  "recent": [
-  {
-   "badge": "250336.png",
-   "description": "Complete the first act of Green Hill Zone.",
-   "game_id": 1,
-   "game_title": "Sonic the Hedgehog",
-   "hardcore": false,
-   "points": 3,
-   "title": "That Was Easy",
-   "unlocked_at": 1786338797
-  },
   {
    "badge": "216879.png",
    "description": "Earn the D license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
@@ -130,19 +101,19 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 345999,
-  "achievements_total_played": 146,
-  "achievements_unlocked": 6,
+  "achievements_total_played": 109,
+  "achievements_unlocked": 5,
   "achievements_unlocked_hardcore": 0,
   "games_in_library": 6274,
   "games_mastered": 0,
   "games_mastered_hardcore": 0,
-  "games_played": 3,
-  "games_with_achievements": 3,
-  "games_with_unlocks": 2,
-  "percent_played": 4.1,
+  "games_played": 2,
+  "games_with_achievements": 2,
+  "games_with_unlocks": 1,
+  "percent_played": 4.6,
   "points_hardcore": 0,
-  "points_softcore": 19,
-  "points_total": 19
+  "points_softcore": 16,
+  "points_total": 16
  },
  "warning_unlocks_ignored": 0
 }
