@@ -7,7 +7,7 @@
    "console": "PC Engine",
    "icon": "025967.png",
    "id": 6799,
-   "last_played": 1786309614,
+   "last_played": 1786330582,
    "leaderboards": 1,
    "mastered": false,
    "mastered_hardcore": false,
@@ -21,29 +21,59 @@
    "total": 26,
    "unlocked": 0,
    "unlocked_hardcore": 0
+  },
+  {
+   "console": "3DO",
+   "icon": "122047.png",
+   "id": 3399,
+   "last_played": 1786330697,
+   "leaderboards": 23,
+   "mastered": false,
+   "mastered_hardcore": false,
+   "percent": 1.2,
+   "played": true,
+   "points": 1,
+   "points_hardcore": 0,
+   "points_softcore": 1,
+   "points_total": 1095,
+   "title": "Crazy Taxi",
+   "total": 83,
+   "unlocked": 1,
+   "unlocked_hardcore": 0
   }
  ],
- "generated_at": 1786309650,
+ "generated_at": 1786330778,
  "include": "played",
  "leaderboards": [],
- "recent": [],
+ "recent": [
+  {
+   "badge": "216693.png",
+   "description": "Deliver your first passenger in Arcade mode.",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "hardcore": false,
+   "points": 1,
+   "title": "First Passenger - Arcade",
+   "unlocked_at": 1786330751
+  }
+ ],
  "site": "RetroSai Achievements",
  "snapshot": true,
  "stats": {
   "achievements_total_library": 345999,
-  "achievements_total_played": 26,
-  "achievements_unlocked": 0,
+  "achievements_total_played": 109,
+  "achievements_unlocked": 1,
   "achievements_unlocked_hardcore": 0,
   "games_in_library": 6274,
   "games_mastered": 0,
   "games_mastered_hardcore": 0,
-  "games_played": 1,
-  "games_with_achievements": 1,
-  "games_with_unlocks": 0,
-  "percent_played": 0.0,
+  "games_played": 2,
+  "games_with_achievements": 2,
+  "games_with_unlocks": 1,
+  "percent_played": 0.9,
   "points_hardcore": 0,
-  "points_softcore": 0,
-  "points_total": 0
+  "points_softcore": 1,
+  "points_total": 1
  },
  "warning_unlocks_ignored": 0
 }
