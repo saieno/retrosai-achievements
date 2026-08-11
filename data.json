@@ -23,25 +23,6 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "Game Boy",
-   "icon": "054346.png",
-   "id": 2465,
-   "last_played": 1786436162,
-   "leaderboards": 88,
-   "mastered": false,
-   "mastered_hardcore": false,
-   "percent": 0.6,
-   "played": true,
-   "points": 3,
-   "points_hardcore": 0,
-   "points_softcore": 3,
-   "points_total": 860,
-   "title": "Bust-A-Move 2: Arcade Edition",
-   "total": 163,
-   "unlocked": 1,
-   "unlocked_hardcore": 0
-  },
-  {
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
@@ -137,20 +118,10 @@
    "unlocked_hardcore": 0
   }
  ],
- "generated_at": 1786436172,
+ "generated_at": 1786436775,
  "include": "played",
  "leaderboards": [],
  "recent": [
-  {
-   "badge": "347197.png",
-   "description": "Complete Stage A in Normal or Hard",
-   "game_id": 2465,
-   "game_title": "Bust-A-Move 2: Arcade Edition",
-   "hardcore": false,
-   "points": 3,
-   "title": "[NORMAL] Stage A",
-   "unlocked_at": 1786436162
-  },
   {
    "badge": "216877.png",
    "description": "Earn the C license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
@@ -256,19 +227,19 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 345999,
-  "achievements_total_played": 435,
-  "achievements_unlocked": 11,
+  "achievements_total_played": 272,
+  "achievements_unlocked": 10,
   "achievements_unlocked_hardcore": 0,
   "games_in_library": 6274,
   "games_mastered": 0,
   "games_mastered_hardcore": 0,
-  "games_played": 7,
-  "games_with_achievements": 7,
-  "games_with_unlocks": 4,
-  "percent_played": 2.5,
+  "games_played": 6,
+  "games_with_achievements": 6,
+  "games_with_unlocks": 3,
+  "percent_played": 3.7,
   "points_hardcore": 0,
-  "points_softcore": 34,
-  "points_total": 34
+  "points_softcore": 31,
+  "points_total": 31
  },
  "warning_unlocks_ignored": 0
 }
