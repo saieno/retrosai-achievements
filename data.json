@@ -7,20 +7,61 @@
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1786551525,
+   "last_played": 1786551765,
    "mastered": false,
-   "percent": 2.4,
+   "percent": 4.8,
    "played": true,
-   "points": 6,
+   "points": 11,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 2
+   "unlocked": 4
+  },
+  {
+   "console": "Game Boy Advance",
+   "icon": "093574.png",
+   "id": 534,
+   "last_played": 1786552159,
+   "mastered": false,
+   "percent": 1.8,
+   "played": true,
+   "points": 3,
+   "points_total": 766,
+   "title": "Metroid: Zero Mission",
+   "total": 55,
+   "unlocked": 1
   }
  ],
- "generated_at": 1786551600,
+ "generated_at": 1786552202,
  "include": "played",
  "recent": [
+  {
+   "badge": "255208.png",
+   "description": "Obtain the Morph Ball ability",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 3,
+   "title": "Keep On Rollin'",
+   "unlocked_at": 1786551926
+  },
+  {
+   "badge": "216879.png",
+   "description": "Earn the D license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 2,
+   "title": "License Class D - Arcade",
+   "unlocked_at": 1786551754
+  },
+  {
+   "badge": "216887.png",
+   "description": "Become at least 40th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 3,
+   "title": "Ranking Beginner - Arcade",
+   "unlocked_at": 1786551686
+  },
   {
    "badge": "217676.png",
    "description": "Achieve a combo chain of 8 in Arcade mode. (All time and traffic options set to default or higher)",
@@ -44,15 +85,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381198,
-  "achievements_total_played": 83,
-  "achievements_unlocked": 2,
+  "achievements_total_played": 138,
+  "achievements_unlocked": 5,
   "games_in_library": 7138,
   "games_mastered": 0,
-  "games_played": 1,
-  "games_with_achievements": 1,
-  "games_with_unlocks": 1,
-  "percent_played": 2.4,
-  "points_total": 6
+  "games_played": 2,
+  "games_with_achievements": 2,
+  "games_with_unlocks": 2,
+  "percent_played": 3.6,
+  "points_total": 14
  },
  "warning_unlocks_ignored": 0
 }
