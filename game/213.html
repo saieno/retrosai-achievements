@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index,follow">
+<title>Klonoa - RetroSai Achievements</title>
+<link rel="icon" href="../icons/00000.png">
+<style>
+
+:root{
+  --bg:#0d0f13; --bg2:#12151b; --panel:#171b22; --panel2:#1d222b; --line:#2a313d;
+  --ink:#eef1f5; --ink2:#a7b1bf; --ink3:#6f7a8a;
+  --gold:#f2b134; --hard:#ff7a4d; --soft:#5cc8ff; --good:#5fd08a; --bad:#ef5a5a;
+  --radius:14px; --gap:20px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:400 18px/1.5 "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  padding-bottom:64px;
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;font-weight:650;letter-spacing:-.01em}
+h2{font-size:1.35rem;margin-bottom:14px}
+.wrap{max-width:1500px;margin:0 auto;padding:0 24px}
+header.top{
+  position:sticky;top:0;z-index:20;background:rgba(13,15,19,.94);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(8px);
+}
+header.top .wrap{display:flex;align-items:center;gap:20px;height:78px}
+.brand{display:flex;align-items:center;gap:12px;font-size:1.3rem;font-weight:650}
+.brand .mark{
+  width:38px;height:38px;border-radius:11px;background:var(--gold);color:#20160a;
+  display:grid;place-items:center;font-size:1.25rem;flex:0 0 auto
+}
+.brand .thin{color:var(--ink2);font-weight:400}
+.spacer{flex:1}
+.who{display:flex;align-items:center;gap:10px;color:var(--ink2);font-size:.95rem}
+select,input[type=search],button{
+  font:inherit;color:var(--ink);background:var(--panel2);
+  border:1px solid var(--line);border-radius:10px;padding:10px 14px
+}
+input[type=search]{min-width:min(340px,52vw)}
+select:focus,input:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+button{cursor:pointer}
+button:hover{border-color:#3d4757}
+main{padding-top:28px}
+.panel{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;margin-bottom:var(--gap)
+}
+.muted{color:var(--ink2)}
+.dim{color:var(--ink3)}
+.tiny{font-size:.85rem}
+
+/* headline stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;
+  margin-bottom:var(--gap)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px}
+.stat .n{font-size:2.6rem;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.stat .l{color:var(--ink2);font-size:.95rem;margin-top:6px}
+.stat .s{color:var(--ink3);font-size:.85rem;margin-top:2px}
+.stat.hard .n{color:var(--hard)} .stat.soft .n{color:var(--soft)}
+.stat.gold .n{color:var(--gold)} .stat.good .n{color:var(--good)}
+
+/* now playing */
+.np{display:flex;gap:20px;align-items:center;
+  border-left:4px solid var(--good)}
+.np img{width:84px;height:84px;border-radius:12px;background:var(--panel2);flex:0 0 auto}
+.np .t{font-size:1.35rem;font-weight:650}
+.np .rp{color:var(--ink2);margin-top:4px}
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--good);
+  font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
+.live .dot{width:9px;height:9px;border-radius:50%;background:var(--good);
+  animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* recent unlocks */
+.recent{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.unlock{display:flex;gap:14px;align-items:center;background:var(--panel2);
+  border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.unlock img{width:56px;height:56px;border-radius:9px;flex:0 0 auto;background:#0b0d11}
+.unlock .t{font-weight:600}
+.unlock .m{color:var(--ink2);font-size:.88rem;margin-top:2px}
+.pts{color:var(--gold);font-weight:650;white-space:nowrap}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+  padding:9px 18px;font-size:.95rem}
+.chip[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#20160a;
+  font-weight:600}
+
+/* game list */
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(390px,1fr));gap:14px}
+.game{display:flex;gap:16px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px;align-items:center}
+.game:hover{border-color:#41506a;background:#212734}
+.game img{width:64px;height:64px;border-radius:10px;flex:0 0 auto;background:#0b0d11;
+  object-fit:cover}
+.game .body{flex:1;min-width:0}
+.game .t{font-weight:620;font-size:1.05rem;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.game .m{color:var(--ink2);font-size:.86rem;margin-top:2px;display:flex;gap:10px;
+  flex-wrap:wrap}
+.bar{height:8px;border-radius:99px;background:#0b0d11;margin-top:9px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:99px}
+.bar.done i{background:var(--good)}
+.star{color:var(--gold);font-size:1.25rem;flex:0 0 auto}
+
+/* game detail */
+.hero{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.hero img{width:120px;height:120px;border-radius:16px;background:var(--panel2)}
+.back{color:var(--ink2);font-size:.95rem;display:inline-block;margin-bottom:10px}
+.back:hover{color:var(--ink)}
+.gametitle{font-size:2.1rem;line-height:1.15}
+.gamesub{color:var(--ink2);margin:6px 0 0}
+.achlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:14px}
+.ach{display:flex;gap:16px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px}
+.ach.locked{opacity:.62}
+.ach.unlocked{border-color:#3a4a3d;background:#1a2320}
+.ach img{width:64px;height:64px;border-radius:10px;flex:0 0 auto;background:#0b0d11}
+.ach .t{font-weight:620}
+.ach .d{color:var(--ink2);font-size:.92rem;margin-top:3px}
+.ach .m{margin-top:6px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  font-size:.82rem;color:var(--ink3)}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.75rem;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+
+.danger{border-color:#4a2b2b}
+button.reset{background:#2a1a1a;border-color:#5a3030;color:#ff9d9d}
+button.reset:hover{background:#3a2020;border-color:var(--bad)}
+dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px;max-width:min(560px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog h2{margin-bottom:12px}
+dialog .row{display:flex;gap:12px;justify-content:flex-end;margin-top:22px}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:6px;padding:2px 7px;
+  font-size:.85rem;word-break:break-all}
+.empty{color:var(--ink2);padding:14px 0}
+.notice{background:#1b2028;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;color:var(--ink2);font-size:.92rem;margin-bottom:14px}
+
+@media (max-width:760px){
+  body{font-size:17px}
+  .wrap{padding:0 16px}
+  header.top .wrap{height:auto;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+  .panel{padding:18px}
+  .games,.achlist,.recent{grid-template-columns:1fr}
+  .stat .n{font-size:2.1rem}
+  input[type=search]{min-width:100%}
+}
+@media (min-width:1600px){ body{font-size:19px} }
+
+.snapshot{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;
+  background:#1b2028;border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:10px;padding:12px 16px;color:var(--ink2);font-size:.92rem;
+  margin-bottom:var(--gap)}
+.snapshot b{color:var(--ink);font-weight:600}
+.game{color:inherit}
+footer.foot{color:var(--ink3);font-size:.85rem;padding:26px 0 0;
+  border-top:1px solid var(--line);margin-top:var(--gap)}
+
+</style>
+</head>
+<body>
+<script id="sitedata" type="application/json" data-base="../">{"achievements": [{"badge": "645068.png", "badge_locked": "645068_lock.png", "description": "Clear Vision 1-1 \"The Gathering Wind\"", "id": 567596, "points": 3, "set": "Klonoa", "set_type": "core", "title": "The Adventure Begins!", "type_label": "Progression", "unlocked": true, "unlocked_at": 1786555530}, {"badge": "645069.png", "badge_locked": "645069_lock.png", "description": "Defeat Rongo Lango without hovering or getting hit in Vision 1-2", "id": 567597, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Curly Beast", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645070.png", "badge_locked": "645070_lock.png", "description": "Clear Vision 2-1 \"Deep in the Withering Forest\"", "id": 567598, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Let's Go to Jugpot!", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "645071.png", "badge_locked": "645071_lock.png", "description": "Defeat Seadoph and Pamela without hovering or getting hit in Vision 2-2", "id": 567599, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Possessed Friends", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645072.png", "badge_locked": "645072_lock.png", "description": "Clear Vision 3-1 \"The Reawakening Forest\"", "id": 567600, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Cheech-koopah!", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "645073.png", "badge_locked": "645073_lock.png", "description": "Defeat Gelg Bolm without hovering or getting hit in Vision 3-2", "id": 567601, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Monstrous Outgrowth", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645074.png", "badge_locked": "645074_lock.png", "description": "Clear Vision 4-1 \"The Desperate Journey Home\"", "id": 567602, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Kingdom in Ruins", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "645075.png", "badge_locked": "645075_lock.png", "description": "Defeat Baladium without hovering or getting hit in Vision 4-2", "id": 567603, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Mechanical Cobra Eliminator", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645076.png", "badge_locked": "645076_lock.png", "description": "Clear Vision 5-1 \"The Four Jewels\"", "id": 567604, "points": 5, "set": "Klonoa", "set_type": "core", "title": "A Solar Eclipse", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "645077.png", "badge_locked": "645077_lock.png", "description": "Defeat Joker challenge without hovering or getting hit in Vision 5-2", "id": 567605, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Joker No Joking", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645078.png", "badge_locked": "645078_lock.png", "description": "Clear Vision 6-1 \"The Kingdom of Legend\"", "id": 567606, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Royal Escort", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "645079.png", "badge_locked": "645079_lock.png", "description": "Defeat Ghadius without hovering or getting hit in Vision 6-2", "id": 567607, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Vanquishing the Darkness", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645080.png", "badge_locked": "645080_lock.png", "description": "Defeat Nahatomb in the Final Vision \"The Dream at Nightmare's End\"", "id": 567608, "points": 25, "set": "Klonoa", "set_type": "core", "title": "All Together Now", "type_label": "Win condition", "unlocked": false, "unlocked_at": 0}, {"badge": "645081.png", "badge_locked": "645081_lock.png", "description": "Defeat all three phases of Nahatomb without getting hit in the Final Vision", "id": 567609, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Rooting Out the Corruption", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645082.png", "badge_locked": "645082_lock.png", "description": "Defeat every boss in Time Attack with a cumulative best time of 16:00.00 or better", "id": 567687, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Clearing the Gauntlet", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645083.png", "badge_locked": "645083_lock.png", "description": "Defeat every boss in Time Attack with a cumulative best time of 10:00.00 or better", "id": 567688, "points": 25, "set": "Klonoa", "set_type": "core", "title": "Fastest Dream Traveler", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645084.png", "badge_locked": "645084_lock.png", "description": "Free every captured villager in any vision", "id": 567689, "points": 3, "set": "Klonoa", "set_type": "core", "title": "Village Savior", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645085.png", "badge_locked": "645085_lock.png", "description": "Free half of the captured villagers. Enjoy their musical performance on the World Map!", "id": 567690, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Freedom Fighter", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645086.png", "badge_locked": "645086_lock.png", "description": "Free all 72 captured villagers", "id": 567691, "points": 10, "set": "Klonoa", "set_type": "core", "title": "World Liberator", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645087.png", "badge_locked": "645087_lock.png", "description": "Clear the extra vision", "id": 567692, "points": 10, "set": "Klonoa", "set_type": "core", "title": "The Mason's Finest Work", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645088.png", "badge_locked": "645088_lock.png", "description": "Clear the extra vision in at most 05:00.00 without hovering. Dying and respawning will reactivate the challenge if you hover by mistake, but collecting a Memory Clock after hovering will lock you out of the achievement", "id": 567693, "points": 25, "set": "Klonoa", "set_type": "core", "title": "Smooth Moves in the Tower", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645089.png", "badge_locked": "645089_lock.png", "description": "Clear any Vision with at least 130 Dream Crystals", "id": 567694, "points": 2, "set": "Klonoa", "set_type": "core", "title": "Getting a Taste of the Collector Lifestyle", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645090.png", "badge_locked": "645090_lock.png", "description": "Clear every Vision with at least 130 Dream Crystals", "id": 567695, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Mirror, Mirror, Who Has the Most Crystals in All of Phantomile?", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645091.png", "badge_locked": "645091_lock.png", "description": "Collect 150 Dream Crystals in Vision 1-1", "id": 567696, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in Breezegale", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645092.png", "badge_locked": "645092_lock.png", "description": "Collect 150 Dream Crystals in Vision 1-2", "id": 567697, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in Gunston Mine", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645093.png", "badge_locked": "645093_lock.png", "description": "Collect 150 Dream Crystals in Vision 2-1", "id": 567698, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in Forlock", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645094.png", "badge_locked": "645094_lock.png", "description": "Collect 150 Dream Crystals in Vision 2-2", "id": 567699, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in the Kingdom of Jugpot", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645095.png", "badge_locked": "645095_lock.png", "description": "Collect 150 Dream Crystals in Vision 3-1", "id": 567700, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in Forlock Revisited", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645096.png", "badge_locked": "645096_lock.png", "description": "Collect 150 Dream Crystals in Vision 3-2", "id": 567701, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in the Clockword Tree House", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645097.png", "badge_locked": "645097_lock.png", "description": "Collect 150 Dream Crystals in Vision 4-1", "id": 567702, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in the Wind Kingdom", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645098.png", "badge_locked": "645098_lock.png", "description": "Collect 150 Dream Crystals in Vision 4-2", "id": 567703, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in Leviathan's Ice Cavern", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645099.png", "badge_locked": "645099_lock.png", "description": "Collect 150 Dream Crystals in Vision 5-1", "id": 567704, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in the Temple of the Sun", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645100.png", "badge_locked": "645100_lock.png", "description": "Collect 150 Dream Crystals in Vision 5-2", "id": 567705, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in the Heights of Coronia", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645101.png", "badge_locked": "645101_lock.png", "description": "Collect 150 Dream Crystals in Vision 6-1", "id": 567706, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in the Moon Kingdom", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645102.png", "badge_locked": "645102_lock.png", "description": "Collect 150 Dream Crystals in Vision 6-2", "id": 567707, "points": 5, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in the Gallery of Prisms", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645103.png", "badge_locked": "645103_lock.png", "description": "Collect 150 Dream Crystals in the extra vision", "id": 567708, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Dreamcatcher in Balue's Tower", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645104.png", "badge_locked": "645104_lock.png", "description": "Clear a portal room in Reverse Mode", "id": 567709, "points": 5, "set": "Klonoa", "set_type": "core", "title": "The Floor Is Lava", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645105.png", "badge_locked": "645105_lock.png", "description": "Clear 3 portal rooms in Reverse Mode", "id": 567710, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Never Grounded", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645106.png", "badge_locked": "645106_lock.png", "description": "Clear 6 portal rooms in Reverse Mode", "id": 567711, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Jumping Off Frenemies", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645107.png", "badge_locked": "645107_lock.png", "description": "Clear 9 portal rooms in Reverse Mode", "id": 567712, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Fancy Flight", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645108.png", "badge_locked": "645108_lock.png", "description": "Clear all 12 portal rooms in Reverse Mode", "id": 567713, "points": 10, "set": "Klonoa", "set_type": "core", "title": "Portal Conqueror", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645109.png", "badge_locked": "645109_lock.png", "description": "Clear all 12 portal rooms in Reverse Mode with a cumulative best time of 10:00.00 or better", "id": 567714, "points": 25, "set": "Klonoa", "set_type": "core", "title": "In and Out in a Minute", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "645110.png", "badge_locked": "645110_lock.png", "description": "Clear all 12 portal rooms in Reverse Mode with a cumulative best time of 04:20.00 or better", "id": 567715, "points": 50, "set": "Klonoa", "set_type": "core", "title": "In and Out in a Flash", "type_label": "", "unlocked": false, "unlocked_at": 0}], "display_name": "RetroSai", "game": {"console": "Wii", "icon": "083806.png", "id": 213, "last_played": 1786555522, "mastered": false, "percent": 2.3, "played": true, "points": 3, "points_total": 413, "title": "Klonoa", "total": 43, "unlocked": 1}, "generated_at": 1786555819}</script>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">&#9733;</span>
+      <span>RetroSai <span class="thin">Achievements</span></span>
+    </div>
+    <div class="spacer"></div>
+    <div class="who" id="who"></div>
+  </div>
+</header>
+<main class="wrap">
+<a class="back" href="../index.html">&larr; All games</a><h1 class="gametitle">Klonoa</h1><p class="gamesub">Wii</p>
+
+<div class="snapshot" id="snapshot"></div>
+<section class="panel">
+  <div class="hero">
+    <img id="heroicon" src="" alt="">
+    <div class="stats" id="herostats" style="flex:1;margin:0"></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Achievements <span id="achcount" class="muted tiny"></span></h2>
+  <div id="achlist" class="achlist"></div>
+</section>
+
+<footer class="foot" id="foot"></footer>
+</main>
+<script>
+
+var NODE = document.getElementById('sitedata');
+var DATA = JSON.parse(NODE.textContent);
+var BASE = NODE.getAttribute('data-base') || '';
+
+function q(sel, root){ return (root||document).querySelector(sel); }
+function el(tag, cls, text){
+  var node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text !== undefined && text !== null) node.textContent = String(text);
+  return node;
+}
+function img(src, alt){
+  var node = document.createElement('img');
+  node.src = src; node.alt = alt || ''; node.decoding = 'async';
+  return node;
+}
+function badgeSrc(name){ return BASE + 'badges/' + name; }
+function iconSrc(name){ return BASE + 'icons/' + name; }
+function gameHref(id){ return BASE + 'game/' + id + '.html'; }
+function num(value){ return (value === null || value === undefined) ? '0'
+  : Number(value).toLocaleString(); }
+
+/* Relative times are measured against the SNAPSHOT, not against the reader's clock:
+   this page does not update itself, so "2h ago" would quietly become a lie. */
+function ago(t){
+  if (!t) return 'never';
+  var secs = (DATA.generated_at || 0) - t;
+  if (secs < 0) secs = 0;
+  if (secs < 60) return 'just before';
+  if (secs < 3600) return Math.floor(secs/60) + 'm before';
+  if (secs < 86400) return Math.floor(secs/3600) + 'h before';
+  if (secs < 2592000) return Math.floor(secs/86400) + 'd before';
+  return stampDate(t);
+}
+function stampDate(t){
+  if (!t) return '';
+  return new Date(t * 1000).toLocaleDateString(undefined,
+    {day:'numeric', month:'short', year:'numeric'});
+}
+function stampFull(t){
+  if (!t) return '';
+  return new Date(t * 1000).toLocaleString();
+}
+
+function paintChrome(){
+  var who = q('#who');
+  if (who) { who.textContent = ''; who.appendChild(el('span', null, DATA.display_name)); }
+  var snap = q('#snapshot');
+  if (snap) {
+    snap.textContent = '';
+    snap.appendChild(el('b', null, 'Snapshot'));
+    snap.appendChild(el('span', null,
+      'This is a static export, not a live page. It does not update by itself.'));
+    var when = el('span', 'dim', 'Generated ' + stampFull(DATA.generated_at));
+    snap.appendChild(when);
+  }
+  var foot = q('#foot');
+  if (foot) {
+    foot.textContent = 'RetroSai Achievements - generated ' + stampFull(DATA.generated_at)
+      + '. Offline RetroAchievements, recorded locally. Static snapshot; no live data.';
+  }
+}
+
+function progressBar(unlocked, total){
+  var wrap = el('div', 'bar' + (total > 0 && unlocked >= total ? ' done' : ''));
+  var fill = el('i');
+  fill.style.width = (total > 0 ? Math.round(100 * unlocked / total) : 0) + '%';
+  wrap.appendChild(fill);
+  return wrap;
+}
+
+function statTile(n, label, sub, cls){
+  var tile = el('div', 'stat' + (cls ? ' ' + cls : ''));
+  tile.appendChild(el('div', 'n', n));
+  tile.appendChild(el('div', 'l', label));
+  if (sub) tile.appendChild(el('div', 's', sub));
+  return tile;
+}
+
+function unlockCard(u){
+  var card = el('div', 'unlock');
+  card.appendChild(img(badgeSrc(u.badge), u.title));
+  var body = el('div');
+  body.style.flex = '1';
+  body.style.minWidth = '0';
+  body.appendChild(el('div', 't', u.title));
+  body.appendChild(el('div', 'm', u.game_title + '  \u00b7  ' + ago(u.unlocked_at)));
+  card.appendChild(body);
+  card.appendChild(el('div', 'pts', u.points + ' pts'));
+  card.title = u.description || '';
+  return card;
+}
+
+function gameCard(g){
+  var card = document.createElement(DATA.game_pages ? 'a' : 'div');
+  card.className = 'game';
+  if (DATA.game_pages) card.href = gameHref(g.id);
+  card.appendChild(img(iconSrc(g.icon), ''));
+  var body = el('div', 'body');
+  body.appendChild(el('div', 't', g.title));
+  var meta = el('div', 'm');
+  if (g.total > 0) {
+    meta.appendChild(el('span', null, g.unlocked + ' / ' + g.total + ' \u00b7 '
+      + g.percent + '%'));
+    meta.appendChild(el('span', null, num(g.points) + ' / ' + num(g.points_total)
+      + ' pts'));
+  } else {
+    meta.appendChild(el('span', null, 'no achievements'));
+  }
+  if (g.console) meta.appendChild(el('span', 'dim', g.console));
+  if (g.last_played) meta.appendChild(el('span', 'dim', 'played ' + ago(g.last_played)));
+  body.appendChild(meta);
+  if (g.total > 0) body.appendChild(progressBar(g.unlocked, g.total));
+  card.appendChild(body);
+  if (g.mastered) {
+    var star = el('div', 'star', '\u2605');
+    star.title = 'Mastered';
+    card.appendChild(star);
+  }
+  return card;
+}
+
+/* ---------- home ---------- */
+
+var state = {scope:'all', q:'', sort:'last_played', order:'desc', shown:60};
+
+function defaultOrder(sort){
+  return (sort === 'title' || sort === 'console') ? 'asc' : 'desc';
+}
+
+var SORT_KEYS = {
+  title:        function(g){ return [g.title.toLowerCase(), g.id]; },
+  last_played:  function(g){ return [g.last_played, g.unlocked]; },
+  percent:      function(g){ return [g.percent, g.unlocked]; },
+  unlocked:     function(g){ return [g.unlocked, g.percent]; },
+  points:       function(g){ return [g.points, g.unlocked]; },
+  points_total: function(g){ return [g.points_total, g.total]; },
+  total:        function(g){ return [g.total, g.unlocked]; },
+  console:      function(g){ return [g.console.toLowerCase(), g.title.toLowerCase()]; }
+};
+
+function cmpKey(a, b){
+  for (var i = 0; i < a.length && i < b.length; i++) {
+    if (a[i] < b[i]) return -1;
+    if (a[i] > b[i]) return 1;
+  }
+  return 0;
+}
+
+/* Same two-pass ordering as dashboard.api_games: sort by title first so ties always come
+   out A-Z, then by the requested key.  Array.prototype.sort is stable, so the second pass
+   preserves the first. */
+function ordered(list, sort, order){
+  var out = list.slice();
+  out.sort(function(a, b){ return cmpKey(SORT_KEYS.title(a), SORT_KEYS.title(b)); });
+  if (sort === 'title') {
+    if (order === 'desc') out.reverse();
+    return out;
+  }
+  var key = SORT_KEYS[sort] || SORT_KEYS.title;
+  var sign = (order === 'asc') ? 1 : -1;
+  out.sort(function(a, b){ return sign * cmpKey(key(a), key(b)); });
+  return out;
+}
+
+function matches(g){
+  if (state.scope === 'played' && !g.played) return false;
+  if (state.scope === 'progress'
+      && !(g.total > 0 && g.unlocked > 0 && g.unlocked < g.total)) return false;
+  if (state.scope === 'mastered' && !g.mastered) return false;
+  if (state.q && g.title.toLowerCase().indexOf(state.q) < 0) return false;
+  return true;
+}
+
+function paintGames(){
+  var all = [];
+  for (var i = 0; i < DATA.games.length; i++) {
+    if (matches(DATA.games[i])) all.push(DATA.games[i]);
+  }
+  all = ordered(all, state.sort, state.order);
+  var box = q('#games');
+  box.textContent = '';
+  var page = all.slice(0, state.shown);
+  for (var j = 0; j < page.length; j++) box.appendChild(gameCard(page[j]));
+  if (!page.length) {
+    box.appendChild(el('div', 'empty', state.q
+      ? 'No games match "' + state.q + '".' : 'Nothing here yet.'));
+  }
+  q('#gamecount').textContent = num(all.length) + ' game'
+    + (all.length === 1 ? '' : 's');
+  var more = q('#gamesmore');
+  more.textContent = '';
+  if (all.length > page.length) {
+    var left = all.length - page.length;
+    var button = el('button', null, 'Show more (' + num(left) + ' left)');
+    button.addEventListener('click', function(){
+      state.shown += 60;
+      paintGames();
+    });
+    more.appendChild(button);
+  }
+}
+
+function paintStats(){
+  var s = DATA.stats;
+  var box = q('#stats');
+  box.textContent = '';
+  box.appendChild(statTile(num(s.games_played), 'games played',
+    s.games_with_achievements + ' with achievements'));
+  box.appendChild(statTile(num(s.achievements_unlocked), 'achievements unlocked',
+    'of ' + num(s.achievements_total_played) + ' in those games ('
+      + s.percent_played + '%)', 'gold'));
+  /* One points figure - the cab never runs hardcore, so the old split rendered as a
+     permanent "0 hardcore points" beside the real number. */
+  box.appendChild(statTile(num(s.points_total), 'achievement points',
+    'across ' + num(s.games_with_unlocks) + ' games', 'gold'));
+  box.appendChild(statTile(num(s.games_mastered), 'games mastered',
+    'every achievement unlocked', 'good'));
+
+  var note = q('#warnnote');
+  var w = DATA.warning_unlocks_ignored || 0;
+  if (w > 0) {
+    note.hidden = false;
+    note.textContent = w + (w === 1 ? ' "warning" achievement is'
+                                    : ' "warning" achievements are')
+      + ' excluded from every number above. They are client-side nags, not real'
+      + ' achievements.';
+  } else { note.hidden = true; }
+}
+
+function paintRecent(){
+  var box = q('#recent');
+  box.textContent = '';
+  if (!DATA.recent.length) {
+    box.appendChild(el('div', 'empty', 'No unlocks recorded yet.'));
+    return;
+  }
+  for (var i = 0; i < DATA.recent.length; i++) {
+    box.appendChild(unlockCard(DATA.recent[i]));
+  }
+}
+
+function initHome(){
+  paintChrome();
+  state.scope = DATA.default_scope || 'all';
+  Array.prototype.forEach.call(document.querySelectorAll('.chip'), function(chip){
+    chip.setAttribute('aria-pressed',
+      chip.getAttribute('data-scope') === state.scope ? 'true' : 'false');
+    chip.addEventListener('click', function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.chip'), function(other){
+        other.setAttribute('aria-pressed', other === chip ? 'true' : 'false');
+      });
+      state.scope = chip.getAttribute('data-scope');
+      state.shown = 60;
+      paintGames();
+    });
+  });
+  var search = q('#q');
+  var timer = null;
+  search.addEventListener('input', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      state.q = search.value.trim().toLowerCase();
+      state.shown = 60;
+      paintGames();
+    }, 180);
+  });
+  q('#sort').value = state.sort;
+  q('#sort').addEventListener('change', function(){
+    state.sort = q('#sort').value;
+    state.order = defaultOrder(state.sort);
+    state.shown = 60;
+    paintGames();
+  });
+  paintStats();
+  paintRecent();
+  paintGames();
+}
+
+/* ---------- game detail ---------- */
+
+function achCard(a){
+  var card = el('div', 'ach ' + (a.unlocked ? 'unlocked' : 'locked'));
+  card.appendChild(img(badgeSrc(a.unlocked ? a.badge : a.badge_locked), ''));
+  var body = el('div');
+  body.style.flex = '1';
+  body.style.minWidth = '0';
+  body.appendChild(el('div', 't', a.title));
+  body.appendChild(el('div', 'd', a.description));
+  var meta = el('div', 'm');
+  meta.appendChild(el('span', 'pts', a.points + ' pts'));
+  if (a.type_label) meta.appendChild(el('span', 'tag', a.type_label));
+  if (a.unlocked) {
+    meta.appendChild(el('span', null, 'unlocked ' + ago(a.unlocked_at)));
+    meta.title = stampFull(a.unlocked_at);
+  } else {
+    meta.appendChild(el('span', null, 'locked'));
+  }
+  if (a.set_type && a.set_type !== 'core') meta.appendChild(el('span', 'tag', a.set));
+  body.appendChild(meta);
+  card.appendChild(body);
+  return card;
+}
+
+function initGame(){
+  paintChrome();
+  var g = DATA.game;
+  q('#heroicon').src = iconSrc(g.icon);
+  var box = q('#herostats');
+  box.textContent = '';
+  box.appendChild(statTile(g.unlocked + ' / ' + g.total, 'achievements',
+    g.percent + '% complete', 'gold'));
+  box.appendChild(statTile(num(g.points) + ' / ' + num(g.points_total), 'points',
+    'achievement points earned here'));
+  box.appendChild(statTile(g.mastered ? '\u2605' : '\u2014',
+    g.mastered ? 'mastered' : 'not mastered',
+    g.last_played ? ('last played ' + ago(g.last_played)) : 'never played',
+    g.mastered ? 'good' : ''));
+
+  var list = q('#achlist');
+  list.textContent = '';
+  var items = (DATA.achievements || []).slice();
+  items.sort(function(a, b){
+    if (!!b.unlocked !== !!a.unlocked) return b.unlocked ? 1 : -1;
+    if (a.unlocked && b.unlocked) return b.unlocked_at - a.unlocked_at;
+    return a.id - b.id;
+  });
+  if (!items.length) {
+    list.appendChild(el('div', 'empty',
+      'This game has no achievements in the seeded library.'));
+  }
+  items.forEach(function(a){ list.appendChild(achCard(a)); });
+  q('#achcount').textContent = items.length
+    ? (g.unlocked + ' of ' + items.length + ' unlocked') : '';
+}
+
+initGame();
+</script>
+</body>
+</html>

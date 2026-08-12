@@ -77,15 +77,15 @@
    "console": "PlayStation 2",
    "icon": "056403.png",
    "id": 2738,
-   "last_played": 1786554557,
+   "last_played": 1786554797,
    "mastered": false,
-   "percent": 0.0,
+   "percent": 0.6,
    "played": true,
-   "points": 0,
+   "points": 1,
    "points_total": 1740,
    "title": "Grand Theft Auto III",
    "total": 180,
-   "unlocked": 0
+   "unlocked": 1
   },
   {
    "console": "Nintendo 64",
@@ -102,6 +102,34 @@
    "unlocked": 0
   },
   {
+   "console": "Wii",
+   "icon": "083806.png",
+   "id": 213,
+   "last_played": 1786555522,
+   "mastered": false,
+   "percent": 2.3,
+   "played": true,
+   "points": 3,
+   "points_total": 413,
+   "title": "Klonoa",
+   "total": 43,
+   "unlocked": 1
+  },
+  {
+   "console": "Arcade",
+   "icon": "049652.png",
+   "id": 11750,
+   "last_played": 1786555131,
+   "mastered": false,
+   "percent": 3.0,
+   "played": true,
+   "points": 5,
+   "points_total": 394,
+   "title": "Metal Slug: Super Vehicle-001",
+   "total": 33,
+   "unlocked": 1
+  },
+  {
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
@@ -114,11 +142,52 @@
    "title": "Metroid: Zero Mission",
    "total": 55,
    "unlocked": 0
+  },
+  {
+   "console": "GameCube",
+   "icon": "125387.png",
+   "id": 29803,
+   "last_played": 1786555800,
+   "mastered": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_total": 1000,
+   "title": "Spawn: Armageddon",
+   "total": 100,
+   "unlocked": 0
   }
  ],
- "generated_at": 1786554609,
+ "generated_at": 1786555819,
  "include": "played",
  "recent": [
+  {
+   "badge": "645068.png",
+   "description": "Clear Vision 1-1 \"The Gathering Wind\"",
+   "game_id": 213,
+   "game_title": "Klonoa",
+   "points": 3,
+   "title": "The Adventure Begins!",
+   "unlocked_at": 1786555530
+  },
+  {
+   "badge": "136912.png",
+   "description": "Clear Mission 1.",
+   "game_id": 11750,
+   "game_title": "Metal Slug: Super Vehicle-001",
+   "points": 5,
+   "title": "Tetsuyuki",
+   "unlocked_at": 1786555185
+  },
+  {
+   "badge": "528207.png",
+   "description": "Beat the \"Give Me Liberty\" mission",
+   "game_id": 2738,
+   "game_title": "Grand Theft Auto III",
+   "points": 1,
+   "title": "My New Home",
+   "unlocked_at": 1786554710
+  },
   {
    "badge": "107491.png",
    "description": "Collect your first Specter coin",
@@ -160,15 +229,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381198,
-  "achievements_total_played": 681,
-  "achievements_unlocked": 4,
+  "achievements_total_played": 857,
+  "achievements_unlocked": 7,
   "games_in_library": 7138,
   "games_mastered": 0,
-  "games_played": 8,
-  "games_with_achievements": 8,
-  "games_with_unlocks": 3,
-  "percent_played": 0.6,
-  "points_total": 8
+  "games_played": 11,
+  "games_with_achievements": 11,
+  "games_with_unlocks": 6,
+  "percent_played": 0.8,
+  "points_total": 17
  },
  "warning_unlocks_ignored": 0
 }
