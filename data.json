@@ -189,20 +189,38 @@
    "console": "SNES/Super Famicom",
    "icon": "126558.png",
    "id": 228,
-   "last_played": 1786560756,
+   "last_played": 1786560906,
    "mastered": false,
-   "percent": 1.8,
+   "percent": 3.7,
    "played": true,
    "points": 2,
    "points_total": 845,
    "title": "Super Mario World",
    "total": 109,
-   "unlocked": 2
+   "unlocked": 4
   }
  ],
- "generated_at": 1786560769,
+ "generated_at": 1786561377,
  "include": "played",
  "recent": [
+  {
+   "badge": "92297.png",
+   "description": "die for the first time",
+   "game_id": 228,
+   "game_title": "Super Mario World",
+   "points": 0,
+   "title": "I failed you, my princess",
+   "unlocked_at": 1786560824
+  },
+  {
+   "badge": "92297.png",
+   "description": "die for the first time",
+   "game_id": 228,
+   "game_title": "Super Mario World",
+   "points": 0,
+   "title": "I failed you, my princess",
+   "unlocked_at": 1786560824
+  },
   {
    "badge": "141067.png",
    "description": "Open the game",
@@ -380,13 +398,13 @@
  "stats": {
   "achievements_total_library": 381198,
   "achievements_total_played": 1081,
-  "achievements_unlocked": 19,
+  "achievements_unlocked": 21,
   "games_in_library": 7138,
   "games_mastered": 0,
   "games_played": 14,
   "games_with_achievements": 14,
   "games_with_unlocks": 10,
-  "percent_played": 1.8,
+  "percent_played": 1.9,
   "points_total": 45
  },
  "warning_unlocks_ignored": 0
