@@ -156,11 +156,43 @@
    "title": "Spawn: Armageddon",
    "total": 100,
    "unlocked": 1
+  },
+  {
+   "console": "Game Boy",
+   "icon": "143292.png",
+   "id": 504,
+   "last_played": 1786557835,
+   "mastered": false,
+   "percent": 5.9,
+   "played": true,
+   "points": 4,
+   "points_total": 333,
+   "title": "Super Mario Land",
+   "total": 34,
+   "unlocked": 2
   }
  ],
- "generated_at": 1786557236,
+ "generated_at": 1786557841,
  "include": "played",
  "recent": [
+  {
+   "badge": "372907.png",
+   "description": "Get 3 extra lives from the bonus game",
+   "game_id": 504,
+   "game_title": "Super Mario Land",
+   "points": 3,
+   "title": "Mamma Mia!",
+   "unlocked_at": 1786557834
+  },
+  {
+   "badge": "372931.png",
+   "description": "Grab a mushroom",
+   "game_id": 504,
+   "game_title": "Super Mario Land",
+   "points": 1,
+   "title": "Mushroom Man",
+   "unlocked_at": 1786557713
+  },
   {
    "badge": "496481.png",
    "description": "Complete Mission 1: The Beginning",
@@ -238,15 +270,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381198,
-  "achievements_total_played": 857,
-  "achievements_unlocked": 8,
+  "achievements_total_played": 891,
+  "achievements_unlocked": 10,
   "games_in_library": 7138,
   "games_mastered": 0,
-  "games_played": 11,
-  "games_with_achievements": 11,
-  "games_with_unlocks": 7,
-  "percent_played": 0.9,
-  "points_total": 19
+  "games_played": 12,
+  "games_with_achievements": 12,
+  "games_with_unlocks": 8,
+  "percent_played": 1.1,
+  "points_total": 23
  },
  "warning_unlocks_ignored": 0
 }
