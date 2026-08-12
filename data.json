@@ -4,7 +4,7 @@
  "game_pages": true,
  "games": [
   {
-   "console": "PC Engine/TurboGrafx-16",
+   "console": "Console 8",
    "icon": "025967.png",
    "id": 6799,
    "last_played": 1786330582,
@@ -23,7 +23,26 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "Dreamcast",
+   "console": "Console 12",
+   "icon": "061127.png",
+   "id": 11283,
+   "last_played": 1786513262,
+   "leaderboards": 26,
+   "mastered": false,
+   "mastered_hardcore": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_hardcore": 0,
+   "points_softcore": 0,
+   "points_total": 600,
+   "title": "Ape Escape",
+   "total": 68,
+   "unlocked": 0,
+   "unlocked_hardcore": 0
+  },
+  {
+   "console": "Console 40",
    "icon": "122047.png",
    "id": 3399,
    "last_played": 1786434790,
@@ -42,7 +61,26 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "Game Boy Advance",
+   "console": "Console 4",
+   "icon": "107042.png",
+   "id": 693,
+   "last_played": 1786518202,
+   "leaderboards": 0,
+   "mastered": false,
+   "mastered_hardcore": false,
+   "percent": 1.8,
+   "played": true,
+   "points": 1,
+   "points_hardcore": 0,
+   "points_softcore": 1,
+   "points_total": 308,
+   "title": "Donkey Kong Land",
+   "total": 56,
+   "unlocked": 1,
+   "unlocked_hardcore": 0
+  },
+  {
+   "console": "Console 5",
    "icon": "046590.png",
    "id": 760,
    "last_played": 1786509685,
@@ -61,7 +99,7 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 3",
    "icon": "126033.png",
    "id": 252,
    "last_played": 1786435468,
@@ -80,10 +118,10 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "PlayStation",
+   "console": "Console 12",
    "icon": "118127.png",
    "id": 11421,
-   "last_played": 1786511519,
+   "last_played": 1786512481,
    "leaderboards": 0,
    "mastered": false,
    "mastered_hardcore": false,
@@ -99,7 +137,7 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 3",
    "icon": "074336.png",
    "id": 259,
    "last_played": 1786435116,
@@ -118,7 +156,7 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "Wii",
+   "console": "Console 19",
    "icon": "083806.png",
    "id": 213,
    "last_played": 1786434385,
@@ -137,7 +175,7 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "Game Boy Advance",
+   "console": "Console 5",
    "icon": "089338.png",
    "id": 785,
    "last_played": 1786506467,
@@ -156,7 +194,7 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "Game Boy Advance",
+   "console": "Console 5",
    "icon": "093574.png",
    "id": 534,
    "last_played": 1786511122,
@@ -175,7 +213,7 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "Game Boy Advance",
+   "console": "Console 5",
    "icon": "126553.png",
    "id": 668,
    "last_played": 1786503854,
@@ -194,10 +232,10 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "Game Boy",
+   "console": "Console 4",
    "icon": "143292.png",
    "id": 504,
-   "last_played": 1786434017,
+   "last_played": 1786517725,
    "leaderboards": 2,
    "mastered": false,
    "mastered_hardcore": false,
@@ -213,7 +251,26 @@
    "unlocked_hardcore": 0
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 4",
+   "icon": "129214.png",
+   "id": 540,
+   "last_played": 1786518095,
+   "leaderboards": 33,
+   "mastered": false,
+   "mastered_hardcore": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_hardcore": 0,
+   "points_softcore": 0,
+   "points_total": 302,
+   "title": "Super Mario Land 2: 6 Golden Coins",
+   "total": 28,
+   "unlocked": 0,
+   "unlocked_hardcore": 0
+  },
+  {
+   "console": "Console 3",
    "icon": "126558.png",
    "id": 228,
    "last_played": 1786511257,
@@ -232,10 +289,20 @@
    "unlocked_hardcore": 0
   }
  ],
- "generated_at": 1786511520,
+ "generated_at": 1786518228,
  "include": "played",
  "leaderboards": [],
  "recent": [
+  {
+   "badge": "606768.png",
+   "description": "Rescued Diddy from the barrel!",
+   "game_id": 693,
+   "game_title": "Donkey Kong Land",
+   "hardcore": false,
+   "points": 1,
+   "title": "BFF",
+   "unlocked_at": 1786518210
+  },
   {
    "badge": "00080.png",
    "description": "buggy",
@@ -411,19 +478,19 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 387264,
-  "achievements_total_played": 889,
-  "achievements_unlocked": 17,
+  "achievements_total_played": 1041,
+  "achievements_unlocked": 18,
   "achievements_unlocked_hardcore": 0,
   "games_in_library": 7138,
   "games_mastered": 0,
   "games_mastered_hardcore": 0,
-  "games_played": 12,
-  "games_with_achievements": 12,
-  "games_with_unlocks": 6,
-  "percent_played": 1.9,
+  "games_played": 15,
+  "games_with_achievements": 15,
+  "games_with_unlocks": 7,
+  "percent_played": 1.7,
   "points_hardcore": 0,
-  "points_softcore": 41,
-  "points_total": 41
+  "points_softcore": 42,
+  "points_total": 42
  },
  "warning_unlocks_ignored": 0
 }
