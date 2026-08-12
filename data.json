@@ -35,15 +35,15 @@
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1786558436,
+   "last_played": 1786558796,
    "mastered": false,
-   "percent": 7.2,
+   "percent": 8.4,
    "played": true,
-   "points": 15,
+   "points": 20,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 6
+   "unlocked": 7
   },
   {
    "console": "SNES/Super Famicom",
@@ -172,9 +172,18 @@
    "unlocked": 2
   }
  ],
- "generated_at": 1786558447,
+ "generated_at": 1786559053,
  "include": "played",
  "recent": [
+  {
+   "badge": "217677.png",
+   "description": "Achieve a combo chain of 8 in Original mode. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 5,
+   "title": "Combo Beginner - Original",
+   "unlocked_at": 1786558554
+  },
   {
    "badge": "216692.png",
    "description": "Deliver your first passenger in Original mode.",
@@ -325,14 +334,14 @@
  "stats": {
   "achievements_total_library": 381198,
   "achievements_total_played": 891,
-  "achievements_unlocked": 16,
+  "achievements_unlocked": 17,
   "games_in_library": 7138,
   "games_mastered": 0,
   "games_played": 12,
   "games_with_achievements": 12,
   "games_with_unlocks": 9,
-  "percent_played": 1.8,
-  "points_total": 38
+  "percent_played": 1.9,
+  "points_total": 43
  },
  "warning_unlocks_ignored": 0
 }
