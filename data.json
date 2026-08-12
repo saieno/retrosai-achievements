@@ -26,18 +26,18 @@
    "console": "PlayStation",
    "icon": "061127.png",
    "id": 11283,
-   "last_played": 1786520049,
+   "last_played": 1786520289,
    "leaderboards": 26,
    "mastered": false,
    "mastered_hardcore": false,
-   "percent": 1.4,
+   "percent": 1.5,
    "played": true,
-   "points": 0,
+   "points": 1,
    "points_hardcore": 0,
-   "points_softcore": 0,
+   "points_softcore": 1,
    "points_total": 600,
    "title": "Ape Escape",
-   "total": 71,
+   "total": 68,
    "unlocked": 1,
    "unlocked_hardcore": 0
   },
@@ -289,19 +289,19 @@
    "unlocked_hardcore": 0
   }
  ],
- "generated_at": 1786520124,
+ "generated_at": 1786520756,
  "include": "played",
  "leaderboards": [],
  "recent": [
   {
-   "badge": "00000.png",
-   "description": "gate 1",
+   "badge": "107491.png",
+   "description": "Collect your first Specter coin",
    "game_id": 11283,
    "game_title": "Ape Escape",
    "hardcore": false,
-   "points": 0,
-   "title": "PROBE A level==FossilField",
-   "unlocked_at": 1786520101
+   "points": 1,
+   "title": "Spellector 0",
+   "unlocked_at": 1786520260
   },
   {
    "badge": "606768.png",
@@ -487,8 +487,8 @@
  "site": "RetroSai Achievements",
  "snapshot": true,
  "stats": {
-  "achievements_total_library": 387267,
-  "achievements_total_played": 1044,
+  "achievements_total_library": 387264,
+  "achievements_total_played": 1041,
   "achievements_unlocked": 19,
   "achievements_unlocked_hardcore": 0,
   "games_in_library": 7138,
@@ -499,8 +499,8 @@
   "games_with_unlocks": 8,
   "percent_played": 1.8,
   "points_hardcore": 0,
-  "points_softcore": 42,
-  "points_total": 42
+  "points_softcore": 43,
+  "points_total": 43
  },
  "warning_unlocks_ignored": 0
 }
