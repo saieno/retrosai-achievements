@@ -4,6 +4,20 @@
  "game_pages": true,
  "games": [
   {
+   "console": "PlayStation",
+   "icon": "061127.png",
+   "id": 11283,
+   "last_played": 1786554102,
+   "mastered": false,
+   "percent": 1.5,
+   "played": true,
+   "points": 1,
+   "points_total": 600,
+   "title": "Ape Escape",
+   "total": 68,
+   "unlocked": 1
+  },
+  {
    "console": "Nintendo 64",
    "icon": "109362.png",
    "id": 10164,
@@ -49,14 +63,28 @@
    "console": "Nintendo 64",
    "icon": "010650.png",
    "id": 10080,
-   "last_played": 1786553354,
+   "last_played": 1786553714,
+   "mastered": false,
+   "percent": 1.1,
+   "played": true,
+   "points": 2,
+   "points_total": 800,
+   "title": "Doom 64",
+   "total": 88,
+   "unlocked": 1
+  },
+  {
+   "console": "PlayStation 2",
+   "icon": "056403.png",
+   "id": 2738,
+   "last_played": 1786554557,
    "mastered": false,
    "percent": 0.0,
    "played": true,
    "points": 0,
-   "points_total": 800,
-   "title": "Doom 64",
-   "total": 88,
+   "points_total": 1740,
+   "title": "Grand Theft Auto III",
+   "total": 180,
    "unlocked": 0
   },
   {
@@ -88,9 +116,27 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1786553404,
+ "generated_at": 1786554609,
  "include": "played",
  "recent": [
+  {
+   "badge": "107491.png",
+   "description": "Collect your first Specter coin",
+   "game_id": 11283,
+   "game_title": "Ape Escape",
+   "points": 1,
+   "title": "Spellector 0",
+   "unlocked_at": 1786554172
+  },
+  {
+   "badge": "48576.png",
+   "description": "Finish Level 1: Staging Area",
+   "game_id": 10080,
+   "game_title": "Doom 64",
+   "points": 2,
+   "title": "Into the Madhouse",
+   "unlocked_at": 1786553763
+  },
   {
    "badge": "380853.png",
    "description": "Finish E1M1: The Hangar",
@@ -114,15 +160,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381198,
-  "achievements_total_played": 433,
-  "achievements_unlocked": 2,
+  "achievements_total_played": 681,
+  "achievements_unlocked": 4,
   "games_in_library": 7138,
   "games_mastered": 0,
-  "games_played": 6,
-  "games_with_achievements": 6,
-  "games_with_unlocks": 1,
-  "percent_played": 0.5,
-  "points_total": 5
+  "games_played": 8,
+  "games_with_achievements": 8,
+  "games_with_unlocks": 3,
+  "percent_played": 0.6,
+  "points_total": 8
  },
  "warning_unlocks_ignored": 0
 }
