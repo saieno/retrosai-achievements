@@ -99,6 +99,44 @@
    "unlocked_hardcore": 0
   },
   {
+   "console": "Game Boy Advance",
+   "icon": "093574.png",
+   "id": 534,
+   "last_played": 1786505372,
+   "leaderboards": 11,
+   "mastered": false,
+   "mastered_hardcore": false,
+   "percent": 1.6,
+   "played": true,
+   "points": 3,
+   "points_hardcore": 0,
+   "points_softcore": 3,
+   "points_total": 831,
+   "title": "Metroid: Zero Mission",
+   "total": 61,
+   "unlocked": 1,
+   "unlocked_hardcore": 0
+  },
+  {
+   "console": "Game Boy Advance",
+   "icon": "126553.png",
+   "id": 668,
+   "last_played": 1786503854,
+   "leaderboards": 40,
+   "mastered": false,
+   "mastered_hardcore": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_hardcore": 0,
+   "points_softcore": 0,
+   "points_total": 2149,
+   "title": "Pokémon Emerald Version",
+   "total": 212,
+   "unlocked": 0,
+   "unlocked_hardcore": 0
+  },
+  {
    "console": "Game Boy",
    "icon": "143292.png",
    "id": 504,
@@ -118,10 +156,20 @@
    "unlocked_hardcore": 0
   }
  ],
- "generated_at": 1786436775,
+ "generated_at": 1786505486,
  "include": "played",
  "leaderboards": [],
  "recent": [
+  {
+   "badge": "255208.png",
+   "description": "Obtain the Morph Ball ability",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "hardcore": false,
+   "points": 3,
+   "title": "Keep On Rollin'",
+   "unlocked_at": 1786505464
+  },
   {
    "badge": "216877.png",
    "description": "Earn the C license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
@@ -226,20 +274,20 @@
  "site": "RetroSai Achievements",
  "snapshot": true,
  "stats": {
-  "achievements_total_library": 345999,
-  "achievements_total_played": 272,
-  "achievements_unlocked": 10,
+  "achievements_total_library": 387264,
+  "achievements_total_played": 545,
+  "achievements_unlocked": 11,
   "achievements_unlocked_hardcore": 0,
-  "games_in_library": 6274,
+  "games_in_library": 7138,
   "games_mastered": 0,
   "games_mastered_hardcore": 0,
-  "games_played": 6,
-  "games_with_achievements": 6,
-  "games_with_unlocks": 3,
-  "percent_played": 3.7,
+  "games_played": 8,
+  "games_with_achievements": 8,
+  "games_with_unlocks": 4,
+  "percent_played": 2.0,
   "points_hardcore": 0,
-  "points_softcore": 31,
-  "points_total": 31
+  "points_softcore": 34,
+  "points_total": 34
  },
  "warning_unlocks_ignored": 0
 }
