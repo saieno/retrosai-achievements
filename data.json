@@ -35,15 +35,15 @@
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1786551765,
+   "last_played": 1786558436,
    "mastered": false,
-   "percent": 0.0,
+   "percent": 7.2,
    "played": true,
-   "points": 0,
+   "points": 15,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 0
+   "unlocked": 6
   },
   {
    "console": "SNES/Super Famicom",
@@ -172,9 +172,63 @@
    "unlocked": 2
   }
  ],
- "generated_at": 1786557841,
+ "generated_at": 1786558447,
  "include": "played",
  "recent": [
+  {
+   "badge": "216692.png",
+   "description": "Deliver your first passenger in Original mode.",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 1,
+   "title": "First Passenger - Original",
+   "unlocked_at": 1786558309
+  },
+  {
+   "badge": "216877.png",
+   "description": "Earn the C license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 3,
+   "title": "License Class C - Arcade",
+   "unlocked_at": 1786558222
+  },
+  {
+   "badge": "216879.png",
+   "description": "Earn the D license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 2,
+   "title": "License Class D - Arcade",
+   "unlocked_at": 1786558222
+  },
+  {
+   "badge": "216889.png",
+   "description": "Become at least 25th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 5,
+   "title": "Ranking Intermediate - Arcade",
+   "unlocked_at": 1786558147
+  },
+  {
+   "badge": "216887.png",
+   "description": "Become at least 40th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 3,
+   "title": "Ranking Beginner - Arcade",
+   "unlocked_at": 1786558079
+  },
+  {
+   "badge": "216693.png",
+   "description": "Deliver your first passenger in Arcade mode.",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 1,
+   "title": "First Passenger - Arcade",
+   "unlocked_at": 1786558016
+  },
   {
    "badge": "372907.png",
    "description": "Get 3 extra lives from the bonus game",
@@ -271,14 +325,14 @@
  "stats": {
   "achievements_total_library": 381198,
   "achievements_total_played": 891,
-  "achievements_unlocked": 10,
+  "achievements_unlocked": 16,
   "games_in_library": 7138,
   "games_mastered": 0,
   "games_played": 12,
   "games_with_achievements": 12,
-  "games_with_unlocks": 8,
-  "percent_played": 1.1,
-  "points_total": 23
+  "games_with_unlocks": 9,
+  "percent_played": 1.8,
+  "points_total": 38
  },
  "warning_unlocks_ignored": 0
 }
