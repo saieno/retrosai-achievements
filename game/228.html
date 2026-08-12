@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index,follow">
+<title>Super Mario World - RetroSai Achievements</title>
+<link rel="icon" href="../icons/00000.png">
+<style>
+
+:root{
+  --bg:#0d0f13; --bg2:#12151b; --panel:#171b22; --panel2:#1d222b; --line:#2a313d;
+  --ink:#eef1f5; --ink2:#a7b1bf; --ink3:#6f7a8a;
+  --gold:#f2b134; --hard:#ff7a4d; --soft:#5cc8ff; --good:#5fd08a; --bad:#ef5a5a;
+  --radius:14px; --gap:20px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:400 18px/1.5 "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  padding-bottom:64px;
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;font-weight:650;letter-spacing:-.01em}
+h2{font-size:1.35rem;margin-bottom:14px}
+.wrap{max-width:1500px;margin:0 auto;padding:0 24px}
+header.top{
+  position:sticky;top:0;z-index:20;background:rgba(13,15,19,.94);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(8px);
+}
+header.top .wrap{display:flex;align-items:center;gap:20px;height:78px}
+.brand{display:flex;align-items:center;gap:12px;font-size:1.3rem;font-weight:650}
+.brand .mark{
+  width:38px;height:38px;border-radius:11px;background:var(--gold);color:#20160a;
+  display:grid;place-items:center;font-size:1.25rem;flex:0 0 auto
+}
+.brand .thin{color:var(--ink2);font-weight:400}
+.spacer{flex:1}
+.who{display:flex;align-items:center;gap:10px;color:var(--ink2);font-size:.95rem}
+select,input[type=search],button{
+  font:inherit;color:var(--ink);background:var(--panel2);
+  border:1px solid var(--line);border-radius:10px;padding:10px 14px
+}
+input[type=search]{min-width:min(340px,52vw)}
+select:focus,input:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+button{cursor:pointer}
+button:hover{border-color:#3d4757}
+main{padding-top:28px}
+.panel{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;margin-bottom:var(--gap)
+}
+.muted{color:var(--ink2)}
+.dim{color:var(--ink3)}
+.tiny{font-size:.85rem}
+
+/* headline stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;
+  margin-bottom:var(--gap)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px}
+.stat .n{font-size:2.6rem;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.stat .l{color:var(--ink2);font-size:.95rem;margin-top:6px}
+.stat .s{color:var(--ink3);font-size:.85rem;margin-top:2px}
+.stat.hard .n{color:var(--hard)} .stat.soft .n{color:var(--soft)}
+.stat.gold .n{color:var(--gold)} .stat.good .n{color:var(--good)}
+
+/* now playing */
+.np{display:flex;gap:20px;align-items:center;
+  border-left:4px solid var(--good)}
+.np img{width:84px;height:84px;border-radius:12px;background:var(--panel2);flex:0 0 auto}
+.np .t{font-size:1.35rem;font-weight:650}
+.np .rp{color:var(--ink2);margin-top:4px}
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--good);
+  font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
+.live .dot{width:9px;height:9px;border-radius:50%;background:var(--good);
+  animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* recent unlocks */
+.recent{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.unlock{display:flex;gap:14px;align-items:center;background:var(--panel2);
+  border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.unlock img{width:56px;height:56px;border-radius:9px;flex:0 0 auto;background:#0b0d11}
+.unlock .t{font-weight:600}
+.unlock .m{color:var(--ink2);font-size:.88rem;margin-top:2px}
+.pts{color:var(--gold);font-weight:650;white-space:nowrap}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+  padding:9px 18px;font-size:.95rem}
+.chip[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#20160a;
+  font-weight:600}
+
+/* game list */
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(390px,1fr));gap:14px}
+.game{display:flex;gap:16px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px;align-items:center}
+.game:hover{border-color:#41506a;background:#212734}
+.game img{width:64px;height:64px;border-radius:10px;flex:0 0 auto;background:#0b0d11;
+  object-fit:cover}
+.game .body{flex:1;min-width:0}
+.game .t{font-weight:620;font-size:1.05rem;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.game .m{color:var(--ink2);font-size:.86rem;margin-top:2px;display:flex;gap:10px;
+  flex-wrap:wrap}
+.bar{height:8px;border-radius:99px;background:#0b0d11;margin-top:9px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:99px}
+.bar.done i{background:var(--good)}
+.star{color:var(--gold);font-size:1.25rem;flex:0 0 auto}
+
+/* game detail */
+.hero{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.hero img{width:120px;height:120px;border-radius:16px;background:var(--panel2)}
+.back{color:var(--ink2);font-size:.95rem;display:inline-block;margin-bottom:10px}
+.back:hover{color:var(--ink)}
+.gametitle{font-size:2.1rem;line-height:1.15}
+.gamesub{color:var(--ink2);margin:6px 0 0}
+.achlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:14px}
+.ach{display:flex;gap:16px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px}
+.ach.locked{opacity:.62}
+.ach.unlocked{border-color:#3a4a3d;background:#1a2320}
+.ach img{width:64px;height:64px;border-radius:10px;flex:0 0 auto;background:#0b0d11}
+.ach .t{font-weight:620}
+.ach .d{color:var(--ink2);font-size:.92rem;margin-top:3px}
+.ach .m{margin-top:6px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  font-size:.82rem;color:var(--ink3)}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.75rem;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+
+.danger{border-color:#4a2b2b}
+button.reset{background:#2a1a1a;border-color:#5a3030;color:#ff9d9d}
+button.reset:hover{background:#3a2020;border-color:var(--bad)}
+dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px;max-width:min(560px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog h2{margin-bottom:12px}
+dialog .row{display:flex;gap:12px;justify-content:flex-end;margin-top:22px}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:6px;padding:2px 7px;
+  font-size:.85rem;word-break:break-all}
+.empty{color:var(--ink2);padding:14px 0}
+.notice{background:#1b2028;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;color:var(--ink2);font-size:.92rem;margin-bottom:14px}
+
+@media (max-width:760px){
+  body{font-size:17px}
+  .wrap{padding:0 16px}
+  header.top .wrap{height:auto;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+  .panel{padding:18px}
+  .games,.achlist,.recent{grid-template-columns:1fr}
+  .stat .n{font-size:2.1rem}
+  input[type=search]{min-width:100%}
+}
+@media (min-width:1600px){ body{font-size:19px} }
+
+.snapshot{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;
+  background:#1b2028;border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:10px;padding:12px 16px;color:var(--ink2);font-size:.92rem;
+  margin-bottom:var(--gap)}
+.snapshot b{color:var(--ink);font-weight:600}
+.game{color:inherit}
+footer.foot{color:var(--ink3);font-size:.85rem;padding:26px 0 0;
+  border-top:1px solid var(--line);margin-top:var(--gap)}
+
+</style>
+</head>
+<body>
+<script id="sitedata" type="application/json" data-base="../">{"achievements": [{"badge": "46591.png", "badge_locked": "46591_lock.png", "description": "Collect 5 Dragon Coins in a level", "id": 341, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Unleash The Dragon", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46580.png", "badge_locked": "46580_lock.png", "description": "Catch a ride with a friend", "id": 342, "points": 1, "set": "Super Mario World", "set_type": "core", "title": "Giddy Up!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46599.png", "badge_locked": "46599_lock.png", "description": "Defeat Morton Koopa Jr. of Castle #2", "id": 347, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Morton Enough", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47084.png", "badge_locked": "47084_lock.png", "description": "Cross the finish line at the end of the stage and collect the max 50 stars", "id": 1706, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Maximum Finish", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47069.png", "badge_locked": "47069_lock.png", "description": "Hit the buttons in all four coloured switch palaces", "id": 2199, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Filling All The Blocks In", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47085.png", "badge_locked": "47085_lock.png", "description": "Score 8 extra lives in the 'Bonus Game'", "id": 2246, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Perfect Bonus Stage", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46597.png", "badge_locked": "46597_lock.png", "description": "Defeat the Reznor atop Vanilla Dome", "id": 2250, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Reznor - Flaming Wheel of Death", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47083.png", "badge_locked": "47083_lock.png", "description": "Collect a P-Balloon", "id": 2251, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Another Kind of Flying", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46598.png", "badge_locked": "46598_lock.png", "description": "Defeat Iggy Koopa of Castle #1", "id": 2253, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "I is for Icky Iggy", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "46600.png", "badge_locked": "46600_lock.png", "description": "Defeat Lemmy Koopa of Castle #3", "id": 2261, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Lemmy Down Slowly", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46601.png", "badge_locked": "46601_lock.png", "description": "Defeat Ludwig von Koopa of Castle #4", "id": 2262, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Ludwig's Last Symphony", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46575.png", "badge_locked": "46575_lock.png", "description": "Clear the fewest stages possible and beat the game", "id": 2274, "points": 25, "set": "Super Mario World", "set_type": "core", "title": "Shortest Route", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46760.png", "badge_locked": "46760_lock.png", "description": "Beat Bowser and save the princess", "id": 2275, "points": 25, "set": "Super Mario World", "set_type": "core", "title": "Bowser Disposer", "type_label": "Win condition", "unlocked": false, "unlocked_at": 0}, {"badge": "46593.png", "badge_locked": "46593_lock.png", "description": "Get the princess kiss as Fire Mario (Front Door!)", "id": 2277, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Burning Bowser", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46579.png", "badge_locked": "46579_lock.png", "description": "Clear the game without dying in one session", "id": 2297, "points": 25, "set": "Super Mario World", "set_type": "core", "title": "Starman Challenge", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47072.png", "badge_locked": "47072_lock.png", "description": "Reach the Star Road", "id": 2298, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "To the Stars!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46596.png", "badge_locked": "46596_lock.png", "description": "Find and defeat the hidden Big Boo in Donut Secret House", "id": 2299, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Shoo! Shoo! Big Boo", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47073.png", "badge_locked": "47073_lock.png", "description": "Get to the challenging Special Zone", "id": 2300, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Mario's Special Place", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47074.png", "badge_locked": "47074_lock.png", "description": "Clear the Special Zone and change the seasons in Dinosaur Land", "id": 2302, "points": 25, "set": "Super Mario World", "set_type": "core", "title": "Change of Scenery", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46563.png", "badge_locked": "46563_lock.png", "description": "Find the secret in the Special Zone", "id": 2303, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "That Oh-So-Familiar Tune", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46761.png", "badge_locked": "46761_lock.png", "description": "100% clear the game", "id": 2304, "points": 50, "set": "Super Mario World", "set_type": "core", "title": "All Exits", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47071.png", "badge_locked": "47071_lock.png", "description": "Walk in a circle on Chocolate Island", "id": 2305, "points": 1, "set": "Super Mario World", "set_type": "core", "title": "Chocolate Donut", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46602.png", "badge_locked": "46602_lock.png", "description": "Defeat Roy Koopa of Castle #5", "id": 2306, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Roy's Ploy Destroy-ed", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46597.png", "badge_locked": "46597_lock.png", "description": "(demoted) Defeat the Reznor at the center of Chocolate Island", "id": 2308, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "Reznor, Do You Ever Give Up? (dmt)", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46603.png", "badge_locked": "46603_lock.png", "description": "Defeat Wendy O. Koopa of Castle #6", "id": 2309, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Wendy Chips Are Down", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46604.png", "badge_locked": "46604_lock.png", "description": "Defeat Larry Koopa of Castle #7", "id": 2342, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Larry in the Airy", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47075.png", "badge_locked": "47075_lock.png", "description": "Access a secret area in the Forest Fortress", "id": 2985, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "The Investigator", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46577.png", "badge_locked": "46577_lock.png", "description": "Collect a feather", "id": 4874, "points": 1, "set": "Super Mario World", "set_type": "core", "title": "I Believe I Can Fly", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46571.png", "badge_locked": "46571_lock.png", "description": "Hijack a Lakitu's cloud", "id": 4933, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Floating Through The Clouds", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46590.png", "badge_locked": "46590_lock.png", "description": "In a single session, collect 5 Dragon Coins in every level that has them in Yoshi's Island", "id": 29653, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Birth of Economy", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46589.png", "badge_locked": "46589_lock.png", "description": "In a single session, collect 5 Dragon Coins in every level that has them in Donut Plains", "id": 29654, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "A Hole in Your Wallet", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46588.png", "badge_locked": "46588_lock.png", "description": "In a single session, collect 5 Dragon Coins in every level that has them in Vanilla Dome", "id": 29655, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Like a Giant Bank", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46587.png", "badge_locked": "46587_lock.png", "description": "In a single session, collect 5 Dragon Coins in every level that has them in Twin Bridges", "id": 29656, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Economic Gaps", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46586.png", "badge_locked": "46586_lock.png", "description": "In a single session, collect 5 Dragon Coins in every level that has them in the Forest, including the castle", "id": 29657, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Illusions of Grandeur", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46585.png", "badge_locked": "46585_lock.png", "description": "In a single session, collect 5 Dragon Coins in every level that has them in Chocolate Island and the Sunken Ghost Ship", "id": 29658, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Sweet Greed", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46584.png", "badge_locked": "46584_lock.png", "description": "In a single session, collect 5 Dragon Coins in every level that has them in the Valley of Bowser, including the castle", "id": 29659, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "The Dragon's Hoard", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46583.png", "badge_locked": "46583_lock.png", "description": "In a single session, collect 5 Dragon Coins in every level that has them in Special Zone and Star Road", "id": 29660, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Special Sorta Person", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46561.png", "badge_locked": "46561_lock.png", "description": "Collect the 3-Up Moon in Yoshi's Island", "id": 29661, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Super Moonio", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46560.png", "badge_locked": "46560_lock.png", "description": "Collect the 3-Up Moon in Donut Plains", "id": 29662, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Crescent Donut", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46559.png", "badge_locked": "46559_lock.png", "description": "Collect the 3-Up Moon in Vanilla Dome", "id": 29663, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Lunar Vanilla", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46558.png", "badge_locked": "46558_lock.png", "description": "Collect the 3-Up Moon in Twin Bridges", "id": 29664, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Bridge Over Moonlit Water", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46557.png", "badge_locked": "46557_lock.png", "description": "Collect the 3-Up Moon in the Forest of Illusion", "id": 29665, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "A False Moon", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46556.png", "badge_locked": "46556_lock.png", "description": "Collect the 3-Up Moon in Chocolate Island", "id": 29666, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Lunaddiction", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46555.png", "badge_locked": "46555_lock.png", "description": "Collect the 3-Up Moon in the Valley of Bowser", "id": 29667, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Under A Koopa Moon", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46755.png", "badge_locked": "46755_lock.png", "description": "From Yoshi's Island 2 reach and beat #3 Lemmy's Castle in one Session without using Power-Ups, without using Yoshi and without active Switch Palace Blocks.", "id": 45856, "points": 25, "set": "Super Mario World", "set_type": "core", "title": "[Legacy] Mini-Mario vs the World I", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "46551.png", "badge_locked": "46551_lock.png", "description": "Obtain 1-up from Bonus Block in Yoshi's Island 3", "id": 45901, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Bonus on the Island", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46552.png", "badge_locked": "46552_lock.png", "description": "Obtain 1-up from Bonus Block in Donut Plains 3", "id": 45902, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Bonus of the Donuts", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46553.png", "badge_locked": "46553_lock.png", "description": "Obtain 1-up from Bonus Block in Butter Bridge 1", "id": 45903, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Bonus on the Butter", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46554.png", "badge_locked": "46554_lock.png", "description": "Obtain 1-up from Bonus Block in Chocolate Island 3", "id": 45904, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Bonus of the Chocolate", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46550.png", "badge_locked": "46550_lock.png", "description": "Riding yellow Yoshi, press the yellow switch", "id": 45905, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Color by Yoshi - Yellow", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "46549.png", "badge_locked": "46549_lock.png", "description": "Riding green Yoshi, press the green switch", "id": 45906, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Color by Yoshi - Green", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "46548.png", "badge_locked": "46548_lock.png", "description": "Riding red Yoshi, press the red switch", "id": 45907, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Color by Yoshi - Red", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "46547.png", "badge_locked": "46547_lock.png", "description": "Riding blue Yoshi, press the blue switch", "id": 45908, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Color by Yoshi - Blue", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "46756.png", "badge_locked": "46756_lock.png", "description": "From Cheese Bridge Area reach and beat #5 Roy's Castle and Forest Fortress in one Session without using Power-Ups except the P-Balloon and in Forest of Illusion 3, without using Yoshi and without active Switch Palace Blocks.", "id": 45994, "points": 25, "set": "Super Mario World", "set_type": "core", "title": "[Legacy] Mini-Mario vs the World II", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "46757.png", "badge_locked": "46757_lock.png", "description": "From Chocolate Island 1, unlock all Level Entrances in Valley of Bowser and beat the Front Door in one Session without using Power-Ups except Sunken Ghost Ships' Super Star, without using Yoshi and without active Switch Palace Blocks.", "id": 45995, "points": 25, "set": "Super Mario World", "set_type": "core", "title": "[Legacy] Mini-Mario vs the World III", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "46758.png", "badge_locked": "46758_lock.png", "description": "From Gnarly reach and beat Funky in one Session without using Power-Ups except the P-Balloon, without using Yoshi and without active Switch Palace Blocks.", "id": 45996, "points": 50, "set": "Super Mario World", "set_type": "core", "title": "[Legacy] Mini-Mario vs the World SPECIAL", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "46615.png", "badge_locked": "46615_lock.png", "description": "On Forest of Illusion 4, get past Lakitu without killing him or taking the 1-up. No cape, wings.", "id": 45997, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Didn't Take the Bait", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46617.png", "badge_locked": "46617_lock.png", "description": "Get 20 1-ups on Vanilla Secret 2 without touching the ground", "id": 45998, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "I could do this all day (unofficial)", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46677.png", "badge_locked": "46677_lock.png", "description": "Complete SPECIAL-Tubular without Blue Yoshi, or Balloon Mario", "id": 45999, "points": 25, "set": "Super Mario World", "set_type": "core", "title": "Who Needs Helium?", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46665.png", "badge_locked": "46665_lock.png", "description": "Complete SPECIAL-Groovy without landing past the first ? box. No Yoshi", "id": 46000, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "A Groovy Flight", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46666.png", "badge_locked": "46666_lock.png", "description": "Get to the normal exit of Forest of Illusion 2 without touching any walls, enemies, blue blocks", "id": 46001, "points": 25, "set": "Super Mario World", "set_type": "core", "title": "Everything is Lava", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46668.png", "badge_locked": "46668_lock.png", "description": "Help Yoshi lay a cloud egg and get 10 happy coins to summon a 1up", "id": 46003, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Yoshi's a Mommy?", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46608.png", "badge_locked": "46608_lock.png", "description": "Get 8 1-ups at #1 Iggy's Castle with 230 or more on the time clock", "id": 46004, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Fence Offense", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46669.png", "badge_locked": "46669_lock.png", "description": "Complete SPECIAL-Funky with 300 or more on the time clock", "id": 46005, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "With More Than You Started", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46670.png", "badge_locked": "46670_lock.png", "description": "Pound 10* spinys hard on 6-5 with Y. Yoshi. Don't spit or swallow til the end", "id": 46006, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "A Trip to Pound Town (dmt, fals pos)", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46607.png", "badge_locked": "46607_lock.png", "description": "On Star world 4 bring Baby Yoshi to the end flag without feeding it to adulthood", "id": 46007, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "I Starved Yoshi and All I Got Was...", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46759.png", "badge_locked": "46759_lock.png", "description": "At the start of Yoshi's Island 2, overturn all 8 Koopas at the same time with a cape pound", "id": 46010, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "A Mighty Quake", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46564.png", "badge_locked": "46564_lock.png", "description": "Collect a P-Balloon", "id": 46062, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "Another Kind of Flying (legacy)", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46769.png", "badge_locked": "46769_lock.png", "description": "Complete all 8 numbered rooms in one game session", "id": 46119, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "Bowser Castle Explorer (dup)", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47078.png", "badge_locked": "47078_lock.png", "description": "Complete all 8 numbered rooms in one game session", "id": 46120, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Bowser's Castle Explorer", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46771.png", "badge_locked": "46771_lock.png", "description": "Get the Normal Exit in Donut Ghost House without a Feather or Climbing on a Vine", "id": 46170, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Who Needs Vines?", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47080.png", "badge_locked": "47080_lock.png", "description": "Don't score any points reaching keyhole exits on stages in Worlds 4, 6 and 7", "id": 46305, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "Loopholes by Keyholes - Chocolate Forest Bowser (bonus)", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46908.png", "badge_locked": "46908_lock.png", "description": "See achievement comments for details", "id": 46307, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "Super Pacifist Mario feat. Hungry Yoshi I (Yoshi Island) (bon)", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46909.png", "badge_locked": "46909_lock.png", "description": "See achievement comments for details", "id": 46308, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "Super Pacifist Marioi II (Donut Plains) (bonus)", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46910.png", "badge_locked": "46910_lock.png", "description": "See achievement comments for details", "id": 46309, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "Super Pacifist Mario III (Vanilla Dome) (bonus)", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "46911.png", "badge_locked": "46911_lock.png", "description": "See achievement comments for details", "id": 46310, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "Super Pacifist Mario IV (Twin Bridges) (bonus)", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "47076.png", "badge_locked": "47076_lock.png", "description": "In the first room of Donut Secret House, kill Big Boo", "id": 46331, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Spooking Big Boo", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "92297.png", "badge_locked": "92297_lock.png", "description": "die for the first time", "id": 85062, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "I failed you, my princess", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "92297.png", "badge_locked": "92297_lock.png", "description": "die for the first time", "id": 85977, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "I failed you, my princess", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "00000.png", "badge_locked": "00000_lock.png", "description": "Have 99 coins. Simple enough.", "id": 102935, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "A Man's Worth of Coins", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "124010.png", "badge_locked": "124010_lock.png", "description": "Find the secret room on #2 Castle", "id": 113670, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Hey, look There's a shortcut here!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "00080.png", "badge_locked": "00080_lock.png", "description": "Open Super Mario Word", "id": 128311, "points": 1, "set": "Super Mario World", "set_type": "core", "title": "Wellcome", "type_label": "", "unlocked": true, "unlocked_at": 1786560760}, {"badge": "141067.png", "badge_locked": "141067_lock.png", "description": "Open the game", "id": 128312, "points": 1, "set": "Super Mario World", "set_type": "core", "title": "Wellcome", "type_label": "", "unlocked": true, "unlocked_at": 1786560760}, {"badge": "195401.png", "badge_locked": "195401_lock.png", "description": "Make Mario dance during the credits", "id": 175188, "points": 0, "set": "Super Mario World", "set_type": "core", "title": "Do The Mario!", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431957.png", "badge_locked": "431957_lock.png", "description": "Reenter a Castle after it was destroyed by pressing L + R.", "id": 383324, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Entering the Castle Ruins", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431958.png", "badge_locked": "431958_lock.png", "description": "Trigger the hidden 1-Up in Donut Plains 1.", "id": 383325, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Chucks", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431959.png", "badge_locked": "431959_lock.png", "description": "Trigger the hidden 1-Up in Donut Plains 4.", "id": 383326, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Galoombas", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431960.png", "badge_locked": "431960_lock.png", "description": "Trigger the hidden 1-Up in Cookie Mountain.", "id": 383327, "points": 1, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Sumo Bros", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431961.png", "badge_locked": "431961_lock.png", "description": "Trigger the hidden 1-Up in Yoshi's Island 4.", "id": 383328, "points": 3, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Cheep Cheeps", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431962.png", "badge_locked": "431962_lock.png", "description": "Trigger the hidden 1-Up in #6 Wendy's Castle.", "id": 383329, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Secrets of Wendy", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431963.png", "badge_locked": "431963_lock.png", "description": "Trigger the hidden 1-Up in Chocolate Island 2.", "id": 383330, "points": 3, "set": "Super Mario World", "set_type": "core", "title": "Secrets of Chocolate", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431964.png", "badge_locked": "431964_lock.png", "description": "Trigger the hidden 1-Up in Vanilla Fortress.", "id": 383331, "points": 3, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Fishbones", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431965.png", "badge_locked": "431965_lock.png", "description": "Trigger the hidden 1-Up in #2 Morton's Castle.", "id": 383332, "points": 1, "set": "Super Mario World", "set_type": "core", "title": "Secrets of Morton", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431966.png", "badge_locked": "431966_lock.png", "description": "Trigger the hidden 1-Up in Vanilla Ghost House.", "id": 383333, "points": 3, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Boos", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431970.png", "badge_locked": "431970_lock.png", "description": "Trigger the hidden 1-Up in Gnarly.", "id": 383334, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Vines", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431974.png", "badge_locked": "431974_lock.png", "description": "Trigger the hidden 1-Up in Vanilla Dome 4.", "id": 383335, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Bullet Bills", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431975.png", "badge_locked": "431975_lock.png", "description": "Trigger the hidden 1-Up in Forest of Illusion 3.", "id": 383336, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Bubbles", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431976.png", "badge_locked": "431976_lock.png", "description": "Trigger the second hidden 1-Up in Valley of Bowser 2.", "id": 383337, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Moving Walls II", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431977.png", "badge_locked": "431977_lock.png", "description": "Enter all 1-Up Chambers in a single Session.", "id": 383338, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Gambling with Life", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431978.png", "badge_locked": "431978_lock.png", "description": "Trigger the hidden 1-Up in #7 Larry's Castle.", "id": 383339, "points": 3, "set": "Super Mario World", "set_type": "core", "title": "Secrets of Larry", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "431979.png", "badge_locked": "431979_lock.png", "description": "Trigger the first hidden 1-Up in Valley of Bowser 2.", "id": 383340, "points": 2, "set": "Super Mario World", "set_type": "core", "title": "Secrets of the Moving Walls", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "595080.png", "badge_locked": "595080_lock.png", "description": "Without returning to the main menu, clear each of the 5 stages in Yoshi's Island entirely as small Mario without using checkpoints, Starmen, or Yoshis.", "id": 524921, "points": 5, "set": "Super Mario World", "set_type": "core", "title": "Mini Mario vs. Yoshi's Island", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "595081.png", "badge_locked": "595081_lock.png", "description": "Without returning to the main menu, clear each of the 9 stages in Donut Plains entirely as small Mario without using checkpoints, Starmen, or Yoshis.", "id": 524922, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Mini Mario vs. Donut Plains", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "595082.png", "badge_locked": "595082_lock.png", "description": "Without returning to the main menu, clear each of the 10 stages in Vanilla Dome entirely as small Mario without using checkpoints, Starmen, or Yoshis.", "id": 524923, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Mini Mario vs. Vanilla Dome", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "595083.png", "badge_locked": "595083_lock.png", "description": "Without returning to the main menu, clear each of the 6 stages in Twin Bridges entirely as small Mario without using checkpoints, Starmen, or Yoshis.", "id": 524924, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Mini Mario vs. Twin Bridges", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "595084.png", "badge_locked": "595084_lock.png", "description": "Without returning to the main menu, clear each of the 8 stages in Forest of Illusion entirely as small Mario without using checkpoints, Starmen, or Yoshis.", "id": 524925, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Mini Mario vs. Forest of Illusion", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "595085.png", "badge_locked": "595085_lock.png", "description": "Without returning to the main menu, clear each of the 9 stages in Chocolate Island entirely as small Mario without using checkpoints, Starmen, or Yoshis.", "id": 524926, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Mini Mario vs. Chocolate Island", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "595086.png", "badge_locked": "595086_lock.png", "description": "Without returning to the main menu, clear each of the 8 stages in Valley of Bowser entirely as small Mario without using checkpoints, Starmen, or Yoshis. (No Back Door)", "id": 524927, "points": 10, "set": "Super Mario World", "set_type": "core", "title": "Mini Mario vs. Valley of Bowser", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "595087.png", "badge_locked": "595087_lock.png", "description": "Without returning to the main menu, clear each of the 8 stages in Special World entirely as small Mario without using checkpoints, Starmen, or Yoshis.", "id": 524928, "points": 50, "set": "Super Mario World", "set_type": "core", "title": "Mini Mario vs. Special World", "type_label": "", "unlocked": false, "unlocked_at": 0}], "display_name": "RetroSai", "game": {"console": "SNES/Super Famicom", "icon": "126558.png", "id": 228, "last_played": 1786560756, "mastered": false, "percent": 1.8, "played": true, "points": 2, "points_total": 845, "title": "Super Mario World", "total": 109, "unlocked": 2}, "generated_at": 1786560769}</script>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">&#9733;</span>
+      <span>RetroSai <span class="thin">Achievements</span></span>
+    </div>
+    <div class="spacer"></div>
+    <div class="who" id="who"></div>
+  </div>
+</header>
+<main class="wrap">
+<a class="back" href="../index.html">&larr; All games</a><h1 class="gametitle">Super Mario World</h1><p class="gamesub">SNES/Super Famicom</p>
+
+<div class="snapshot" id="snapshot"></div>
+<section class="panel">
+  <div class="hero">
+    <img id="heroicon" src="" alt="">
+    <div class="stats" id="herostats" style="flex:1;margin:0"></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Achievements <span id="achcount" class="muted tiny"></span></h2>
+  <div id="achlist" class="achlist"></div>
+</section>
+
+<footer class="foot" id="foot"></footer>
+</main>
+<script>
+
+var NODE = document.getElementById('sitedata');
+var DATA = JSON.parse(NODE.textContent);
+var BASE = NODE.getAttribute('data-base') || '';
+
+function q(sel, root){ return (root||document).querySelector(sel); }
+function el(tag, cls, text){
+  var node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text !== undefined && text !== null) node.textContent = String(text);
+  return node;
+}
+function img(src, alt){
+  var node = document.createElement('img');
+  node.src = src; node.alt = alt || ''; node.decoding = 'async';
+  return node;
+}
+function badgeSrc(name){ return BASE + 'badges/' + name; }
+function iconSrc(name){ return BASE + 'icons/' + name; }
+function gameHref(id){ return BASE + 'game/' + id + '.html'; }
+function num(value){ return (value === null || value === undefined) ? '0'
+  : Number(value).toLocaleString(); }
+
+/* Relative times are measured against the SNAPSHOT, not against the reader's clock:
+   this page does not update itself, so "2h ago" would quietly become a lie. */
+function ago(t){
+  if (!t) return 'never';
+  var secs = (DATA.generated_at || 0) - t;
+  if (secs < 0) secs = 0;
+  if (secs < 60) return 'just before';
+  if (secs < 3600) return Math.floor(secs/60) + 'm before';
+  if (secs < 86400) return Math.floor(secs/3600) + 'h before';
+  if (secs < 2592000) return Math.floor(secs/86400) + 'd before';
+  return stampDate(t);
+}
+function stampDate(t){
+  if (!t) return '';
+  return new Date(t * 1000).toLocaleDateString(undefined,
+    {day:'numeric', month:'short', year:'numeric'});
+}
+function stampFull(t){
+  if (!t) return '';
+  return new Date(t * 1000).toLocaleString();
+}
+
+function paintChrome(){
+  var who = q('#who');
+  if (who) { who.textContent = ''; who.appendChild(el('span', null, DATA.display_name)); }
+  var snap = q('#snapshot');
+  if (snap) {
+    snap.textContent = '';
+    snap.appendChild(el('b', null, 'Snapshot'));
+    snap.appendChild(el('span', null,
+      'This is a static export, not a live page. It does not update by itself.'));
+    var when = el('span', 'dim', 'Generated ' + stampFull(DATA.generated_at));
+    snap.appendChild(when);
+  }
+  var foot = q('#foot');
+  if (foot) {
+    foot.textContent = 'RetroSai Achievements - generated ' + stampFull(DATA.generated_at)
+      + '. Offline RetroAchievements, recorded locally. Static snapshot; no live data.';
+  }
+}
+
+function progressBar(unlocked, total){
+  var wrap = el('div', 'bar' + (total > 0 && unlocked >= total ? ' done' : ''));
+  var fill = el('i');
+  fill.style.width = (total > 0 ? Math.round(100 * unlocked / total) : 0) + '%';
+  wrap.appendChild(fill);
+  return wrap;
+}
+
+function statTile(n, label, sub, cls){
+  var tile = el('div', 'stat' + (cls ? ' ' + cls : ''));
+  tile.appendChild(el('div', 'n', n));
+  tile.appendChild(el('div', 'l', label));
+  if (sub) tile.appendChild(el('div', 's', sub));
+  return tile;
+}
+
+function unlockCard(u){
+  var card = el('div', 'unlock');
+  card.appendChild(img(badgeSrc(u.badge), u.title));
+  var body = el('div');
+  body.style.flex = '1';
+  body.style.minWidth = '0';
+  body.appendChild(el('div', 't', u.title));
+  body.appendChild(el('div', 'm', u.game_title + '  \u00b7  ' + ago(u.unlocked_at)));
+  card.appendChild(body);
+  card.appendChild(el('div', 'pts', u.points + ' pts'));
+  card.title = u.description || '';
+  return card;
+}
+
+function gameCard(g){
+  var card = document.createElement(DATA.game_pages ? 'a' : 'div');
+  card.className = 'game';
+  if (DATA.game_pages) card.href = gameHref(g.id);
+  card.appendChild(img(iconSrc(g.icon), ''));
+  var body = el('div', 'body');
+  body.appendChild(el('div', 't', g.title));
+  var meta = el('div', 'm');
+  if (g.total > 0) {
+    meta.appendChild(el('span', null, g.unlocked + ' / ' + g.total + ' \u00b7 '
+      + g.percent + '%'));
+    meta.appendChild(el('span', null, num(g.points) + ' / ' + num(g.points_total)
+      + ' pts'));
+  } else {
+    meta.appendChild(el('span', null, 'no achievements'));
+  }
+  if (g.console) meta.appendChild(el('span', 'dim', g.console));
+  if (g.last_played) meta.appendChild(el('span', 'dim', 'played ' + ago(g.last_played)));
+  body.appendChild(meta);
+  if (g.total > 0) body.appendChild(progressBar(g.unlocked, g.total));
+  card.appendChild(body);
+  if (g.mastered) {
+    var star = el('div', 'star', '\u2605');
+    star.title = 'Mastered';
+    card.appendChild(star);
+  }
+  return card;
+}
+
+/* ---------- home ---------- */
+
+var state = {scope:'all', q:'', sort:'last_played', order:'desc', shown:60};
+
+function defaultOrder(sort){
+  return (sort === 'title' || sort === 'console') ? 'asc' : 'desc';
+}
+
+var SORT_KEYS = {
+  title:        function(g){ return [g.title.toLowerCase(), g.id]; },
+  last_played:  function(g){ return [g.last_played, g.unlocked]; },
+  percent:      function(g){ return [g.percent, g.unlocked]; },
+  unlocked:     function(g){ return [g.unlocked, g.percent]; },
+  points:       function(g){ return [g.points, g.unlocked]; },
+  points_total: function(g){ return [g.points_total, g.total]; },
+  total:        function(g){ return [g.total, g.unlocked]; },
+  console:      function(g){ return [g.console.toLowerCase(), g.title.toLowerCase()]; }
+};
+
+function cmpKey(a, b){
+  for (var i = 0; i < a.length && i < b.length; i++) {
+    if (a[i] < b[i]) return -1;
+    if (a[i] > b[i]) return 1;
+  }
+  return 0;
+}
+
+/* Same two-pass ordering as dashboard.api_games: sort by title first so ties always come
+   out A-Z, then by the requested key.  Array.prototype.sort is stable, so the second pass
+   preserves the first. */
+function ordered(list, sort, order){
+  var out = list.slice();
+  out.sort(function(a, b){ return cmpKey(SORT_KEYS.title(a), SORT_KEYS.title(b)); });
+  if (sort === 'title') {
+    if (order === 'desc') out.reverse();
+    return out;
+  }
+  var key = SORT_KEYS[sort] || SORT_KEYS.title;
+  var sign = (order === 'asc') ? 1 : -1;
+  out.sort(function(a, b){ return sign * cmpKey(key(a), key(b)); });
+  return out;
+}
+
+function matches(g){
+  if (state.scope === 'played' && !g.played) return false;
+  if (state.scope === 'progress'
+      && !(g.total > 0 && g.unlocked > 0 && g.unlocked < g.total)) return false;
+  if (state.scope === 'mastered' && !g.mastered) return false;
+  if (state.q && g.title.toLowerCase().indexOf(state.q) < 0) return false;
+  return true;
+}
+
+function paintGames(){
+  var all = [];
+  for (var i = 0; i < DATA.games.length; i++) {
+    if (matches(DATA.games[i])) all.push(DATA.games[i]);
+  }
+  all = ordered(all, state.sort, state.order);
+  var box = q('#games');
+  box.textContent = '';
+  var page = all.slice(0, state.shown);
+  for (var j = 0; j < page.length; j++) box.appendChild(gameCard(page[j]));
+  if (!page.length) {
+    box.appendChild(el('div', 'empty', state.q
+      ? 'No games match "' + state.q + '".' : 'Nothing here yet.'));
+  }
+  q('#gamecount').textContent = num(all.length) + ' game'
+    + (all.length === 1 ? '' : 's');
+  var more = q('#gamesmore');
+  more.textContent = '';
+  if (all.length > page.length) {
+    var left = all.length - page.length;
+    var button = el('button', null, 'Show more (' + num(left) + ' left)');
+    button.addEventListener('click', function(){
+      state.shown += 60;
+      paintGames();
+    });
+    more.appendChild(button);
+  }
+}
+
+function paintStats(){
+  var s = DATA.stats;
+  var box = q('#stats');
+  box.textContent = '';
+  box.appendChild(statTile(num(s.games_played), 'games played',
+    s.games_with_achievements + ' with achievements'));
+  box.appendChild(statTile(num(s.achievements_unlocked), 'achievements unlocked',
+    'of ' + num(s.achievements_total_played) + ' in those games ('
+      + s.percent_played + '%)', 'gold'));
+  /* One points figure - the cab never runs hardcore, so the old split rendered as a
+     permanent "0 hardcore points" beside the real number. */
+  box.appendChild(statTile(num(s.points_total), 'achievement points',
+    'across ' + num(s.games_with_unlocks) + ' games', 'gold'));
+  box.appendChild(statTile(num(s.games_mastered), 'games mastered',
+    'every achievement unlocked', 'good'));
+
+  var note = q('#warnnote');
+  var w = DATA.warning_unlocks_ignored || 0;
+  if (w > 0) {
+    note.hidden = false;
+    note.textContent = w + (w === 1 ? ' "warning" achievement is'
+                                    : ' "warning" achievements are')
+      + ' excluded from every number above. They are client-side nags, not real'
+      + ' achievements.';
+  } else { note.hidden = true; }
+}
+
+function paintRecent(){
+  var box = q('#recent');
+  box.textContent = '';
+  if (!DATA.recent.length) {
+    box.appendChild(el('div', 'empty', 'No unlocks recorded yet.'));
+    return;
+  }
+  for (var i = 0; i < DATA.recent.length; i++) {
+    box.appendChild(unlockCard(DATA.recent[i]));
+  }
+}
+
+function initHome(){
+  paintChrome();
+  state.scope = DATA.default_scope || 'all';
+  Array.prototype.forEach.call(document.querySelectorAll('.chip'), function(chip){
+    chip.setAttribute('aria-pressed',
+      chip.getAttribute('data-scope') === state.scope ? 'true' : 'false');
+    chip.addEventListener('click', function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.chip'), function(other){
+        other.setAttribute('aria-pressed', other === chip ? 'true' : 'false');
+      });
+      state.scope = chip.getAttribute('data-scope');
+      state.shown = 60;
+      paintGames();
+    });
+  });
+  var search = q('#q');
+  var timer = null;
+  search.addEventListener('input', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      state.q = search.value.trim().toLowerCase();
+      state.shown = 60;
+      paintGames();
+    }, 180);
+  });
+  q('#sort').value = state.sort;
+  q('#sort').addEventListener('change', function(){
+    state.sort = q('#sort').value;
+    state.order = defaultOrder(state.sort);
+    state.shown = 60;
+    paintGames();
+  });
+  paintStats();
+  paintRecent();
+  paintGames();
+}
+
+/* ---------- game detail ---------- */
+
+function achCard(a){
+  var card = el('div', 'ach ' + (a.unlocked ? 'unlocked' : 'locked'));
+  card.appendChild(img(badgeSrc(a.unlocked ? a.badge : a.badge_locked), ''));
+  var body = el('div');
+  body.style.flex = '1';
+  body.style.minWidth = '0';
+  body.appendChild(el('div', 't', a.title));
+  body.appendChild(el('div', 'd', a.description));
+  var meta = el('div', 'm');
+  meta.appendChild(el('span', 'pts', a.points + ' pts'));
+  if (a.type_label) meta.appendChild(el('span', 'tag', a.type_label));
+  if (a.unlocked) {
+    meta.appendChild(el('span', null, 'unlocked ' + ago(a.unlocked_at)));
+    meta.title = stampFull(a.unlocked_at);
+  } else {
+    meta.appendChild(el('span', null, 'locked'));
+  }
+  if (a.set_type && a.set_type !== 'core') meta.appendChild(el('span', 'tag', a.set));
+  body.appendChild(meta);
+  card.appendChild(body);
+  return card;
+}
+
+function initGame(){
+  paintChrome();
+  var g = DATA.game;
+  q('#heroicon').src = iconSrc(g.icon);
+  var box = q('#herostats');
+  box.textContent = '';
+  box.appendChild(statTile(g.unlocked + ' / ' + g.total, 'achievements',
+    g.percent + '% complete', 'gold'));
+  box.appendChild(statTile(num(g.points) + ' / ' + num(g.points_total), 'points',
+    'achievement points earned here'));
+  box.appendChild(statTile(g.mastered ? '\u2605' : '\u2014',
+    g.mastered ? 'mastered' : 'not mastered',
+    g.last_played ? ('last played ' + ago(g.last_played)) : 'never played',
+    g.mastered ? 'good' : ''));
+
+  var list = q('#achlist');
+  list.textContent = '';
+  var items = (DATA.achievements || []).slice();
+  items.sort(function(a, b){
+    if (!!b.unlocked !== !!a.unlocked) return b.unlocked ? 1 : -1;
+    if (a.unlocked && b.unlocked) return b.unlocked_at - a.unlocked_at;
+    return a.id - b.id;
+  });
+  if (!items.length) {
+    list.appendChild(el('div', 'empty',
+      'This game has no achievements in the seeded library.'));
+  }
+  items.forEach(function(a){ list.appendChild(achCard(a)); });
+  q('#achcount').textContent = items.length
+    ? (g.unlocked + ' of ' + items.length + ' unlocked') : '';
+}
+
+initGame();
+</script>
+</body>
+</html>
