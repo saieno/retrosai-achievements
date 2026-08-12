@@ -42,6 +42,25 @@
    "unlocked_hardcore": 0
   },
   {
+   "console": "Game Boy Advance",
+   "icon": "046590.png",
+   "id": 760,
+   "last_played": 1786509685,
+   "leaderboards": 0,
+   "mastered": false,
+   "mastered_hardcore": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_hardcore": 0,
+   "points_softcore": 0,
+   "points_total": 820,
+   "title": "Drill Dozer",
+   "total": 81,
+   "unlocked": 0,
+   "unlocked_hardcore": 0
+  },
+  {
    "console": "SNES/Super Famicom",
    "icon": "126033.png",
    "id": 252,
@@ -125,15 +144,15 @@
    "leaderboards": 11,
    "mastered": false,
    "mastered_hardcore": false,
-   "percent": 1.6,
+   "percent": 0.0,
    "played": true,
-   "points": 3,
+   "points": 0,
    "points_hardcore": 0,
-   "points_softcore": 3,
+   "points_softcore": 0,
    "points_total": 831,
    "title": "Metroid: Zero Mission",
    "total": 61,
-   "unlocked": 1,
+   "unlocked": 0,
    "unlocked_hardcore": 0
   },
   {
@@ -175,7 +194,7 @@
    "unlocked_hardcore": 0
   }
  ],
- "generated_at": 1786506519,
+ "generated_at": 1786510910,
  "include": "played",
  "leaderboards": [],
  "recent": [
@@ -188,16 +207,6 @@
    "points": 4,
    "title": "Explosive Chamber",
    "unlocked_at": 1786506507
-  },
-  {
-   "badge": "255208.png",
-   "description": "Obtain the Morph Ball ability",
-   "game_id": 534,
-   "game_title": "Metroid: Zero Mission",
-   "hardcore": false,
-   "points": 3,
-   "title": "Keep On Rollin'",
-   "unlocked_at": 1786505464
   },
   {
    "badge": "216877.png",
@@ -304,19 +313,19 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 387264,
-  "achievements_total_played": 593,
-  "achievements_unlocked": 12,
+  "achievements_total_played": 674,
+  "achievements_unlocked": 11,
   "achievements_unlocked_hardcore": 0,
   "games_in_library": 7138,
   "games_mastered": 0,
   "games_mastered_hardcore": 0,
-  "games_played": 9,
-  "games_with_achievements": 9,
-  "games_with_unlocks": 5,
-  "percent_played": 2.0,
+  "games_played": 10,
+  "games_with_achievements": 10,
+  "games_with_unlocks": 4,
+  "percent_played": 1.6,
   "points_hardcore": 0,
-  "points_softcore": 38,
-  "points_total": 38
+  "points_softcore": 35,
+  "points_total": 35
  },
  "warning_unlocks_ignored": 0
 }
