@@ -147,20 +147,29 @@
    "console": "GameCube",
    "icon": "125387.png",
    "id": 29803,
-   "last_played": 1786555800,
+   "last_played": 1786557120,
    "mastered": false,
-   "percent": 0.0,
+   "percent": 1.0,
    "played": true,
-   "points": 0,
+   "points": 2,
    "points_total": 1000,
    "title": "Spawn: Armageddon",
    "total": 100,
-   "unlocked": 0
+   "unlocked": 1
   }
  ],
- "generated_at": 1786555819,
+ "generated_at": 1786557236,
  "include": "played",
  "recent": [
+  {
+   "badge": "496481.png",
+   "description": "Complete Mission 1: The Beginning",
+   "game_id": 29803,
+   "game_title": "Spawn: Armageddon",
+   "points": 2,
+   "title": "This is The Beginning. The Beginning of Our Story. The Beginning",
+   "unlocked_at": 1786557206
+  },
   {
    "badge": "645068.png",
    "description": "Clear Vision 1-1 \"The Gathering Wind\"",
@@ -230,14 +239,14 @@
  "stats": {
   "achievements_total_library": 381198,
   "achievements_total_played": 857,
-  "achievements_unlocked": 7,
+  "achievements_unlocked": 8,
   "games_in_library": 7138,
   "games_mastered": 0,
   "games_played": 11,
   "games_with_achievements": 11,
-  "games_with_unlocks": 6,
-  "percent_played": 0.8,
-  "points_total": 17
+  "games_with_unlocks": 7,
+  "percent_played": 0.9,
+  "points_total": 19
  },
  "warning_unlocks_ignored": 0
 }
