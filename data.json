@@ -2,23 +2,48 @@
  "default_scope": "played",
  "display_name": "RetroSai",
  "game_pages": true,
- "games": [],
- "generated_at": 1786572077,
+ "games": [
+  {
+   "console": "Dreamcast",
+   "icon": "122047.png",
+   "id": 3399,
+   "last_played": 1786661297,
+   "mastered": false,
+   "percent": 1.2,
+   "played": true,
+   "points": 1,
+   "points_total": 1095,
+   "title": "Crazy Taxi",
+   "total": 83,
+   "unlocked": 1
+  }
+ ],
+ "generated_at": 1786661348,
  "include": "played",
- "recent": [],
+ "recent": [
+  {
+   "badge": "216693.png",
+   "description": "Deliver your first passenger in Arcade mode.",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 1,
+   "title": "First Passenger - Arcade",
+   "unlocked_at": 1786661343
+  }
+ ],
  "site": "RetroSai Achievements",
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381198,
-  "achievements_total_played": 0,
-  "achievements_unlocked": 0,
+  "achievements_total_played": 83,
+  "achievements_unlocked": 1,
   "games_in_library": 7138,
   "games_mastered": 0,
-  "games_played": 0,
-  "games_with_achievements": 0,
-  "games_with_unlocks": 0,
-  "percent_played": 0.0,
-  "points_total": 0
+  "games_played": 1,
+  "games_with_achievements": 1,
+  "games_with_unlocks": 1,
+  "percent_played": 1.2,
+  "points_total": 1
  },
  "warning_unlocks_ignored": 0
 }
