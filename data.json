@@ -49,20 +49,38 @@
    "console": "PlayStation",
    "icon": "048315.png",
    "id": 3708,
-   "last_played": 1786724644,
+   "last_played": 1786725245,
    "mastered": false,
-   "percent": 2.6,
+   "percent": 5.3,
    "played": true,
-   "points": 3,
+   "points": 11,
    "points_total": 550,
    "title": "Star Wars: Dark Forces",
    "total": 76,
-   "unlocked": 2
+   "unlocked": 4
   }
  ],
- "generated_at": 1786724761,
+ "generated_at": 1786725363,
  "include": "played",
  "recent": [
+  {
+   "badge": "231992.png",
+   "description": "[01-2] Return to your ship on the roof of the base.",
+   "game_id": 3708,
+   "game_title": "Star Wars: Dark Forces",
+   "points": 5,
+   "title": "[Objective] Leaving the Imperial Base",
+   "unlocked_at": 1786725155
+  },
+  {
+   "badge": "231991.png",
+   "description": "[01-1] Find and retrieve Death Star plans.",
+   "game_id": 3708,
+   "game_title": "Star Wars: Dark Forces",
+   "points": 3,
+   "title": "[Objective] Planet Killer",
+   "unlocked_at": 1786725110
+  },
   {
    "badge": "232060.png",
    "description": "Find a Red keycard.",
@@ -132,14 +150,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 270,
-  "achievements_unlocked": 7,
+  "achievements_unlocked": 9,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 4,
   "games_with_achievements": 4,
   "games_with_unlocks": 3,
-  "percent_played": 2.6,
-  "points_total": 15
+  "percent_played": 3.3,
+  "points_total": 23
  },
  "warning_unlocks_ignored": 0
 }
