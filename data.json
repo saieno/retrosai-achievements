@@ -46,6 +46,20 @@
    "unlocked": 1
   },
   {
+   "console": "PSP",
+   "icon": "087965.png",
+   "id": 3162,
+   "last_played": 1786727163,
+   "mastered": false,
+   "percent": 3.8,
+   "played": true,
+   "points": 57,
+   "points_total": 1332,
+   "title": "Ratchet & Clank: Size Matters",
+   "total": 158,
+   "unlocked": 6
+  },
+  {
    "console": "PlayStation",
    "icon": "048315.png",
    "id": 3708,
@@ -60,9 +74,63 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1786725363,
+ "generated_at": 1786727164,
  "include": "played",
  "recent": [
+  {
+   "badge": "307663.png",
+   "description": "Increase Ratchet's nanotech to 75",
+   "game_id": 3162,
+   "game_title": "Ratchet & Clank: Size Matters",
+   "points": 25,
+   "title": "Nanotech Master",
+   "unlocked_at": 1786727151
+  },
+  {
+   "badge": "307662.png",
+   "description": "Increase Ratchet's nanotech to 50",
+   "game_id": 3162,
+   "game_title": "Ratchet & Clank: Size Matters",
+   "points": 10,
+   "title": "Nanotech Expert",
+   "unlocked_at": 1786727151
+  },
+  {
+   "badge": "307660.png",
+   "description": "Increase Ratchet's nanotech to 25",
+   "game_id": 3162,
+   "game_title": "Ratchet & Clank: Size Matters",
+   "points": 10,
+   "title": "Nanotech Novice",
+   "unlocked_at": 1786727151
+  },
+  {
+   "badge": "307659.png",
+   "description": "Increase Ratchet's nanotech to 10",
+   "game_id": 3162,
+   "game_title": "Ratchet & Clank: Size Matters",
+   "points": 3,
+   "title": "Nanotech Newbie",
+   "unlocked_at": 1786727151
+  },
+  {
+   "badge": "307813.png",
+   "description": "Obtain 1 million bolts",
+   "game_id": 3162,
+   "game_title": "Ratchet & Clank: Size Matters",
+   "points": 5,
+   "title": "Boltillionaire",
+   "unlocked_at": 1786727151
+  },
+  {
+   "badge": "312965.png",
+   "description": "Obtain 100,000 bolts",
+   "game_id": 3162,
+   "game_title": "Ratchet & Clank: Size Matters",
+   "points": 4,
+   "title": "Luxurious Lombax",
+   "unlocked_at": 1786727151
+  },
   {
    "badge": "231992.png",
    "description": "[01-2] Return to your ship on the roof of the base.",
@@ -149,15 +217,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 270,
-  "achievements_unlocked": 9,
+  "achievements_total_played": 428,
+  "achievements_unlocked": 15,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 4,
-  "games_with_achievements": 4,
-  "games_with_unlocks": 3,
-  "percent_played": 3.3,
-  "points_total": 23
+  "games_played": 5,
+  "games_with_achievements": 5,
+  "games_with_unlocks": 4,
+  "percent_played": 3.5,
+  "points_total": 80
  },
  "warning_unlocks_ignored": 0
 }
