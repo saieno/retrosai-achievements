@@ -86,11 +86,34 @@
    "title": "Metroid: Zero Mission",
    "total": 55,
    "unlocked": 1
+  },
+  {
+   "console": "Game Boy",
+   "icon": "143292.png",
+   "id": 504,
+   "last_played": 1786685566,
+   "mastered": false,
+   "percent": 2.9,
+   "played": true,
+   "points": 1,
+   "points_total": 333,
+   "title": "Super Mario Land",
+   "total": 34,
+   "unlocked": 1
   }
  ],
- "generated_at": 1786683496,
+ "generated_at": 1786685570,
  "include": "played",
  "recent": [
+  {
+   "badge": "372931.png",
+   "description": "Grab a mushroom",
+   "game_id": 504,
+   "game_title": "Super Mario Land",
+   "points": 1,
+   "title": "Mushroom Man",
+   "unlocked_at": 1786685569
+  },
   {
    "badge": "296800.png",
    "description": "Capture 3 monkeys in Fossil Field and clear the stage",
@@ -177,15 +200,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 503,
-  "achievements_unlocked": 9,
+  "achievements_total_played": 537,
+  "achievements_unlocked": 10,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 6,
-  "games_with_achievements": 6,
-  "games_with_unlocks": 3,
-  "percent_played": 1.8,
-  "points_total": 28
+  "games_played": 7,
+  "games_with_achievements": 7,
+  "games_with_unlocks": 4,
+  "percent_played": 1.9,
+  "points_total": 29
  },
  "warning_unlocks_ignored": 0
 }
