@@ -4,6 +4,20 @@
  "game_pages": true,
  "games": [
   {
+   "console": "PSP",
+   "icon": "100514.png",
+   "id": 3514,
+   "last_played": 1786683400,
+   "mastered": false,
+   "percent": 0.8,
+   "played": true,
+   "points": 5,
+   "points_total": 965,
+   "title": "Ape Escape: On the Loose",
+   "total": 122,
+   "unlocked": 1
+  },
+  {
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
@@ -74,9 +88,18 @@
    "unlocked": 1
   }
  ],
- "generated_at": 1786682710,
+ "generated_at": 1786683496,
  "include": "played",
  "recent": [
+  {
+   "badge": "296800.png",
+   "description": "Capture 3 monkeys in Fossil Field and clear the stage",
+   "game_id": 3514,
+   "game_title": "Ape Escape: On the Loose",
+   "points": 5,
+   "title": "Fooling Around in Fossil Field",
+   "unlocked_at": 1786683488
+  },
   {
    "badge": "255208.png",
    "description": "Obtain the Morph Ball ability",
@@ -154,15 +177,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 381,
-  "achievements_unlocked": 8,
+  "achievements_total_played": 503,
+  "achievements_unlocked": 9,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 5,
-  "games_with_achievements": 5,
-  "games_with_unlocks": 2,
-  "percent_played": 2.1,
-  "points_total": 23
+  "games_played": 6,
+  "games_with_achievements": 6,
+  "games_with_unlocks": 3,
+  "percent_played": 1.8,
+  "points_total": 28
  },
  "warning_unlocks_ignored": 0
 }
