@@ -18,6 +18,20 @@
    "unlocked": 0
   },
   {
+   "console": "PlayStation",
+   "icon": "087942.png",
+   "id": 8051,
+   "last_played": 1786734029,
+   "mastered": false,
+   "percent": 2.0,
+   "played": true,
+   "points": 2,
+   "points_total": 339,
+   "title": "Blasto",
+   "total": 51,
+   "unlocked": 1
+  },
+  {
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
@@ -49,7 +63,7 @@
    "console": "PSP",
    "icon": "087965.png",
    "id": 3162,
-   "last_played": 1786727163,
+   "last_played": 1786727283,
    "mastered": false,
    "percent": 3.8,
    "played": true,
@@ -74,9 +88,18 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1786727164,
+ "generated_at": 1786734040,
  "include": "played",
  "recent": [
+  {
+   "badge": "438440.png",
+   "description": "Equip the Atomdicer Rapid-Fire Plasmatik.",
+   "game_id": 8051,
+   "game_title": "Blasto",
+   "points": 2,
+   "title": "The Stungun From Rad Co! It's the Fun Gun!",
+   "unlocked_at": 1786734022
+  },
   {
    "badge": "307663.png",
    "description": "Increase Ratchet's nanotech to 75",
@@ -217,15 +240,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 428,
-  "achievements_unlocked": 15,
+  "achievements_total_played": 479,
+  "achievements_unlocked": 16,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 5,
-  "games_with_achievements": 5,
-  "games_with_unlocks": 4,
-  "percent_played": 3.5,
-  "points_total": 80
+  "games_played": 6,
+  "games_with_achievements": 6,
+  "games_with_unlocks": 5,
+  "percent_played": 3.3,
+  "points_total": 82
  },
  "warning_unlocks_ignored": 0
 }
