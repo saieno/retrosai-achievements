@@ -23,13 +23,13 @@
    "id": 8051,
    "last_played": 1786734029,
    "mastered": false,
-   "percent": 2.0,
+   "percent": 3.9,
    "played": true,
-   "points": 2,
+   "points": 4,
    "points_total": 339,
    "title": "Blasto",
    "total": 51,
-   "unlocked": 1
+   "unlocked": 2
   },
   {
    "console": "Dreamcast",
@@ -88,9 +88,18 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1786734040,
+ "generated_at": 1786734643,
  "include": "played",
  "recent": [
+  {
+   "badge": "438459.png",
+   "description": "Equip the Lokenburn Heatseek 360.",
+   "game_id": 8051,
+   "game_title": "Blasto",
+   "points": 2,
+   "title": "Now There's Some Garbage You Can Live With",
+   "unlocked_at": 1786734042
+  },
   {
    "badge": "438440.png",
    "description": "Equip the Atomdicer Rapid-Fire Plasmatik.",
@@ -241,14 +250,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 479,
-  "achievements_unlocked": 16,
+  "achievements_unlocked": 17,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 6,
   "games_with_achievements": 6,
   "games_with_unlocks": 5,
-  "percent_played": 3.3,
-  "points_total": 82
+  "percent_played": 3.5,
+  "points_total": 84
  },
  "warning_unlocks_ignored": 0
 }
