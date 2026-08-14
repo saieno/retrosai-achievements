@@ -4,6 +4,20 @@
  "game_pages": true,
  "games": [
   {
+   "console": "GameCube",
+   "icon": "097438.png",
+   "id": 25426,
+   "last_played": 1786723640,
+   "mastered": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_total": 567,
+   "title": "Billy Hatcher and the Giant Egg",
+   "total": 39,
+   "unlocked": 0
+  },
+  {
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
@@ -30,11 +44,34 @@
    "title": "Crazy Taxi 2",
    "total": 72,
    "unlocked": 1
+  },
+  {
+   "console": "PlayStation",
+   "icon": "048315.png",
+   "id": 3708,
+   "last_played": 1786724044,
+   "mastered": false,
+   "percent": 1.3,
+   "played": true,
+   "points": 1,
+   "points_total": 550,
+   "title": "Star Wars: Dark Forces",
+   "total": 76,
+   "unlocked": 1
   }
  ],
- "generated_at": 1786721607,
+ "generated_at": 1786724159,
  "include": "played",
  "recent": [
+  {
+   "badge": "232052.png",
+   "description": "Acquire the Stormtrooper Rifle.",
+   "game_id": 3708,
+   "game_title": "Star Wars: Dark Forces",
+   "points": 1,
+   "title": "[Weapon] Stormtrooper Rifle",
+   "unlocked_at": 1786724157
+  },
   {
    "badge": "483636.png",
    "description": "Earn a class E license or higher with normal rules.",
@@ -85,15 +122,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 155,
-  "achievements_unlocked": 5,
+  "achievements_total_played": 270,
+  "achievements_unlocked": 6,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 2,
-  "games_with_achievements": 2,
-  "games_with_unlocks": 2,
-  "percent_played": 3.2,
-  "points_total": 12
+  "games_played": 4,
+  "games_with_achievements": 4,
+  "games_with_unlocks": 3,
+  "percent_played": 2.2,
+  "points_total": 13
  },
  "warning_unlocks_ignored": 0
 }
