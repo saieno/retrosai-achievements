@@ -49,7 +49,7 @@
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1786721194,
+   "last_played": 1786853763,
    "mastered": false,
    "percent": 4.8,
    "played": true,
@@ -77,21 +77,35 @@
    "console": "PSP",
    "icon": "080862.png",
    "id": 18157,
-   "last_played": 1786848511,
+   "last_played": 1786995425,
    "mastered": false,
-   "percent": 1.7,
+   "percent": 1.9,
    "played": true,
-   "points": 10,
+   "points": 11,
    "points_total": 3305,
    "title": "DJ Max Fever",
    "total": 468,
-   "unlocked": 8
+   "unlocked": 9
+  },
+  {
+   "console": "Nintendo 64",
+   "icon": "110715.png",
+   "id": 10075,
+   "last_played": 1786861588,
+   "mastered": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_total": 845,
+   "title": "Donkey Kong 64",
+   "total": 128,
+   "unlocked": 0
   },
   {
    "console": "SNES/Super Famicom",
    "icon": "074336.png",
    "id": 259,
-   "last_played": 1786839671,
+   "last_played": 1786897798,
    "mastered": false,
    "percent": 4.8,
    "played": true,
@@ -100,6 +114,20 @@
    "title": "Final Fantasy II",
    "total": 21,
    "unlocked": 1
+  },
+  {
+   "console": "Game Boy Advance",
+   "icon": "137138.png",
+   "id": 514,
+   "last_played": 1786861157,
+   "mastered": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_total": 660,
+   "title": "Metal Slug Advance",
+   "total": 46,
+   "unlocked": 0
   },
   {
    "console": "PSP",
@@ -130,9 +158,18 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1786848622,
+ "generated_at": 1786995540,
  "include": "played",
  "recent": [
+  {
+   "badge": "420795.png",
+   "description": "Clear 'OUTLAW' (Non-mission)",
+   "game_id": 18157,
+   "game_title": "DJ Max Fever",
+   "points": 1,
+   "title": "OUTLAW Clear",
+   "unlocked_at": 1786995523
+  },
   {
    "badge": "420750.png",
    "description": "Clear 'ON' (Non-mission)",
@@ -372,15 +409,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 1045,
-  "achievements_unlocked": 26,
+  "achievements_total_played": 1219,
+  "achievements_unlocked": 27,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 9,
-  "games_with_achievements": 9,
+  "games_played": 11,
+  "games_with_achievements": 11,
   "games_with_unlocks": 7,
-  "percent_played": 2.5,
-  "points_total": 104
+  "percent_played": 2.2,
+  "points_total": 105
  },
  "warning_unlocks_ignored": 0
 }
