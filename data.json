@@ -7,7 +7,7 @@
    "console": "GameCube",
    "icon": "097438.png",
    "id": 25426,
-   "last_played": 1786723640,
+   "last_played": 1786783714,
    "mastered": false,
    "percent": 0.0,
    "played": true,
@@ -30,6 +30,20 @@
    "title": "Blasto",
    "total": 51,
    "unlocked": 2
+  },
+  {
+   "console": "SNES/Super Famicom",
+   "icon": "093950.png",
+   "id": 319,
+   "last_played": 1786738014,
+   "mastered": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_total": 577,
+   "title": "Chrono Trigger",
+   "total": 77,
+   "unlocked": 0
   },
   {
    "console": "Dreamcast",
@@ -61,6 +75,34 @@
   },
   {
    "console": "PSP",
+   "icon": "080862.png",
+   "id": 18157,
+   "last_played": 1786848511,
+   "mastered": false,
+   "percent": 1.7,
+   "played": true,
+   "points": 10,
+   "points_total": 3305,
+   "title": "DJ Max Fever",
+   "total": 468,
+   "unlocked": 8
+  },
+  {
+   "console": "SNES/Super Famicom",
+   "icon": "074336.png",
+   "id": 259,
+   "last_played": 1786839671,
+   "mastered": false,
+   "percent": 4.8,
+   "played": true,
+   "points": 10,
+   "points_total": 240,
+   "title": "Final Fantasy II",
+   "total": 21,
+   "unlocked": 1
+  },
+  {
+   "console": "PSP",
    "icon": "087965.png",
    "id": 3162,
    "last_played": 1786727283,
@@ -88,9 +130,90 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1786734643,
+ "generated_at": 1786848622,
  "include": "played",
  "recent": [
+  {
+   "badge": "420750.png",
+   "description": "Clear 'ON' (Non-mission)",
+   "game_id": 18157,
+   "game_title": "DJ Max Fever",
+   "points": 1,
+   "title": "ON Clear",
+   "unlocked_at": 1786848490
+  },
+  {
+   "badge": "420756.png",
+   "description": "Clear 'Memoirs' (Non-mission)",
+   "game_id": 18157,
+   "game_title": "DJ Max Fever",
+   "points": 2,
+   "title": "Memoirs Clear",
+   "unlocked_at": 1786848302
+  },
+  {
+   "badge": "420792.png",
+   "description": "Clear 'Rock or Die' (Non-mission)",
+   "game_id": 18157,
+   "game_title": "DJ Max Fever",
+   "points": 1,
+   "title": "Rock or Die Clear",
+   "unlocked_at": 1786848122
+  },
+  {
+   "badge": "420782.png",
+   "description": "Clear 'Sunset Rider' (Non-mission)",
+   "game_id": 18157,
+   "game_title": "DJ Max Fever",
+   "points": 1,
+   "title": "Sunset Rider Clear",
+   "unlocked_at": 1786847990
+  },
+  {
+   "badge": "420761.png",
+   "description": "Clear 'Brandnew Days' (Non-mission)",
+   "game_id": 18157,
+   "game_title": "DJ Max Fever",
+   "points": 2,
+   "title": "Brandnew Days Clear",
+   "unlocked_at": 1786847354
+  },
+  {
+   "badge": "420766.png",
+   "description": "Clear 'Fallen Angel' (Non-mission)",
+   "game_id": 18157,
+   "game_title": "DJ Max Fever",
+   "points": 1,
+   "title": "Fallen Angel Clear",
+   "unlocked_at": 1786847173
+  },
+  {
+   "badge": "420790.png",
+   "description": "Clear 'Every Morning' (Non-mission)",
+   "game_id": 18157,
+   "game_title": "DJ Max Fever",
+   "points": 1,
+   "title": "Every Morning Clear",
+   "unlocked_at": 1786847014
+  },
+  {
+   "badge": "420773.png",
+   "description": "Clear 'MILES' (Non-mission)",
+   "game_id": 18157,
+   "game_title": "DJ Max Fever",
+   "points": 1,
+   "title": "MILES Clear",
+   "unlocked_at": 1786846753
+  },
+  {
+   "badge": "145401.png",
+   "description": "Deliver the package to the Village of Mist",
+   "game_id": 259,
+   "game_title": "Final Fantasy II",
+   "points": 10,
+   "title": "Unexpected Consequences",
+   "unlocked_at": 1786838900
+  },
   {
    "badge": "438459.png",
    "description": "Equip the Lokenburn Heatseek 360.",
@@ -249,15 +372,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 479,
-  "achievements_unlocked": 17,
+  "achievements_total_played": 1045,
+  "achievements_unlocked": 26,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 6,
-  "games_with_achievements": 6,
-  "games_with_unlocks": 5,
-  "percent_played": 3.5,
-  "points_total": 84
+  "games_played": 9,
+  "games_with_achievements": 9,
+  "games_with_unlocks": 7,
+  "percent_played": 2.5,
+  "points_total": 104
  },
  "warning_unlocks_ignored": 0
 }
