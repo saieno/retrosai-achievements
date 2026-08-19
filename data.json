@@ -147,15 +147,15 @@
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
-   "last_played": 1787153714,
+   "last_played": 1787154314,
    "mastered": false,
-   "percent": 3.6,
+   "percent": 5.5,
    "played": true,
-   "points": 6,
+   "points": 10,
    "points_total": 766,
    "title": "Metroid: Zero Mission",
    "total": 55,
-   "unlocked": 2
+   "unlocked": 3
   },
   {
    "console": "PSP",
@@ -186,9 +186,18 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1787153738,
+ "generated_at": 1787154348,
  "include": "played",
  "recent": [
+  {
+   "badge": "255210.png",
+   "description": "Obtain Missiles",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 4,
+   "title": "Wish They Were Magic",
+   "unlocked_at": 1787154278
+  },
   {
    "badge": "255209.png",
    "description": "Upgrade the length of your beam",
@@ -465,14 +474,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1353,
-  "achievements_unlocked": 30,
+  "achievements_unlocked": 31,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 13,
   "games_with_achievements": 13,
   "games_with_unlocks": 8,
-  "percent_played": 2.2,
-  "points_total": 112
+  "percent_played": 2.3,
+  "points_total": 116
  },
  "warning_unlocks_ignored": 0
 }
