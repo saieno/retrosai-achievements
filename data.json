@@ -147,15 +147,15 @@
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
-   "last_played": 1787162009,
+   "last_played": 1787162609,
    "mastered": false,
-   "percent": 14.5,
+   "percent": 18.2,
    "played": true,
-   "points": 32,
+   "points": 42,
    "points_total": 766,
    "title": "Metroid: Zero Mission",
    "total": 55,
-   "unlocked": 8
+   "unlocked": 10
   },
   {
    "console": "PSP",
@@ -186,9 +186,27 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1787162098,
+ "generated_at": 1787162707,
  "include": "played",
  "recent": [
+  {
+   "badge": "255217.png",
+   "description": "Obtain the Ice Beam",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 5,
+   "title": "The Ice Woman Cometh",
+   "unlocked_at": 1787162612
+  },
+  {
+   "badge": "255216.png",
+   "description": "Obtain the Power Grip",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 5,
+   "title": "Firmly Grasp It",
+   "unlocked_at": 1787162183
+  },
   {
    "badge": "255215.png",
    "description": "Obtain an Unknown Item",
@@ -519,14 +537,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1353,
-  "achievements_unlocked": 36,
+  "achievements_unlocked": 38,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 13,
   "games_with_achievements": 13,
   "games_with_unlocks": 8,
-  "percent_played": 2.7,
-  "points_total": 138
+  "percent_played": 2.8,
+  "points_total": 148
  },
  "warning_unlocks_ignored": 0
 }
