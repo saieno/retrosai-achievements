@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index,follow">
+<title>Final Fantasy Chronicles: Final Fantasy IV - RetroSai Achievements</title>
+<link rel="icon" href="../icons/00000.png">
+<style>
+
+:root{
+  --bg:#0d0f13; --bg2:#12151b; --panel:#171b22; --panel2:#1d222b; --line:#2a313d;
+  --ink:#eef1f5; --ink2:#a7b1bf; --ink3:#6f7a8a;
+  --gold:#f2b134; --hard:#ff7a4d; --soft:#5cc8ff; --good:#5fd08a; --bad:#ef5a5a;
+  --radius:14px; --gap:20px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:400 18px/1.5 "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  padding-bottom:64px;
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;font-weight:650;letter-spacing:-.01em}
+h2{font-size:1.35rem;margin-bottom:14px}
+.wrap{max-width:1500px;margin:0 auto;padding:0 24px}
+header.top{
+  position:sticky;top:0;z-index:20;background:rgba(13,15,19,.94);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(8px);
+}
+header.top .wrap{display:flex;align-items:center;gap:20px;height:78px}
+.brand{display:flex;align-items:center;gap:12px;font-size:1.3rem;font-weight:650}
+.brand .mark{
+  width:38px;height:38px;border-radius:11px;background:var(--gold);color:#20160a;
+  display:grid;place-items:center;font-size:1.25rem;flex:0 0 auto
+}
+.brand .thin{color:var(--ink2);font-weight:400}
+.spacer{flex:1}
+.who{display:flex;align-items:center;gap:10px;color:var(--ink2);font-size:.95rem}
+select,input[type=search],button{
+  font:inherit;color:var(--ink);background:var(--panel2);
+  border:1px solid var(--line);border-radius:10px;padding:10px 14px
+}
+input[type=search]{min-width:min(340px,52vw)}
+select:focus,input:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+button{cursor:pointer}
+button:hover{border-color:#3d4757}
+main{padding-top:28px}
+.panel{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;margin-bottom:var(--gap)
+}
+.muted{color:var(--ink2)}
+.dim{color:var(--ink3)}
+.tiny{font-size:.85rem}
+
+/* headline stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;
+  margin-bottom:var(--gap)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px}
+.stat .n{font-size:2.6rem;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.stat .l{color:var(--ink2);font-size:.95rem;margin-top:6px}
+.stat .s{color:var(--ink3);font-size:.85rem;margin-top:2px}
+.stat.hard .n{color:var(--hard)} .stat.soft .n{color:var(--soft)}
+.stat.gold .n{color:var(--gold)} .stat.good .n{color:var(--good)}
+
+/* now playing */
+.np{display:flex;gap:20px;align-items:center;
+  border-left:4px solid var(--good)}
+.np img{width:84px;height:84px;border-radius:12px;background:var(--panel2);flex:0 0 auto}
+.np .t{font-size:1.35rem;font-weight:650}
+.np .rp{color:var(--ink2);margin-top:4px}
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--good);
+  font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
+.live .dot{width:9px;height:9px;border-radius:50%;background:var(--good);
+  animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* recent unlocks */
+.recent{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.unlock{display:flex;gap:14px;align-items:center;background:var(--panel2);
+  border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.unlock img{width:56px;height:56px;border-radius:9px;flex:0 0 auto;background:#0b0d11}
+.unlock .t{font-weight:600}
+.unlock .m{color:var(--ink2);font-size:.88rem;margin-top:2px}
+.pts{color:var(--gold);font-weight:650;white-space:nowrap}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+  padding:9px 18px;font-size:.95rem}
+.chip[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#20160a;
+  font-weight:600}
+
+/* game list */
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(390px,1fr));gap:14px}
+.game{display:flex;gap:16px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px;align-items:center}
+.game:hover{border-color:#41506a;background:#212734}
+.game img{width:64px;height:64px;border-radius:10px;flex:0 0 auto;background:#0b0d11;
+  object-fit:cover}
+.game .body{flex:1;min-width:0}
+.game .t{font-weight:620;font-size:1.05rem;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.game .m{color:var(--ink2);font-size:.86rem;margin-top:2px;display:flex;gap:10px;
+  flex-wrap:wrap}
+.bar{height:8px;border-radius:99px;background:#0b0d11;margin-top:9px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:99px}
+.bar.done i{background:var(--good)}
+.star{color:var(--gold);font-size:1.25rem;flex:0 0 auto}
+
+/* game detail */
+.hero{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.hero img{width:120px;height:120px;border-radius:16px;background:var(--panel2)}
+.back{color:var(--ink2);font-size:.95rem;display:inline-block;margin-bottom:10px}
+.back:hover{color:var(--ink)}
+.gametitle{font-size:2.1rem;line-height:1.15}
+.gamesub{color:var(--ink2);margin:6px 0 0}
+.achlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:14px}
+.ach{display:flex;gap:16px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px}
+.ach.locked{opacity:.62}
+.ach.unlocked{border-color:#3a4a3d;background:#1a2320}
+.ach img{width:64px;height:64px;border-radius:10px;flex:0 0 auto;background:#0b0d11}
+.ach .t{font-weight:620}
+.ach .d{color:var(--ink2);font-size:.92rem;margin-top:3px}
+.ach .m{margin-top:6px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  font-size:.82rem;color:var(--ink3)}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.75rem;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+
+.danger{border-color:#4a2b2b}
+button.reset{background:#2a1a1a;border-color:#5a3030;color:#ff9d9d}
+button.reset:hover{background:#3a2020;border-color:var(--bad)}
+dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px;max-width:min(560px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog h2{margin-bottom:12px}
+dialog .row{display:flex;gap:12px;justify-content:flex-end;margin-top:22px}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:6px;padding:2px 7px;
+  font-size:.85rem;word-break:break-all}
+.empty{color:var(--ink2);padding:14px 0}
+.notice{background:#1b2028;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;color:var(--ink2);font-size:.92rem;margin-bottom:14px}
+
+@media (max-width:760px){
+  body{font-size:17px}
+  .wrap{padding:0 16px}
+  header.top .wrap{height:auto;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+  .panel{padding:18px}
+  .games,.achlist,.recent{grid-template-columns:1fr}
+  .stat .n{font-size:2.1rem}
+  input[type=search]{min-width:100%}
+}
+@media (min-width:1600px){ body{font-size:19px} }
+
+.snapshot{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;
+  background:#1b2028;border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:10px;padding:12px 16px;color:var(--ink2);font-size:.92rem;
+  margin-bottom:var(--gap)}
+.snapshot b{color:var(--ink);font-weight:600}
+.game{color:inherit}
+footer.foot{color:var(--ink3);font-size:.85rem;padding:26px 0 0;
+  border-top:1px solid var(--line);margin-top:var(--gap)}
+
+</style>
+</head>
+<body>
+<script id="sitedata" type="application/json" data-base="../">{"achievements": [{"badge": "417200.png", "badge_locked": "417200_lock.png", "description": "Bring a parcel to the village of Mist", "id": 370684, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Unwanted Parcel", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417201.png", "badge_locked": "417201_lock.png", "description": "Reach the Damcyan Castle to rescue Anna", "id": 370685, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Kingdom in Ruins", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417372.png", "badge_locked": "417372_lock.png", "description": "Find the Sand Ruby, the cure for your beloved", "id": 370686, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Panacea", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417378.png", "badge_locked": "417378_lock.png", "description": "Save the captain of Fabul from monsters", "id": 370687, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "A Monk Not from Shaolin", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417379.png", "badge_locked": "417379_lock.png", "description": "Overcome your fear and become a Paladin", "id": 370688, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "The Dark Knight Departs", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417380.png", "badge_locked": "417380_lock.png", "description": "Expose the false king of Baron and escape from Baron", "id": 370689, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "The False King", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417381.png", "badge_locked": "417381_lock.png", "description": "Reclaim the Earth Crystal with a little help", "id": 370690, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Swan Song", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417203.png", "badge_locked": "417203_lock.png", "description": "Save Rosa in the Tower of Zot", "id": 370691, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Where Am I?", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417382.png", "badge_locked": "417382_lock.png", "description": "Defeat Golbez in Dwarven Castle", "id": 370692, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Thing T. Thing", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417383.png", "badge_locked": "417383_lock.png", "description": "Escape from the Tower of Babil", "id": 370693, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "The Sacrifice", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417384.png", "badge_locked": "417384_lock.png", "description": "Defeat Rubicant and try to take Crystals", "id": 370694, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "It Is a Trap", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417207.png", "badge_locked": "417207_lock.png", "description": "Exit the Sealed Cave with the Crystal", "id": 370695, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Betrayal", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417205.png", "badge_locked": "417205_lock.png", "description": "Return to the Moon after destroying the Giant of Babil", "id": 370696, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Fatal Error", "type_label": "Progression", "unlocked": false, "unlocked_at": 0}, {"badge": "417230.png", "badge_locked": "417230_lock.png", "description": "Defeat the final boss and beat the game", "id": 370697, "points": 25, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Eternal Dream", "type_label": "Win condition", "unlocked": false, "unlocked_at": 0}, {"badge": "417211.png", "badge_locked": "417211_lock.png", "description": "Defeat Dragon Mist without triggering Cold Mist", "id": 370698, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Mist's Last Stand", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417212.png", "badge_locked": "417212_lock.png", "description": "Defeat Octomamm without using items", "id": 370699, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Eight Times as Dangerous", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417213.png", "badge_locked": "417213_lock.png", "description": "Defeat Antlion without triggering counter attacks", "id": 370700, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Antidote Secured", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417214.png", "badge_locked": "417214_lock.png", "description": "Defeat Mom Bomb without death", "id": 370701, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "The Mother of All Bombs", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417215.png", "badge_locked": "417215_lock.png", "description": "Defeat Milon without using magic", "id": 370702, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Blighted Despot", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417216.png", "badge_locked": "417216_lock.png", "description": "Defeat Milon Zombie without using items", "id": 370703, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "And Now Stay Dead!", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417217.png", "badge_locked": "417217_lock.png", "description": "Defeat Captain Baigan with Active Mode on and with Speed equal to 1", "id": 370704, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Double Agent", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417218.png", "badge_locked": "417218_lock.png", "description": "Defeat Cagnazzo without triggering Wave", "id": 370705, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "The Drowned King", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417219.png", "badge_locked": "417219_lock.png", "description": "Defeat Dark Elf with Active Mode on and with Speed equal to 1", "id": 370706, "points": 25, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Thank You Spoony Bard!", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417220.png", "badge_locked": "417220_lock.png", "description": "Defeat the Magus Sisters without using magic", "id": 370707, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Delta Attack", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417221.png", "badge_locked": "417221_lock.png", "description": "Defeat Valvalis without death", "id": 370708, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Empress of the Winds", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417223.png", "badge_locked": "417223_lock.png", "description": "Defeat Calbrina without using items", "id": 370709, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Dangerous Doll", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417224.png", "badge_locked": "417224_lock.png", "description": "Defeat Lugaborg without death", "id": 370710, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Mad Scientist", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417225.png", "badge_locked": "417225_lock.png", "description": "Defeat Rubicant without using items", "id": 370711, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Autarch of Flame", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417226.png", "badge_locked": "417226_lock.png", "description": "Defeat the Evil Wall without death, but with Active Mode on and with Speed equal to 1", "id": 370712, "points": 25, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Wait... Walls Shouldn't Move!", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417227.png", "badge_locked": "417227_lock.png", "description": "Defeat the Four Fiends without death", "id": 370713, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Four Fiends of the Elements", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417228.png", "badge_locked": "417228_lock.png", "description": "Defeat CPU without triggering Re-form", "id": 370714, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Giant's Weak Point", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417229.png", "badge_locked": "417229_lock.png", "description": "Defeat Zeromus with all party members alive at the end of the battle", "id": 370715, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Zemus' Unbridled Hate", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417469.png", "badge_locked": "417469_lock.png", "description": "Open every chest in the Mist Cave", "id": 370716, "points": 2, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Mist Cave", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417470.png", "badge_locked": "417470_lock.png", "description": "Open every chest in Kaipo and the Water Cavern", "id": 370718, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Kaipo and the Water Cavern", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417471.png", "badge_locked": "417471_lock.png", "description": "Open every chest in Damcyan", "id": 370719, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Damcyan", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417472.png", "badge_locked": "417472_lock.png", "description": "Open every chest in Antlion's Cave", "id": 370720, "points": 3, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Antlion's Cave", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417720.png", "badge_locked": "417720_lock.png", "description": "Open every chest in Mt. Hobs", "id": 370721, "points": 2, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Mt. Hobs", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417473.png", "badge_locked": "417473_lock.png", "description": "Open every chest in Fabul", "id": 370722, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Fabul", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417718.png", "badge_locked": "417718_lock.png", "description": "Open every chest in Mt. Ordeals", "id": 370723, "points": 2, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Mt. Ordeals", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417474.png", "badge_locked": "417474_lock.png", "description": "Open every chest in the Waterway", "id": 370724, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Waterway", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417475.png", "badge_locked": "417475_lock.png", "description": "Open every chest in Baron Castle", "id": 370725, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Baron Castle", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417714.png", "badge_locked": "417714_lock.png", "description": "Open every chest in Baron", "id": 370726, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Baron", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417468.png", "badge_locked": "417468_lock.png", "description": "Open every chest in Mist Village", "id": 370727, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Mist Village", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417716.png", "badge_locked": "417716_lock.png", "description": "Open every chest in Agart and Mythril", "id": 370729, "points": 4, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Agart and Mythril", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417721.png", "badge_locked": "417721_lock.png", "description": "Open every chest in Troia", "id": 370730, "points": 2, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Troia", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417717.png", "badge_locked": "417717_lock.png", "description": "Open every chest in the Chocobo Forests", "id": 370731, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Chocobo Forests", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417776.png", "badge_locked": "417776_lock.png", "description": "Open every chest in the Magnetic Cavern", "id": 370732, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Magnetic Cavern", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417719.png", "badge_locked": "417719_lock.png", "description": "Open every chest in Eblan Castle", "id": 370733, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Eblan Castle", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417777.png", "badge_locked": "417777_lock.png", "description": "Open every chest in Troia Castle", "id": 370734, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Troia Castle", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417778.png", "badge_locked": "417778_lock.png", "description": "Open every chest in the Tower of Zot", "id": 370735, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Tower of Zot", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417461.png", "badge_locked": "417461_lock.png", "description": "Open every chest in Dwarven Castle", "id": 370736, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Dwarven Castle", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417782.png", "badge_locked": "417782_lock.png", "description": "Open every chest in the Tower of Babil I", "id": 370737, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Tower of Babil I", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417784.png", "badge_locked": "417784_lock.png", "description": "Open every chest in Eblan Cave", "id": 370738, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Eblan Cave", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417783.png", "badge_locked": "417783_lock.png", "description": "Open every chest in the Tower of Babil II", "id": 370739, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Tower of Babil II", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417463.png", "badge_locked": "417463_lock.png", "description": "Open every chest in Tomra", "id": 370740, "points": 3, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Tomra", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417462.png", "badge_locked": "417462_lock.png", "description": "Open every chest in Kokkol's Forge", "id": 370741, "points": 2, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Kokkol's Forge", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417464.png", "badge_locked": "417464_lock.png", "description": "Open every chest in the Sealed Cave", "id": 370742, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Sealed Cave", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417465.png", "badge_locked": "417465_lock.png", "description": "Open every chest in the Cave of Summons", "id": 370743, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Cave of Summons", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417791.png", "badge_locked": "417791_lock.png", "description": "Open every chest in the Land of Summons", "id": 370744, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Land of Summons", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417466.png", "badge_locked": "417466_lock.png", "description": "Open every chest in Sylvan Cave", "id": 370745, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Sylvan Cave", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417790.png", "badge_locked": "417790_lock.png", "description": "Open every chest in the Lunar Path and Bahamut Cave", "id": 370747, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Lunar Path and Bahamut Cave", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417789.png", "badge_locked": "417789_lock.png", "description": "Open every chest in the Giant of Babil", "id": 370748, "points": 3, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of the Giant of Babil", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417786.png", "badge_locked": "417786_lock.png", "description": "Open every chest in Lunar Subterrane", "id": 370749, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Treasures of Lunar Subterrane", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417389.png", "badge_locked": "417389_lock.png", "description": "Obtain Excalibur", "id": 370750, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Sword of Promised Victory", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417390.png", "badge_locked": "417390_lock.png", "description": "Obtain the Knife from Yang's wife", "id": 370751, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "The Power of Love", "type_label": "Missable", "unlocked": false, "unlocked_at": 0}, {"badge": "417387.png", "badge_locked": "417387_lock.png", "description": "Obtain Ragnarok", "id": 370752, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Twilight of the Gods", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417385.png", "badge_locked": "417385_lock.png", "description": "Obtain Masamune", "id": 370753, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Edge's Best Friend", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417386.png", "badge_locked": "417386_lock.png", "description": "Obtain Murasame", "id": 370754, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Edge's Other Best Friend", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417388.png", "badge_locked": "417388_lock.png", "description": "Obtain the Holy Lance", "id": 370755, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Spear of Destiny", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417458.png", "badge_locked": "417458_lock.png", "description": "Learn the Sylph summon spell", "id": 370756, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Air Elemental Sylph", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417459.png", "badge_locked": "417459_lock.png", "description": "Learn the Odin summon spell", "id": 370757, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Mighty Odin", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417416.png", "badge_locked": "417416_lock.png", "description": "Learn the Asura summon spell", "id": 370758, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Queen Asura", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417415.png", "badge_locked": "417415_lock.png", "description": "Learn the Leviathan summon spell", "id": 370759, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "King Leviathan", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417414.png", "badge_locked": "417414_lock.png", "description": "Learn the Bahamut summon spell", "id": 370760, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Dragon God Bahamut", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417394.png", "badge_locked": "417394_lock.png", "description": "Steal Dark Matter while fighting Zeromus", "id": 370761, "points": 10, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Master of Thieves", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417392.png", "badge_locked": "417392_lock.png", "description": "Obtain the (adult) magazine from secret Developer's Room", "id": 370762, "points": 5, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Master of Perversion", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417396.png", "badge_locked": "417396_lock.png", "description": "Find the Three Step Peninsula and encounter a battle there", "id": 370763, "points": 3, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Master of Exploration", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417391.png", "badge_locked": "417391_lock.png", "description": "Buy a pass to the Court of Kings", "id": 370764, "points": 3, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Master of Luxury", "type_label": "", "unlocked": false, "unlocked_at": 0}, {"badge": "417395.png", "badge_locked": "417395_lock.png", "description": "Look at the Moon through a telescope", "id": 370765, "points": 1, "set": "Final Fantasy Chronicles: Final Fantasy IV", "set_type": "core", "title": "Master of Science", "type_label": "", "unlocked": false, "unlocked_at": 0}], "display_name": "RetroSai", "game": {"console": "PlayStation", "icon": "060425.png", "id": 17526, "last_played": 1787065839, "mastered": false, "percent": 0.0, "played": true, "points": 0, "points_total": 670, "title": "Final Fantasy Chronicles: Final Fantasy IV", "total": 79, "unlocked": 0}, "generated_at": 1787111458}</script>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">&#9733;</span>
+      <span>RetroSai <span class="thin">Achievements</span></span>
+    </div>
+    <div class="spacer"></div>
+    <div class="who" id="who"></div>
+  </div>
+</header>
+<main class="wrap">
+<a class="back" href="../index.html">&larr; All games</a><h1 class="gametitle">Final Fantasy Chronicles: Final Fantasy IV</h1><p class="gamesub">PlayStation</p>
+
+<div class="snapshot" id="snapshot"></div>
+<section class="panel">
+  <div class="hero">
+    <img id="heroicon" src="" alt="">
+    <div class="stats" id="herostats" style="flex:1;margin:0"></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Achievements <span id="achcount" class="muted tiny"></span></h2>
+  <div id="achlist" class="achlist"></div>
+</section>
+
+<footer class="foot" id="foot"></footer>
+</main>
+<script>
+
+var NODE = document.getElementById('sitedata');
+var DATA = JSON.parse(NODE.textContent);
+var BASE = NODE.getAttribute('data-base') || '';
+
+function q(sel, root){ return (root||document).querySelector(sel); }
+function el(tag, cls, text){
+  var node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text !== undefined && text !== null) node.textContent = String(text);
+  return node;
+}
+function img(src, alt){
+  var node = document.createElement('img');
+  node.src = src; node.alt = alt || ''; node.decoding = 'async';
+  return node;
+}
+function badgeSrc(name){ return BASE + 'badges/' + name; }
+function iconSrc(name){ return BASE + 'icons/' + name; }
+function gameHref(id){ return BASE + 'game/' + id + '.html'; }
+function num(value){ return (value === null || value === undefined) ? '0'
+  : Number(value).toLocaleString(); }
+
+/* Relative times are measured against the SNAPSHOT, not against the reader's clock:
+   this page does not update itself, so "2h ago" would quietly become a lie. */
+function ago(t){
+  if (!t) return 'never';
+  var secs = (DATA.generated_at || 0) - t;
+  if (secs < 0) secs = 0;
+  if (secs < 60) return 'just before';
+  if (secs < 3600) return Math.floor(secs/60) + 'm before';
+  if (secs < 86400) return Math.floor(secs/3600) + 'h before';
+  if (secs < 2592000) return Math.floor(secs/86400) + 'd before';
+  return stampDate(t);
+}
+function stampDate(t){
+  if (!t) return '';
+  return new Date(t * 1000).toLocaleDateString(undefined,
+    {day:'numeric', month:'short', year:'numeric'});
+}
+function stampFull(t){
+  if (!t) return '';
+  return new Date(t * 1000).toLocaleString();
+}
+
+function paintChrome(){
+  var who = q('#who');
+  if (who) { who.textContent = ''; who.appendChild(el('span', null, DATA.display_name)); }
+  var snap = q('#snapshot');
+  if (snap) {
+    snap.textContent = '';
+    snap.appendChild(el('b', null, 'Snapshot'));
+    snap.appendChild(el('span', null,
+      'This is a static export, not a live page. It does not update by itself.'));
+    var when = el('span', 'dim', 'Generated ' + stampFull(DATA.generated_at));
+    snap.appendChild(when);
+  }
+  var foot = q('#foot');
+  if (foot) {
+    foot.textContent = 'RetroSai Achievements - generated ' + stampFull(DATA.generated_at)
+      + '. Offline RetroAchievements, recorded locally. Static snapshot; no live data.';
+  }
+}
+
+function progressBar(unlocked, total){
+  var wrap = el('div', 'bar' + (total > 0 && unlocked >= total ? ' done' : ''));
+  var fill = el('i');
+  fill.style.width = (total > 0 ? Math.round(100 * unlocked / total) : 0) + '%';
+  wrap.appendChild(fill);
+  return wrap;
+}
+
+function statTile(n, label, sub, cls){
+  var tile = el('div', 'stat' + (cls ? ' ' + cls : ''));
+  tile.appendChild(el('div', 'n', n));
+  tile.appendChild(el('div', 'l', label));
+  if (sub) tile.appendChild(el('div', 's', sub));
+  return tile;
+}
+
+function unlockCard(u){
+  var card = el('div', 'unlock');
+  card.appendChild(img(badgeSrc(u.badge), u.title));
+  var body = el('div');
+  body.style.flex = '1';
+  body.style.minWidth = '0';
+  body.appendChild(el('div', 't', u.title));
+  body.appendChild(el('div', 'm', u.game_title + '  \u00b7  ' + ago(u.unlocked_at)));
+  card.appendChild(body);
+  card.appendChild(el('div', 'pts', u.points + ' pts'));
+  card.title = u.description || '';
+  return card;
+}
+
+function gameCard(g){
+  var card = document.createElement(DATA.game_pages ? 'a' : 'div');
+  card.className = 'game';
+  if (DATA.game_pages) card.href = gameHref(g.id);
+  card.appendChild(img(iconSrc(g.icon), ''));
+  var body = el('div', 'body');
+  body.appendChild(el('div', 't', g.title));
+  var meta = el('div', 'm');
+  if (g.total > 0) {
+    meta.appendChild(el('span', null, g.unlocked + ' / ' + g.total + ' \u00b7 '
+      + g.percent + '%'));
+    meta.appendChild(el('span', null, num(g.points) + ' / ' + num(g.points_total)
+      + ' pts'));
+  } else {
+    meta.appendChild(el('span', null, 'no achievements'));
+  }
+  if (g.console) meta.appendChild(el('span', 'dim', g.console));
+  if (g.last_played) meta.appendChild(el('span', 'dim', 'played ' + ago(g.last_played)));
+  body.appendChild(meta);
+  if (g.total > 0) body.appendChild(progressBar(g.unlocked, g.total));
+  card.appendChild(body);
+  if (g.mastered) {
+    var star = el('div', 'star', '\u2605');
+    star.title = 'Mastered';
+    card.appendChild(star);
+  }
+  return card;
+}
+
+/* ---------- home ---------- */
+
+var state = {scope:'all', q:'', sort:'last_played', order:'desc', shown:60};
+
+function defaultOrder(sort){
+  return (sort === 'title' || sort === 'console') ? 'asc' : 'desc';
+}
+
+var SORT_KEYS = {
+  title:        function(g){ return [g.title.toLowerCase(), g.id]; },
+  last_played:  function(g){ return [g.last_played, g.unlocked]; },
+  percent:      function(g){ return [g.percent, g.unlocked]; },
+  unlocked:     function(g){ return [g.unlocked, g.percent]; },
+  points:       function(g){ return [g.points, g.unlocked]; },
+  points_total: function(g){ return [g.points_total, g.total]; },
+  total:        function(g){ return [g.total, g.unlocked]; },
+  console:      function(g){ return [g.console.toLowerCase(), g.title.toLowerCase()]; }
+};
+
+function cmpKey(a, b){
+  for (var i = 0; i < a.length && i < b.length; i++) {
+    if (a[i] < b[i]) return -1;
+    if (a[i] > b[i]) return 1;
+  }
+  return 0;
+}
+
+/* Same two-pass ordering as dashboard.api_games: sort by title first so ties always come
+   out A-Z, then by the requested key.  Array.prototype.sort is stable, so the second pass
+   preserves the first. */
+function ordered(list, sort, order){
+  var out = list.slice();
+  out.sort(function(a, b){ return cmpKey(SORT_KEYS.title(a), SORT_KEYS.title(b)); });
+  if (sort === 'title') {
+    if (order === 'desc') out.reverse();
+    return out;
+  }
+  var key = SORT_KEYS[sort] || SORT_KEYS.title;
+  var sign = (order === 'asc') ? 1 : -1;
+  out.sort(function(a, b){ return sign * cmpKey(key(a), key(b)); });
+  return out;
+}
+
+function matches(g){
+  if (state.scope === 'played' && !g.played) return false;
+  if (state.scope === 'progress'
+      && !(g.total > 0 && g.unlocked > 0 && g.unlocked < g.total)) return false;
+  if (state.scope === 'mastered' && !g.mastered) return false;
+  if (state.q && g.title.toLowerCase().indexOf(state.q) < 0) return false;
+  return true;
+}
+
+function paintGames(){
+  var all = [];
+  for (var i = 0; i < DATA.games.length; i++) {
+    if (matches(DATA.games[i])) all.push(DATA.games[i]);
+  }
+  all = ordered(all, state.sort, state.order);
+  var box = q('#games');
+  box.textContent = '';
+  var page = all.slice(0, state.shown);
+  for (var j = 0; j < page.length; j++) box.appendChild(gameCard(page[j]));
+  if (!page.length) {
+    box.appendChild(el('div', 'empty', state.q
+      ? 'No games match "' + state.q + '".' : 'Nothing here yet.'));
+  }
+  q('#gamecount').textContent = num(all.length) + ' game'
+    + (all.length === 1 ? '' : 's');
+  var more = q('#gamesmore');
+  more.textContent = '';
+  if (all.length > page.length) {
+    var left = all.length - page.length;
+    var button = el('button', null, 'Show more (' + num(left) + ' left)');
+    button.addEventListener('click', function(){
+      state.shown += 60;
+      paintGames();
+    });
+    more.appendChild(button);
+  }
+}
+
+function paintStats(){
+  var s = DATA.stats;
+  var box = q('#stats');
+  box.textContent = '';
+  box.appendChild(statTile(num(s.games_played), 'games played',
+    s.games_with_achievements + ' with achievements'));
+  box.appendChild(statTile(num(s.achievements_unlocked), 'achievements unlocked',
+    'of ' + num(s.achievements_total_played) + ' in those games ('
+      + s.percent_played + '%)', 'gold'));
+  /* One points figure - the cab never runs hardcore, so the old split rendered as a
+     permanent "0 hardcore points" beside the real number. */
+  box.appendChild(statTile(num(s.points_total), 'achievement points',
+    'across ' + num(s.games_with_unlocks) + ' games', 'gold'));
+  box.appendChild(statTile(num(s.games_mastered), 'games mastered',
+    'every achievement unlocked', 'good'));
+
+  var note = q('#warnnote');
+  var w = DATA.warning_unlocks_ignored || 0;
+  if (w > 0) {
+    note.hidden = false;
+    note.textContent = w + (w === 1 ? ' "warning" achievement is'
+                                    : ' "warning" achievements are')
+      + ' excluded from every number above. They are client-side nags, not real'
+      + ' achievements.';
+  } else { note.hidden = true; }
+}
+
+function paintRecent(){
+  var box = q('#recent');
+  box.textContent = '';
+  if (!DATA.recent.length) {
+    box.appendChild(el('div', 'empty', 'No unlocks recorded yet.'));
+    return;
+  }
+  for (var i = 0; i < DATA.recent.length; i++) {
+    box.appendChild(unlockCard(DATA.recent[i]));
+  }
+}
+
+function initHome(){
+  paintChrome();
+  state.scope = DATA.default_scope || 'all';
+  Array.prototype.forEach.call(document.querySelectorAll('.chip'), function(chip){
+    chip.setAttribute('aria-pressed',
+      chip.getAttribute('data-scope') === state.scope ? 'true' : 'false');
+    chip.addEventListener('click', function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.chip'), function(other){
+        other.setAttribute('aria-pressed', other === chip ? 'true' : 'false');
+      });
+      state.scope = chip.getAttribute('data-scope');
+      state.shown = 60;
+      paintGames();
+    });
+  });
+  var search = q('#q');
+  var timer = null;
+  search.addEventListener('input', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      state.q = search.value.trim().toLowerCase();
+      state.shown = 60;
+      paintGames();
+    }, 180);
+  });
+  q('#sort').value = state.sort;
+  q('#sort').addEventListener('change', function(){
+    state.sort = q('#sort').value;
+    state.order = defaultOrder(state.sort);
+    state.shown = 60;
+    paintGames();
+  });
+  paintStats();
+  paintRecent();
+  paintGames();
+}
+
+/* ---------- game detail ---------- */
+
+function achCard(a){
+  var card = el('div', 'ach ' + (a.unlocked ? 'unlocked' : 'locked'));
+  card.appendChild(img(badgeSrc(a.unlocked ? a.badge : a.badge_locked), ''));
+  var body = el('div');
+  body.style.flex = '1';
+  body.style.minWidth = '0';
+  body.appendChild(el('div', 't', a.title));
+  body.appendChild(el('div', 'd', a.description));
+  var meta = el('div', 'm');
+  meta.appendChild(el('span', 'pts', a.points + ' pts'));
+  if (a.type_label) meta.appendChild(el('span', 'tag', a.type_label));
+  if (a.unlocked) {
+    meta.appendChild(el('span', null, 'unlocked ' + ago(a.unlocked_at)));
+    meta.title = stampFull(a.unlocked_at);
+  } else {
+    meta.appendChild(el('span', null, 'locked'));
+  }
+  if (a.set_type && a.set_type !== 'core') meta.appendChild(el('span', 'tag', a.set));
+  body.appendChild(meta);
+  card.appendChild(body);
+  return card;
+}
+
+function initGame(){
+  paintChrome();
+  var g = DATA.game;
+  q('#heroicon').src = iconSrc(g.icon);
+  var box = q('#herostats');
+  box.textContent = '';
+  box.appendChild(statTile(g.unlocked + ' / ' + g.total, 'achievements',
+    g.percent + '% complete', 'gold'));
+  box.appendChild(statTile(num(g.points) + ' / ' + num(g.points_total), 'points',
+    'achievement points earned here'));
+  box.appendChild(statTile(g.mastered ? '\u2605' : '\u2014',
+    g.mastered ? 'mastered' : 'not mastered',
+    g.last_played ? ('last played ' + ago(g.last_played)) : 'never played',
+    g.mastered ? 'good' : ''));
+
+  var list = q('#achlist');
+  list.textContent = '';
+  var items = (DATA.achievements || []).slice();
+  items.sort(function(a, b){
+    if (!!b.unlocked !== !!a.unlocked) return b.unlocked ? 1 : -1;
+    if (a.unlocked && b.unlocked) return b.unlocked_at - a.unlocked_at;
+    return a.id - b.id;
+  });
+  if (!items.length) {
+    list.appendChild(el('div', 'empty',
+      'This game has no achievements in the seeded library.'));
+  }
+  items.forEach(function(a){ list.appendChild(achCard(a)); });
+  q('#achcount').textContent = items.length
+    ? (g.unlocked + ' of ' + items.length + ' unlocked') : '';
+}
+
+initGame();
+</script>
+</body>
+</html>

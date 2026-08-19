@@ -49,15 +49,15 @@
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1786853763,
+   "last_played": 1787111390,
    "mastered": false,
-   "percent": 4.8,
+   "percent": 6.0,
    "played": true,
-   "points": 11,
+   "points": 12,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 4
+   "unlocked": 5
   },
   {
    "console": "Dreamcast",
@@ -77,7 +77,7 @@
    "console": "PSP",
    "icon": "080862.png",
    "id": 18157,
-   "last_played": 1786995425,
+   "last_played": 1786995545,
    "mastered": false,
    "percent": 1.9,
    "played": true,
@@ -102,10 +102,24 @@
    "unlocked": 0
   },
   {
+   "console": "PlayStation",
+   "icon": "060425.png",
+   "id": 17526,
+   "last_played": 1787065839,
+   "mastered": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_total": 670,
+   "title": "Final Fantasy Chronicles: Final Fantasy IV",
+   "total": 79,
+   "unlocked": 0
+  },
+  {
    "console": "SNES/Super Famicom",
    "icon": "074336.png",
    "id": 259,
-   "last_played": 1786897798,
+   "last_played": 1787017231,
    "mastered": false,
    "percent": 4.8,
    "played": true,
@@ -158,9 +172,18 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1786995540,
+ "generated_at": 1787111458,
  "include": "played",
  "recent": [
+  {
+   "badge": "216692.png",
+   "description": "Deliver your first passenger in Original mode.",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 1,
+   "title": "First Passenger - Original",
+   "unlocked_at": 1787111452
+  },
   {
    "badge": "420795.png",
    "description": "Clear 'OUTLAW' (Non-mission)",
@@ -409,15 +432,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 1219,
-  "achievements_unlocked": 27,
+  "achievements_total_played": 1298,
+  "achievements_unlocked": 28,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 11,
-  "games_with_achievements": 11,
+  "games_played": 12,
+  "games_with_achievements": 12,
   "games_with_unlocks": 7,
   "percent_played": 2.2,
-  "points_total": 105
+  "points_total": 106
  },
  "warning_unlocks_ignored": 0
 }
