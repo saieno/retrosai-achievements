@@ -147,15 +147,15 @@
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
-   "last_played": 1787161409,
+   "last_played": 1787162009,
    "mastered": false,
-   "percent": 12.7,
+   "percent": 14.5,
    "played": true,
-   "points": 27,
+   "points": 32,
    "points_total": 766,
    "title": "Metroid: Zero Mission",
    "total": 55,
-   "unlocked": 7
+   "unlocked": 8
   },
   {
    "console": "PSP",
@@ -186,9 +186,18 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1787161488,
+ "generated_at": 1787162098,
  "include": "played",
  "recent": [
+  {
+   "badge": "255215.png",
+   "description": "Obtain an Unknown Item",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 5,
+   "title": "Not Sure What It Is, But I'll Take It",
+   "unlocked_at": 1787161982
+  },
   {
    "badge": "255211.png",
    "description": "Obtain the ability to charge your beam",
@@ -510,14 +519,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1353,
-  "achievements_unlocked": 35,
+  "achievements_unlocked": 36,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 13,
   "games_with_achievements": 13,
   "games_with_unlocks": 8,
-  "percent_played": 2.6,
-  "points_total": 133
+  "percent_played": 2.7,
+  "points_total": 138
  },
  "warning_unlocks_ignored": 0
 }
