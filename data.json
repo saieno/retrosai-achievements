@@ -147,15 +147,15 @@
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
-   "last_played": 1787160809,
+   "last_played": 1787161409,
    "mastered": false,
-   "percent": 10.9,
+   "percent": 12.7,
    "played": true,
-   "points": 22,
+   "points": 27,
    "points_total": 766,
    "title": "Metroid: Zero Mission",
    "total": 55,
-   "unlocked": 6
+   "unlocked": 7
   },
   {
    "console": "PSP",
@@ -186,9 +186,18 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1787160878,
+ "generated_at": 1787161488,
  "include": "played",
  "recent": [
+  {
+   "badge": "255211.png",
+   "description": "Obtain the ability to charge your beam",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 5,
+   "title": "I'll Have To Charge Ya",
+   "unlocked_at": 1787161146
+  },
   {
    "badge": "255213.png",
    "description": "Obtain the ability to place bombs while morphed",
@@ -501,14 +510,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1353,
-  "achievements_unlocked": 34,
+  "achievements_unlocked": 35,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 13,
   "games_with_achievements": 13,
   "games_with_unlocks": 8,
-  "percent_played": 2.5,
-  "points_total": 128
+  "percent_played": 2.6,
+  "points_total": 133
  },
  "warning_unlocks_ignored": 0
 }
