@@ -147,15 +147,15 @@
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
-   "last_played": 1787153114,
+   "last_played": 1787153714,
    "mastered": false,
-   "percent": 1.8,
+   "percent": 3.6,
    "played": true,
-   "points": 3,
+   "points": 6,
    "points_total": 766,
    "title": "Metroid: Zero Mission",
    "total": 55,
-   "unlocked": 1
+   "unlocked": 2
   },
   {
    "console": "PSP",
@@ -186,9 +186,18 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1787153115,
+ "generated_at": 1787153738,
  "include": "played",
  "recent": [
+  {
+   "badge": "255209.png",
+   "description": "Upgrade the length of your beam",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 3,
+   "title": "Extend Our Reach To The Stars Above",
+   "unlocked_at": 1787153295
+  },
   {
    "badge": "255208.png",
    "description": "Obtain the Morph Ball ability",
@@ -456,14 +465,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1353,
-  "achievements_unlocked": 29,
+  "achievements_unlocked": 30,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 13,
   "games_with_achievements": 13,
   "games_with_unlocks": 8,
-  "percent_played": 2.1,
-  "points_total": 109
+  "percent_played": 2.2,
+  "points_total": 112
  },
  "warning_unlocks_ignored": 0
 }
