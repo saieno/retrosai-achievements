@@ -147,15 +147,15 @@
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
-   "last_played": 1787160170,
+   "last_played": 1787160809,
    "mastered": false,
-   "percent": 7.3,
+   "percent": 10.9,
    "played": true,
-   "points": 14,
+   "points": 22,
    "points_total": 766,
    "title": "Metroid: Zero Mission",
    "total": 55,
-   "unlocked": 4
+   "unlocked": 6
   },
   {
    "console": "PSP",
@@ -186,9 +186,27 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1787160269,
+ "generated_at": 1787160878,
  "include": "played",
  "recent": [
+  {
+   "badge": "255213.png",
+   "description": "Obtain the ability to place bombs while morphed",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 5,
+   "title": "Where's The Kaboom?",
+   "unlocked_at": 1787160508
+  },
+  {
+   "badge": "255214.png",
+   "description": "Download the map data for Brinstar",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 3,
+   "title": "Brinstar Scanned",
+   "unlocked_at": 1787160328
+  },
   {
    "badge": "255212.png",
    "description": "Increase your Energy capacity",
@@ -483,14 +501,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1353,
-  "achievements_unlocked": 32,
+  "achievements_unlocked": 34,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 13,
   "games_with_achievements": 13,
   "games_with_unlocks": 8,
-  "percent_played": 2.4,
-  "points_total": 120
+  "percent_played": 2.5,
+  "points_total": 128
  },
  "warning_unlocks_ignored": 0
 }
