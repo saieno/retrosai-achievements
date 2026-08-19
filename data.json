@@ -147,15 +147,15 @@
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
-   "last_played": 1787154314,
+   "last_played": 1787160170,
    "mastered": false,
-   "percent": 5.5,
+   "percent": 7.3,
    "played": true,
-   "points": 10,
+   "points": 14,
    "points_total": 766,
    "title": "Metroid: Zero Mission",
    "total": 55,
-   "unlocked": 3
+   "unlocked": 4
   },
   {
    "console": "PSP",
@@ -186,9 +186,18 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1787154348,
+ "generated_at": 1787160269,
  "include": "played",
  "recent": [
+  {
+   "badge": "255212.png",
+   "description": "Increase your Energy capacity",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 4,
+   "title": "Just What I Needed",
+   "unlocked_at": 1787160243
+  },
   {
    "badge": "255210.png",
    "description": "Obtain Missiles",
@@ -474,14 +483,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1353,
-  "achievements_unlocked": 31,
+  "achievements_unlocked": 32,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 13,
   "games_with_achievements": 13,
   "games_with_unlocks": 8,
-  "percent_played": 2.3,
-  "points_total": 116
+  "percent_played": 2.4,
+  "points_total": 120
  },
  "warning_unlocks_ignored": 0
 }
