@@ -144,6 +144,20 @@
    "unlocked": 0
   },
   {
+   "console": "Game Boy Advance",
+   "icon": "093574.png",
+   "id": 534,
+   "last_played": 1787153114,
+   "mastered": false,
+   "percent": 1.8,
+   "played": true,
+   "points": 3,
+   "points_total": 766,
+   "title": "Metroid: Zero Mission",
+   "total": 55,
+   "unlocked": 1
+  },
+  {
    "console": "PSP",
    "icon": "087965.png",
    "id": 3162,
@@ -172,9 +186,18 @@
    "unlocked": 4
   }
  ],
- "generated_at": 1787111458,
+ "generated_at": 1787153115,
  "include": "played",
  "recent": [
+  {
+   "badge": "255208.png",
+   "description": "Obtain the Morph Ball ability",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 3,
+   "title": "Keep On Rollin'",
+   "unlocked_at": 1787153107
+  },
   {
    "badge": "216692.png",
    "description": "Deliver your first passenger in Original mode.",
@@ -432,15 +455,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 1298,
-  "achievements_unlocked": 28,
+  "achievements_total_played": 1353,
+  "achievements_unlocked": 29,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 12,
-  "games_with_achievements": 12,
-  "games_with_unlocks": 7,
-  "percent_played": 2.2,
-  "points_total": 106
+  "games_played": 13,
+  "games_with_achievements": 13,
+  "games_with_unlocks": 8,
+  "percent_played": 2.1,
+  "points_total": 109
  },
  "warning_unlocks_ignored": 0
 }
