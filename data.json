@@ -49,7 +49,7 @@
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1787111390,
+   "last_played": 1787360103,
    "mastered": false,
    "percent": 6.0,
    "played": true,
@@ -119,14 +119,28 @@
    "console": "SNES/Super Famicom",
    "icon": "074336.png",
    "id": 259,
-   "last_played": 1787017231,
+   "last_played": 1787613908,
    "mastered": false,
-   "percent": 4.8,
+   "percent": 9.5,
    "played": true,
-   "points": 10,
+   "points": 20,
    "points_total": 240,
    "title": "Final Fantasy II",
    "total": 21,
+   "unlocked": 2
+  },
+  {
+   "console": "Wii",
+   "icon": "083806.png",
+   "id": 213,
+   "last_played": 1787359545,
+   "mastered": false,
+   "percent": 2.3,
+   "played": true,
+   "points": 3,
+   "points_total": 413,
+   "title": "Klonoa",
+   "total": 43,
    "unlocked": 1
   },
   {
@@ -147,7 +161,7 @@
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
-   "last_played": 1787162609,
+   "last_played": 1787163689,
    "mastered": false,
    "percent": 18.2,
    "played": true,
@@ -156,6 +170,34 @@
    "title": "Metroid: Zero Mission",
    "total": 55,
    "unlocked": 10
+  },
+  {
+   "console": "SNES/Super Famicom",
+   "icon": "103846.png",
+   "id": 1034,
+   "last_played": 1787506254,
+   "mastered": false,
+   "percent": 9.5,
+   "played": true,
+   "points": 15,
+   "points_total": 310,
+   "title": "Mighty Morphin Power Rangers",
+   "total": 21,
+   "unlocked": 2
+  },
+  {
+   "console": "SNES/Super Famicom",
+   "icon": "051800.png",
+   "id": 1033,
+   "last_played": 1787507414,
+   "mastered": false,
+   "percent": 5.7,
+   "played": true,
+   "points": 2,
+   "points_total": 422,
+   "title": "Mighty Morphin Power Rangers: The Movie",
+   "total": 35,
+   "unlocked": 2
   },
   {
    "console": "PSP",
@@ -184,11 +226,151 @@
    "title": "Star Wars: Dark Forces",
    "total": 76,
    "unlocked": 4
+  },
+  {
+   "console": "Nintendo 64",
+   "icon": "045842.png",
+   "id": 10679,
+   "last_played": 1787452662,
+   "mastered": false,
+   "percent": 7.5,
+   "played": true,
+   "points": 16,
+   "points_total": 771,
+   "title": "The Legend of Zelda: Majora's Mask",
+   "total": 106,
+   "unlocked": 8
   }
  ],
- "generated_at": 1787162707,
+ "generated_at": 1787613987,
  "include": "played",
  "recent": [
+  {
+   "badge": "145402.png",
+   "description": "Discover the identity of the new leader of the Red Wings",
+   "game_id": 259,
+   "game_title": "Final Fantasy II",
+   "points": 10,
+   "title": "New Leader",
+   "unlocked_at": 1787613968
+  },
+  {
+   "badge": "12249.png",
+   "description": "Play with Tommy ",
+   "game_id": 1033,
+   "game_title": "Mighty Morphin Power Rangers: The Movie",
+   "points": 1,
+   "title": "White Ranger",
+   "unlocked_at": 1787507088
+  },
+  {
+   "badge": "12187.png",
+   "description": "Play with Billy",
+   "game_id": 1033,
+   "game_title": "Mighty Morphin Power Rangers: The Movie",
+   "points": 1,
+   "title": "Blue Ranger",
+   "unlocked_at": 1787507048
+  },
+  {
+   "badge": "12289.png",
+   "description": "Beat an Area using Jason",
+   "game_id": 1034,
+   "game_title": "Mighty Morphin Power Rangers",
+   "points": 5,
+   "title": "Tyrannosaurus",
+   "unlocked_at": 1787506289
+  },
+  {
+   "badge": "12292.png",
+   "description": "Beat Area 1",
+   "game_id": 1034,
+   "game_title": "Mighty Morphin Power Rangers",
+   "points": 10,
+   "title": "Downtown Angel Grove",
+   "unlocked_at": 1787506289
+  },
+  {
+   "badge": "613097.png",
+   "description": "Obtain the Deku Mask.",
+   "game_id": 10679,
+   "game_title": "The Legend of Zelda: Majora's Mask",
+   "points": 3,
+   "title": "Spirit of the Deku",
+   "unlocked_at": 1787452437
+  },
+  {
+   "badge": "58038.png",
+   "description": "Listen to The Happy Mask Salesman Play the Song of Healing.",
+   "game_id": 10679,
+   "game_title": "The Legend of Zelda: Majora's Mask",
+   "points": 2,
+   "title": "Song of Healing",
+   "unlocked_at": 1787452367
+  },
+  {
+   "badge": "58037.png",
+   "description": "Listen to Zelda Play the Song of Time.",
+   "game_id": 10679,
+   "game_title": "The Legend of Zelda: Majora's Mask",
+   "points": 2,
+   "title": "Song Of Time",
+   "unlocked_at": 1787452125
+  },
+  {
+   "badge": "613065.png",
+   "description": "Obtain the Ocarina of Time.",
+   "game_id": 10679,
+   "game_title": "The Legend of Zelda: Majora's Mask",
+   "points": 4,
+   "title": "A Gift from Zelda",
+   "unlocked_at": 1787451936
+  },
+  {
+   "badge": "613121.png",
+   "description": "Obtain the Land Title Deed.",
+   "game_id": 10679,
+   "game_title": "The Legend of Zelda: Majora's Mask",
+   "points": 1,
+   "title": "Land Title Deed",
+   "unlocked_at": 1787451193
+  },
+  {
+   "badge": "613120.png",
+   "description": "Obtain a Moon's Tear.",
+   "game_id": 10679,
+   "game_title": "The Legend of Zelda: Majora's Mask",
+   "points": 2,
+   "title": "MoonLegend's Tear",
+   "unlocked_at": 1787450911
+  },
+  {
+   "badge": "613145.png",
+   "description": "Obtain the Magic Meter.",
+   "game_id": 10679,
+   "game_title": "The Legend of Zelda: Majora's Mask",
+   "points": 1,
+   "title": "A Fairy's Gift",
+   "unlocked_at": 1787450385
+  },
+  {
+   "badge": "613161.png",
+   "description": "Obtain some Deku Nuts.",
+   "game_id": 10679,
+   "game_title": "The Legend of Zelda: Majora's Mask",
+   "points": 1,
+   "title": "Scrub Nuggets",
+   "unlocked_at": 1787449564
+  },
+  {
+   "badge": "645084.png",
+   "description": "Free every captured villager in any vision",
+   "game_id": 213,
+   "game_title": "Klonoa",
+   "points": 3,
+   "title": "Village Savior",
+   "unlocked_at": 1787359552
+  },
   {
    "badge": "255217.png",
    "description": "Obtain the Ice Beam",
@@ -536,15 +718,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 1353,
-  "achievements_unlocked": 38,
+  "achievements_total_played": 1558,
+  "achievements_unlocked": 52,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 13,
-  "games_with_achievements": 13,
-  "games_with_unlocks": 8,
-  "percent_played": 2.8,
-  "points_total": 148
+  "games_played": 17,
+  "games_with_achievements": 17,
+  "games_with_unlocks": 12,
+  "percent_played": 3.3,
+  "points_total": 194
  },
  "warning_unlocks_ignored": 0
 }
