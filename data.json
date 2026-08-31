@@ -32,6 +32,20 @@
    "unlocked": 2
   },
   {
+   "console": "GameCube",
+   "icon": "128492.png",
+   "id": 9375,
+   "last_played": 1788209089,
+   "mastered": false,
+   "percent": 4.3,
+   "played": true,
+   "points": 2,
+   "points_total": 150,
+   "title": "Burnout 2: Point of Impact",
+   "total": 23,
+   "unlocked": 1
+  },
+  {
    "console": "SNES/Super Famicom",
    "icon": "093950.png",
    "id": 319,
@@ -72,6 +86,20 @@
    "title": "Crazy Taxi 2",
    "total": 72,
    "unlocked": 1
+  },
+  {
+   "console": "PlayStation 2",
+   "icon": "127852.png",
+   "id": 19191,
+   "last_played": 1788204755,
+   "mastered": false,
+   "percent": 0.0,
+   "played": true,
+   "points": 0,
+   "points_total": 910,
+   "title": "Def Jam: Fight for NY",
+   "total": 176,
+   "unlocked": 0
   },
   {
    "console": "PSP",
@@ -242,9 +270,18 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1788197805,
+ "generated_at": 1788209175,
  "include": "played",
  "recent": [
+  {
+   "badge": "523995.png",
+   "description": "Pass Offensive Driving 101.",
+   "game_id": 9375,
+   "game_title": "Burnout 2: Point of Impact",
+   "points": 2,
+   "title": "Journey Has Started",
+   "unlocked_at": 1788209159
+  },
   {
    "badge": "255217.png",
    "description": "Obtain the Ice Beam",
@@ -583,15 +620,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 1558,
-  "achievements_unlocked": 37,
+  "achievements_total_played": 1757,
+  "achievements_unlocked": 38,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 17,
-  "games_with_achievements": 17,
-  "games_with_unlocks": 7,
-  "percent_played": 2.4,
-  "points_total": 138
+  "games_played": 19,
+  "games_with_achievements": 19,
+  "games_with_unlocks": 8,
+  "percent_played": 2.2,
+  "points_total": 140
  },
  "warning_unlocks_ignored": 0
 }
