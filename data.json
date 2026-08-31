@@ -60,6 +60,20 @@
    "unlocked": 0
   },
   {
+   "console": "Nintendo 64",
+   "icon": "109362.png",
+   "id": 10164,
+   "last_played": 1788210908,
+   "mastered": false,
+   "percent": 1.3,
+   "played": true,
+   "points": 1,
+   "points_total": 643,
+   "title": "Conker's Bad Fur Day",
+   "total": 78,
+   "unlocked": 1
+  },
+  {
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
@@ -270,9 +284,18 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1788209175,
+ "generated_at": 1788210939,
  "include": "played",
  "recent": [
+  {
+   "badge": "694460.png",
+   "description": "Help Birdy get to sleep in Hangover",
+   "game_id": 10164,
+   "game_title": "Conker's Bad Fur Day",
+   "points": 1,
+   "title": "Alcohol Is the Best Medicine",
+   "unlocked_at": 1788210914
+  },
   {
    "badge": "523995.png",
    "description": "Pass Offensive Driving 101.",
@@ -620,15 +643,15 @@
  "snapshot": true,
  "stats": {
   "achievements_total_library": 381441,
-  "achievements_total_played": 1757,
-  "achievements_unlocked": 38,
+  "achievements_total_played": 1835,
+  "achievements_unlocked": 39,
   "games_in_library": 7141,
   "games_mastered": 0,
-  "games_played": 19,
-  "games_with_achievements": 19,
-  "games_with_unlocks": 8,
-  "percent_played": 2.2,
-  "points_total": 140
+  "games_played": 20,
+  "games_with_achievements": 20,
+  "games_with_unlocks": 9,
+  "percent_played": 2.1,
+  "points_total": 141
  },
  "warning_unlocks_ignored": 0
 }
