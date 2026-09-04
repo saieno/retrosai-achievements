@@ -63,7 +63,7 @@
    "console": "Nintendo 64",
    "icon": "109362.png",
    "id": 10164,
-   "last_played": 1788210908,
+   "last_played": 1788211388,
    "mastered": false,
    "percent": 1.3,
    "played": true,
@@ -161,15 +161,15 @@
    "console": "SNES/Super Famicom",
    "icon": "074336.png",
    "id": 259,
-   "last_played": 1787623342,
+   "last_played": 1788540105,
    "mastered": false,
-   "percent": 0.0,
+   "percent": 4.8,
    "played": true,
-   "points": 0,
+   "points": 10,
    "points_total": 240,
    "title": "Final Fantasy II",
    "total": 21,
-   "unlocked": 0
+   "unlocked": 1
   },
   {
    "console": "Wii",
@@ -284,9 +284,18 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1788210939,
+ "generated_at": 1788540120,
  "include": "played",
  "recent": [
+  {
+   "badge": "145401.png",
+   "description": "Deliver the package to the Village of Mist",
+   "game_id": 259,
+   "game_title": "Final Fantasy II",
+   "points": 10,
+   "title": "Unexpected Consequences",
+   "unlocked_at": 1788540092
+  },
   {
    "badge": "694460.png",
    "description": "Help Birdy get to sleep in Hangover",
@@ -644,14 +653,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1835,
-  "achievements_unlocked": 39,
+  "achievements_unlocked": 40,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 20,
   "games_with_achievements": 20,
-  "games_with_unlocks": 9,
-  "percent_played": 2.1,
-  "points_total": 141
+  "games_with_unlocks": 10,
+  "percent_played": 2.2,
+  "points_total": 151
  },
  "warning_unlocks_ignored": 0
 }
