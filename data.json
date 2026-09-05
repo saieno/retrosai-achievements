@@ -77,15 +77,15 @@
    "console": "Console 40",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1787360103,
+   "last_played": 1788642713,
    "mastered": false,
-   "percent": 0.0,
+   "percent": 8.4,
    "played": true,
-   "points": 0,
+   "points": 24,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 0
+   "unlocked": 7
   },
   {
    "console": "Console 40",
@@ -284,9 +284,72 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1788642246,
+ "generated_at": 1788642871,
  "include": "played",
  "recent": [
+  {
+   "badge": "216877.png",
+   "description": "Earn the C license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 3,
+   "title": "License Class C - Arcade",
+   "unlocked_at": 1788642687
+  },
+  {
+   "badge": "216879.png",
+   "description": "Earn the D license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 2,
+   "title": "License Class D - Arcade",
+   "unlocked_at": 1788642687
+  },
+  {
+   "badge": "216929.png",
+   "description": "Deliver 8 passengers in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 5,
+   "title": "Passengers - Starting to Learn Some Things - Arcade",
+   "unlocked_at": 1788642602
+  },
+  {
+   "badge": "216889.png",
+   "description": "Become at least 25th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 5,
+   "title": "Ranking Intermediate - Arcade",
+   "unlocked_at": 1788642548
+  },
+  {
+   "badge": "216887.png",
+   "description": "Become at least 40th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 3,
+   "title": "Ranking Beginner - Arcade",
+   "unlocked_at": 1788642463
+  },
+  {
+   "badge": "217676.png",
+   "description": "Achieve a combo chain of 8 in Arcade mode. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 5,
+   "title": "Combo Beginner - Arcade",
+   "unlocked_at": 1788642429
+  },
+  {
+   "badge": "216693.png",
+   "description": "Deliver your first passenger in Arcade mode.",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 1,
+   "title": "First Passenger - Arcade",
+   "unlocked_at": 1788642403
+  },
   {
    "badge": "145401.png",
    "description": "Deliver the package to the Village of Mist",
@@ -608,14 +671,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1835,
-  "achievements_unlocked": 35,
+  "achievements_unlocked": 42,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 20,
   "games_with_achievements": 20,
-  "games_with_unlocks": 9,
-  "percent_played": 1.9,
-  "points_total": 139
+  "games_with_unlocks": 10,
+  "percent_played": 2.3,
+  "points_total": 163
  },
  "warning_unlocks_ignored": 0
 }
