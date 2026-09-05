@@ -4,7 +4,7 @@
  "game_pages": true,
  "games": [
   {
-   "console": "GameCube",
+   "console": "Console 16",
    "icon": "097438.png",
    "id": 25426,
    "last_played": 1786783714,
@@ -18,7 +18,7 @@
    "unlocked": 0
   },
   {
-   "console": "PlayStation",
+   "console": "Console 12",
    "icon": "087942.png",
    "id": 8051,
    "last_played": 1786734029,
@@ -32,7 +32,7 @@
    "unlocked": 2
   },
   {
-   "console": "GameCube",
+   "console": "Console 16",
    "icon": "128492.png",
    "id": 9375,
    "last_played": 1788209089,
@@ -46,7 +46,7 @@
    "unlocked": 1
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 3",
    "icon": "093950.png",
    "id": 319,
    "last_played": 1786738014,
@@ -60,7 +60,7 @@
    "unlocked": 0
   },
   {
-   "console": "Nintendo 64",
+   "console": "Console 2",
    "icon": "109362.png",
    "id": 10164,
    "last_played": 1788211388,
@@ -74,21 +74,21 @@
    "unlocked": 1
   },
   {
-   "console": "Dreamcast",
+   "console": "Console 40",
    "icon": "122047.png",
    "id": 3399,
    "last_played": 1787360103,
    "mastered": false,
-   "percent": 6.0,
+   "percent": 0.0,
    "played": true,
-   "points": 12,
+   "points": 0,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 5
+   "unlocked": 0
   },
   {
-   "console": "Dreamcast",
+   "console": "Console 40",
    "icon": "121534.png",
    "id": 3400,
    "last_played": 1786721510,
@@ -102,7 +102,7 @@
    "unlocked": 1
   },
   {
-   "console": "PlayStation 2",
+   "console": "Console 21",
    "icon": "127852.png",
    "id": 19191,
    "last_played": 1788204755,
@@ -116,7 +116,7 @@
    "unlocked": 0
   },
   {
-   "console": "PSP",
+   "console": "Console 41",
    "icon": "080862.png",
    "id": 18157,
    "last_played": 1786995545,
@@ -130,7 +130,7 @@
    "unlocked": 9
   },
   {
-   "console": "Nintendo 64",
+   "console": "Console 2",
    "icon": "110715.png",
    "id": 10075,
    "last_played": 1786861588,
@@ -144,7 +144,7 @@
    "unlocked": 0
   },
   {
-   "console": "PlayStation",
+   "console": "Console 12",
    "icon": "060425.png",
    "id": 17526,
    "last_played": 1787065839,
@@ -158,10 +158,10 @@
    "unlocked": 0
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 3",
    "icon": "074336.png",
    "id": 259,
-   "last_played": 1788540105,
+   "last_played": 1788540465,
    "mastered": false,
    "percent": 4.8,
    "played": true,
@@ -172,7 +172,7 @@
    "unlocked": 1
   },
   {
-   "console": "Wii",
+   "console": "Console 19",
    "icon": "083806.png",
    "id": 213,
    "last_played": 1787359545,
@@ -186,7 +186,7 @@
    "unlocked": 0
   },
   {
-   "console": "Game Boy Advance",
+   "console": "Console 5",
    "icon": "137138.png",
    "id": 514,
    "last_played": 1786861157,
@@ -200,7 +200,7 @@
    "unlocked": 0
   },
   {
-   "console": "Game Boy Advance",
+   "console": "Console 5",
    "icon": "093574.png",
    "id": 534,
    "last_played": 1787163689,
@@ -214,7 +214,7 @@
    "unlocked": 10
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 3",
    "icon": "103846.png",
    "id": 1034,
    "last_played": 1787506254,
@@ -228,7 +228,7 @@
    "unlocked": 0
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 3",
    "icon": "051800.png",
    "id": 1033,
    "last_played": 1787507414,
@@ -242,7 +242,7 @@
    "unlocked": 0
   },
   {
-   "console": "PSP",
+   "console": "Console 41",
    "icon": "087965.png",
    "id": 3162,
    "last_played": 1786727283,
@@ -256,7 +256,7 @@
    "unlocked": 6
   },
   {
-   "console": "PlayStation",
+   "console": "Console 12",
    "icon": "048315.png",
    "id": 3708,
    "last_played": 1786725245,
@@ -270,7 +270,7 @@
    "unlocked": 4
   },
   {
-   "console": "Nintendo 64",
+   "console": "Console 2",
    "icon": "045842.png",
    "id": 10679,
    "last_played": 1787452662,
@@ -284,7 +284,7 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1788540120,
+ "generated_at": 1788642246,
  "include": "played",
  "recent": [
   {
@@ -403,15 +403,6 @@
    "points": 3,
    "title": "Keep On Rollin'",
    "unlocked_at": 1787153107
-  },
-  {
-   "badge": "216692.png",
-   "description": "Deliver your first passenger in Original mode.",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 1,
-   "title": "First Passenger - Original",
-   "unlocked_at": 1787111452
   },
   {
    "badge": "420795.png",
@@ -610,42 +601,6 @@
    "points": 1,
    "title": "Well, That Was Something...",
    "unlocked_at": 1786721571
-  },
-  {
-   "badge": "216879.png",
-   "description": "Earn the D license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 2,
-   "title": "License Class D - Arcade",
-   "unlocked_at": 1786721211
-  },
-  {
-   "badge": "216889.png",
-   "description": "Become at least 25th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 5,
-   "title": "Ranking Intermediate - Arcade",
-   "unlocked_at": 1786721178
-  },
-  {
-   "badge": "216887.png",
-   "description": "Become at least 40th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 3,
-   "title": "Ranking Beginner - Arcade",
-   "unlocked_at": 1786721077
-  },
-  {
-   "badge": "216693.png",
-   "description": "Deliver your first passenger in Arcade mode.",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 1,
-   "title": "First Passenger - Arcade",
-   "unlocked_at": 1786720999
   }
  ],
  "site": "RetroSai Achievements",
@@ -653,14 +608,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1835,
-  "achievements_unlocked": 40,
+  "achievements_unlocked": 35,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 20,
   "games_with_achievements": 20,
-  "games_with_unlocks": 10,
-  "percent_played": 2.2,
-  "points_total": 151
+  "games_with_unlocks": 9,
+  "percent_played": 1.9,
+  "points_total": 139
  },
  "warning_unlocks_ignored": 0
 }
