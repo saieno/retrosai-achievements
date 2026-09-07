@@ -77,7 +77,7 @@
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1788795788,
+   "last_played": 1788796148,
    "mastered": false,
    "percent": 10.8,
    "played": true,
@@ -203,15 +203,15 @@
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
-   "last_played": 1787163689,
+   "last_played": 1788799562,
    "mastered": false,
-   "percent": 18.2,
+   "percent": 20.0,
    "played": true,
-   "points": 42,
+   "points": 44,
    "points_total": 766,
    "title": "Metroid: Zero Mission",
    "total": 55,
-   "unlocked": 10
+   "unlocked": 11
   },
   {
    "console": "SNES/Super Famicom",
@@ -284,9 +284,18 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1788795893,
+ "generated_at": 1788799595,
  "include": "played",
  "recent": [
+  {
+   "badge": "255219.png",
+   "description": "Download the map data for Kraid's Lair",
+   "game_id": 534,
+   "game_title": "Metroid: Zero Mission",
+   "points": 2,
+   "title": "Kraid's Lair Scanned",
+   "unlocked_at": 1788799571
+  },
   {
    "badge": "217677.png",
    "description": "Achieve a combo chain of 8 in Original mode. (All time and traffic options set to default or higher)",
@@ -689,14 +698,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1835,
-  "achievements_unlocked": 44,
+  "achievements_unlocked": 45,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 20,
   "games_with_achievements": 20,
   "games_with_unlocks": 10,
-  "percent_played": 2.4,
-  "points_total": 169
+  "percent_played": 2.5,
+  "points_total": 171
  },
  "warning_unlocks_ignored": 0
 }
