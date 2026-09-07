@@ -77,15 +77,15 @@
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1788795188,
+   "last_played": 1788795788,
    "mastered": false,
-   "percent": 9.6,
+   "percent": 10.8,
    "played": true,
-   "points": 25,
+   "points": 30,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 8
+   "unlocked": 9
   },
   {
    "console": "Dreamcast",
@@ -284,9 +284,18 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1788795267,
+ "generated_at": 1788795893,
  "include": "played",
  "recent": [
+  {
+   "badge": "217677.png",
+   "description": "Achieve a combo chain of 8 in Original mode. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 5,
+   "title": "Combo Beginner - Original",
+   "unlocked_at": 1788795631
+  },
   {
    "badge": "216692.png",
    "description": "Deliver your first passenger in Original mode.",
@@ -680,14 +689,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1835,
-  "achievements_unlocked": 43,
+  "achievements_unlocked": 44,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 20,
   "games_with_achievements": 20,
   "games_with_unlocks": 10,
-  "percent_played": 2.3,
-  "points_total": 164
+  "percent_played": 2.4,
+  "points_total": 169
  },
  "warning_unlocks_ignored": 0
 }
