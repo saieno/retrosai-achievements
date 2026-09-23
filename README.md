@@ -1,7 +1,7 @@
 # RetroSai Achievements
 
 A **static snapshot** of an offline RetroAchievements profile, generated
-2026-09-07 11:46.
+2026-09-23 10:56.
 
 * `index.html` - headline stats, recent unlocks and the per-game progress list.
 * `game/<id>.html` - every achievement for one game.

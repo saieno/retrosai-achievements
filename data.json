@@ -77,15 +77,15 @@
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1788796148,
+   "last_played": 1790178859,
    "mastered": false,
-   "percent": 10.8,
+   "percent": 12.0,
    "played": true,
-   "points": 30,
+   "points": 35,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 9
+   "unlocked": 10
   },
   {
    "console": "Dreamcast",
@@ -203,7 +203,7 @@
    "console": "Game Boy Advance",
    "icon": "093574.png",
    "id": 534,
-   "last_played": 1788799562,
+   "last_played": 1788799922,
    "mastered": false,
    "percent": 20.0,
    "played": true,
@@ -284,9 +284,18 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1788799595,
+ "generated_at": 1790178975,
  "include": "played",
  "recent": [
+  {
+   "badge": "217680.png",
+   "description": "Achieve a combo chain of 13 in Arcade mode. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 5,
+   "title": "Combo Intermediate - Arcade",
+   "unlocked_at": 1790178946
+  },
   {
    "badge": "255219.png",
    "description": "Download the map data for Kraid's Lair",
@@ -698,14 +707,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1835,
-  "achievements_unlocked": 45,
+  "achievements_unlocked": 46,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 20,
   "games_with_achievements": 20,
   "games_with_unlocks": 10,
   "percent_played": 2.5,
-  "points_total": 171
+  "points_total": 176
  },
  "warning_unlocks_ignored": 0
 }
