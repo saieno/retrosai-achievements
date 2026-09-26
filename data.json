@@ -4,7 +4,7 @@
  "game_pages": true,
  "games": [
   {
-   "console": "GameCube",
+   "console": "Console 16",
    "icon": "097438.png",
    "id": 25426,
    "last_played": 1786783714,
@@ -18,7 +18,7 @@
    "unlocked": 0
   },
   {
-   "console": "PlayStation",
+   "console": "Console 12",
    "icon": "087942.png",
    "id": 8051,
    "last_played": 1786734029,
@@ -32,7 +32,7 @@
    "unlocked": 2
   },
   {
-   "console": "GameCube",
+   "console": "Console 16",
    "icon": "128492.png",
    "id": 9375,
    "last_played": 1788209089,
@@ -46,7 +46,7 @@
    "unlocked": 1
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 3",
    "icon": "093950.png",
    "id": 319,
    "last_played": 1786738014,
@@ -60,7 +60,7 @@
    "unlocked": 0
   },
   {
-   "console": "Nintendo 64",
+   "console": "Console 2",
    "icon": "109362.png",
    "id": 10164,
    "last_played": 1788211388,
@@ -74,21 +74,21 @@
    "unlocked": 1
   },
   {
-   "console": "Dreamcast",
+   "console": "Console 40",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1790178859,
+   "last_played": 1790179459,
    "mastered": false,
-   "percent": 12.0,
+   "percent": 0.0,
    "played": true,
-   "points": 35,
+   "points": 0,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 10
+   "unlocked": 0
   },
   {
-   "console": "Dreamcast",
+   "console": "Console 40",
    "icon": "121534.png",
    "id": 3400,
    "last_played": 1786721510,
@@ -102,7 +102,7 @@
    "unlocked": 1
   },
   {
-   "console": "PlayStation 2",
+   "console": "Console 21",
    "icon": "127852.png",
    "id": 19191,
    "last_played": 1788204755,
@@ -116,7 +116,7 @@
    "unlocked": 0
   },
   {
-   "console": "PSP",
+   "console": "Console 41",
    "icon": "080862.png",
    "id": 18157,
    "last_played": 1786995545,
@@ -130,7 +130,7 @@
    "unlocked": 9
   },
   {
-   "console": "Nintendo 64",
+   "console": "Console 2",
    "icon": "110715.png",
    "id": 10075,
    "last_played": 1786861588,
@@ -144,7 +144,7 @@
    "unlocked": 0
   },
   {
-   "console": "PlayStation",
+   "console": "Console 12",
    "icon": "060425.png",
    "id": 17526,
    "last_played": 1787065839,
@@ -158,7 +158,7 @@
    "unlocked": 0
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 3",
    "icon": "074336.png",
    "id": 259,
    "last_played": 1788540465,
@@ -172,7 +172,7 @@
    "unlocked": 1
   },
   {
-   "console": "Wii",
+   "console": "Console 19",
    "icon": "083806.png",
    "id": 213,
    "last_played": 1787359545,
@@ -186,7 +186,7 @@
    "unlocked": 0
   },
   {
-   "console": "Game Boy Advance",
+   "console": "Console 5",
    "icon": "137138.png",
    "id": 514,
    "last_played": 1786861157,
@@ -200,7 +200,7 @@
    "unlocked": 0
   },
   {
-   "console": "Game Boy Advance",
+   "console": "Console 5",
    "icon": "093574.png",
    "id": 534,
    "last_played": 1788799922,
@@ -214,7 +214,7 @@
    "unlocked": 11
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 3",
    "icon": "103846.png",
    "id": 1034,
    "last_played": 1787506254,
@@ -228,7 +228,7 @@
    "unlocked": 0
   },
   {
-   "console": "SNES/Super Famicom",
+   "console": "Console 3",
    "icon": "051800.png",
    "id": 1033,
    "last_played": 1787507414,
@@ -242,7 +242,7 @@
    "unlocked": 0
   },
   {
-   "console": "PSP",
+   "console": "Console 41",
    "icon": "087965.png",
    "id": 3162,
    "last_played": 1786727283,
@@ -256,7 +256,7 @@
    "unlocked": 6
   },
   {
-   "console": "PlayStation",
+   "console": "Console 12",
    "icon": "048315.png",
    "id": 3708,
    "last_played": 1786725245,
@@ -270,7 +270,7 @@
    "unlocked": 4
   },
   {
-   "console": "Nintendo 64",
+   "console": "Console 2",
    "icon": "045842.png",
    "id": 10679,
    "last_played": 1787452662,
@@ -284,18 +284,9 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1790178975,
+ "generated_at": 1790404286,
  "include": "played",
  "recent": [
-  {
-   "badge": "217680.png",
-   "description": "Achieve a combo chain of 13 in Arcade mode. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 5,
-   "title": "Combo Intermediate - Arcade",
-   "unlocked_at": 1790178946
-  },
   {
    "badge": "255219.png",
    "description": "Download the map data for Kraid's Lair",
@@ -304,87 +295,6 @@
    "points": 2,
    "title": "Kraid's Lair Scanned",
    "unlocked_at": 1788799571
-  },
-  {
-   "badge": "217677.png",
-   "description": "Achieve a combo chain of 8 in Original mode. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 5,
-   "title": "Combo Beginner - Original",
-   "unlocked_at": 1788795631
-  },
-  {
-   "badge": "216692.png",
-   "description": "Deliver your first passenger in Original mode.",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 1,
-   "title": "First Passenger - Original",
-   "unlocked_at": 1788795241
-  },
-  {
-   "badge": "216877.png",
-   "description": "Earn the C license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 3,
-   "title": "License Class C - Arcade",
-   "unlocked_at": 1788642687
-  },
-  {
-   "badge": "216879.png",
-   "description": "Earn the D license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 2,
-   "title": "License Class D - Arcade",
-   "unlocked_at": 1788642687
-  },
-  {
-   "badge": "216929.png",
-   "description": "Deliver 8 passengers in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 5,
-   "title": "Passengers - Starting to Learn Some Things - Arcade",
-   "unlocked_at": 1788642602
-  },
-  {
-   "badge": "216889.png",
-   "description": "Become at least 25th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 5,
-   "title": "Ranking Intermediate - Arcade",
-   "unlocked_at": 1788642548
-  },
-  {
-   "badge": "216887.png",
-   "description": "Become at least 40th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 3,
-   "title": "Ranking Beginner - Arcade",
-   "unlocked_at": 1788642463
-  },
-  {
-   "badge": "217676.png",
-   "description": "Achieve a combo chain of 8 in Arcade mode. (All time and traffic options set to default or higher)",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 5,
-   "title": "Combo Beginner - Arcade",
-   "unlocked_at": 1788642429
-  },
-  {
-   "badge": "216693.png",
-   "description": "Deliver your first passenger in Arcade mode.",
-   "game_id": 3399,
-   "game_title": "Crazy Taxi",
-   "points": 1,
-   "title": "First Passenger - Arcade",
-   "unlocked_at": 1788642403
   },
   {
    "badge": "145401.png",
@@ -707,14 +617,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1835,
-  "achievements_unlocked": 46,
+  "achievements_unlocked": 36,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 20,
   "games_with_achievements": 20,
-  "games_with_unlocks": 10,
-  "percent_played": 2.5,
-  "points_total": 176
+  "games_with_unlocks": 9,
+  "percent_played": 2.0,
+  "points_total": 141
  },
  "warning_unlocks_ignored": 0
 }
