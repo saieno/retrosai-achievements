@@ -77,15 +77,15 @@
    "console": "Console 40",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1790179459,
+   "last_played": 1790404351,
    "mastered": false,
-   "percent": 0.0,
+   "percent": 1.2,
    "played": true,
-   "points": 0,
+   "points": 1,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 0
+   "unlocked": 1
   },
   {
    "console": "Console 40",
@@ -284,9 +284,18 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1790404286,
+ "generated_at": 1790404911,
  "include": "played",
  "recent": [
+  {
+   "badge": "216692.png",
+   "description": "Deliver your first passenger in Original mode.",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 1,
+   "title": "First Passenger - Original",
+   "unlocked_at": 1790404398
+  },
   {
    "badge": "255219.png",
    "description": "Download the map data for Kraid's Lair",
@@ -617,14 +626,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1835,
-  "achievements_unlocked": 36,
+  "achievements_unlocked": 37,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 20,
   "games_with_achievements": 20,
-  "games_with_unlocks": 9,
+  "games_with_unlocks": 10,
   "percent_played": 2.0,
-  "points_total": 141
+  "points_total": 142
  },
  "warning_unlocks_ignored": 0
 }
