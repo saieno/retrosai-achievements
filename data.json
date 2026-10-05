@@ -77,15 +77,15 @@
    "console": "Dreamcast",
    "icon": "122047.png",
    "id": 3399,
-   "last_played": 1790966602,
+   "last_played": 1791009063,
    "mastered": false,
-   "percent": 3.6,
+   "percent": 6.0,
    "played": true,
-   "points": 7,
+   "points": 12,
    "points_total": 1095,
    "title": "Crazy Taxi",
    "total": 83,
-   "unlocked": 3
+   "unlocked": 5
   },
   {
    "console": "Dreamcast",
@@ -284,9 +284,27 @@
    "unlocked": 0
   }
  ],
- "generated_at": 1790967288,
+ "generated_at": 1791009600,
  "include": "played",
  "recent": [
+  {
+   "badge": "216879.png",
+   "description": "Earn the D license or higher in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 2,
+   "title": "License Class D - Arcade",
+   "unlocked_at": 1791009052
+  },
+  {
+   "badge": "216887.png",
+   "description": "Become at least 40th in the rankings in Arcade mode with Arcade rules only. (All time and traffic options set to default or higher)",
+   "game_id": 3399,
+   "game_title": "Crazy Taxi",
+   "points": 3,
+   "title": "Ranking Beginner - Arcade",
+   "unlocked_at": 1791008946
+  },
   {
    "badge": "217676.png",
    "description": "Achieve a combo chain of 8 in Arcade mode. (All time and traffic options set to default or higher)",
@@ -644,14 +662,14 @@
  "stats": {
   "achievements_total_library": 381441,
   "achievements_total_played": 1835,
-  "achievements_unlocked": 39,
+  "achievements_unlocked": 41,
   "games_in_library": 7141,
   "games_mastered": 0,
   "games_played": 20,
   "games_with_achievements": 20,
   "games_with_unlocks": 10,
-  "percent_played": 2.1,
-  "points_total": 148
+  "percent_played": 2.2,
+  "points_total": 153
  },
  "warning_unlocks_ignored": 0
 }
